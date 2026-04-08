@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta name="naver-site-verification" content="d752485c9d108184d8ccd17f3529f4de2817cdc9">
+<meta name="google-site-verification" content="gi90a0gVt21prfy9a-qbo1wm1DICeuQIlhmmfPvGdCk">
+<meta name="description" content="항만기술기준 정보시스템은 항만시설, 어항시설, 연안보전시설 등의 설계기준 및 시공기준을 제공합니다.">
+<meta name="Keywords" content="항만기술기준, 항만기술기준 정보시스템, 항만시설, 어항시설, 연안보전시설">
+<meta name="robots" content="index,follow">
+
+
+<link rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/css/animate.min.css">
+
+<!-- jquery plugin-->
+<script src="/plugin/jquery/jquery-3.4.1.min.js"></script>
+<script src="/plugin/jquery-ui/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/jquery-ui/jquery-ui.css">
+<script src="/plugin/RobinHerbots-Inputmask/dist/inputmask.min.js"></script>
+<script src="/plugin/RobinHerbots-Inputmask/dist/jquery.inputmask.min.js"></script>
+<script src="/plugin/js-cookie-master/src/js.cookie.js"></script>
+<script src="/plugin/form2js-master/src/form2js.js"></script>
+<script src="/plugin/busy-load/dist/app.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/busy-load/dist/app.min.css">
+<link type="text/css" rel="stylesheet" href="/plugin/jquery/ext/jquery-bxslider/css/bxslider.css">
+<script src="/plugin/jquery/ext/jquery-bxslider/js/jquery.bxslider.min.js"></script>
+<script src="/plugin/jquery/ext/jquery.fileDownload-1.4.2.min.js"></script>
+<script src="/plugin/jquery/ext/jquery.blockUI-2.70.min.js"></script>
+
+<!-- bootstrap 4.4.1 -->
+<link type="text/css" rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/css/bootstrap.css">
+<script src="/plugin/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+<script src="/plugin/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+
+<!-- bootstrap 확장 -->
+<link type="text/css" rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker3.css">
+<link type="text/css" rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker3.standalone.css">
+<script src="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker.ko.min.js"></script>
+
+<!-- ax5-->
+<script src="/plugin/ax5ui/ax5core/ax5core.min.js"></script>
+<script src="/plugin/ax5ui/ax5ui-formatter/ax5formatter.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/ax5ui/ax5ui-uploader/ax5uploader.css">
+<script src="/plugin/ax5ui/ax5ui-uploader/ax5uploader.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/ax5ui/ax5ui-toast/ax5toast.css">
+<script src="/plugin/ax5ui/ax5ui-toast/ax5toast.min.js"></script>
+
+<!-- jqGrid -->
+<script src="/plugin/jqgrid/js/i18n/grid.locale-kr.js"></script>
+<script src="/plugin/jqgrid/js/jquery.jqgrid.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/jqgrid/css/ui.jqgrid.min.css">
+
+<!-- handleBars -->
+<script src="/plugin/handlebars/handlebars-v4.7.6.js"></script>
+
+<script src="/js/gp/jquery.easing.1.3.js"></script>
+<script src="/js/gp/jquery.flexisel.js"></script>
+
+<!-- 시스템 추가 -->
+<script>
+	var contextPath = "";
+</script>
+
+<script src="/js/egovframework/com/cmm/handlebarHelper.js"></script>
+<script src="/js/egovframework/com/cmm/commonUtils.js"></script>
+<script src="/js/egovframework/com/cmm/formatUtils.js?v=202411051822"></script>
+<script src="/js/egovframework/com/cmm/fileUtils.js"></script>
+<script src="/js/egovframework/com/cmm/jqueryExtension.js"></script>
+<script src="/js/gp/autocom.js"></script>
+<script src="/js/gp/cookieUtil.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/fontawesome-5.13.0-web/css/all.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/kpcs/style.css?v=202410311333">
+<link rel="stylesheet" type="text/css" href="/css/kpcs/css_sub.css?v=202407251333">
+<link rel="stylesheet" type="text/css" href="/css/kpcs/tree.css?v=202407251333">
+<link rel="stylesheet" type="text/css" href="/css/gp/gp-style.css?v=202409031322">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/kpcs/css_left.css">
+
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+	<title>기술기준관리 항만기술기준 정보시스템</title>
+</head>
+<body class="" style="position: relative;">
+		
+
+
+
+
+
+
+
+
+
+
+
+<!-- menu data script removed (pre-rendered in HTML) -->
+<!-- <script src="/js/egovframework/com/cmm/menu.js"></script> -->
+<script>
+  // gotoMenuLink - replaces menu.js for local prototype
+  var gotoMenuLink = function(menuNo, menuUrl) {
+    location.href = menuUrl;
+  };
+</script>
+<script src="/js/gp/searchUtils.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+	//내가찾은 검색어 목록 생성
+	searchUtils.initAutoComplet(".list_bx", "#topSearchKey", "#divToggle");
+
+	//검색 영역에서 엔터입력시
+	$(document).on("keyup", '#topForm', function (e) {
+		if (e.keyCode == 13) {
+			topTxtSearch();
+		}
+	});
+
+	
+		/* 세션 */
+		let lastAccessedTime = 1775650556347;
+		let maxInactiveInterval = 7200;
+		let expiredTime = lastAccessedTime + (maxInactiveInterval * 1000)
+
+		$('#timeout').text(formatSeconds((expiredTime - lastAccessedTime)/1000))
+		let sessionInterval = setInterval(()=>{
+			lastAccessedTime += 1000
+
+			/*if(lastAccessedTime >= expiredTime - 30000) {
+				commonUtils.alert({
+					title : '세션 만료 안내',
+					msg : `10분 후 반응이 없을 경우 자동으로 로그아웃됩니다.`,
+					theme : 'warning'
+				}, ()=>{});
+			}else */
+			if(lastAccessedTime >= expiredTime){
+				clearInterval(sessionInterval)
+
+				commonUtils.alert({
+					title : '세션 만료 안내',
+					msg : `${maxInactiveInterval/60}분 동안 반응이 없어 자동으로 로그아웃되었습니다. <br>다시 로그인해 주세요.`,
+					theme : 'error'
+				}, ()=>{
+					location.replace("/uat/uia/LoginUsr.do");
+				});
+			}
+			$('#timeout').text(formatSeconds((expiredTime - lastAccessedTime)/1000))
+		}, 1000)
+
+		function formatSeconds(totalSeconds) {
+			//console.log(totalSeconds)
+			const hours = Math.floor(totalSeconds / 3600);
+			const minutes = Math.floor((totalSeconds % 3600) / 60);
+			const seconds = Math.floor(totalSeconds % 60);
+
+			return [
+				hours.toString().padStart(2, '0'),
+				minutes.toString().padStart(2, '0'),
+				seconds.toString().padStart(2, '0')
+			].join(':');
+		}
+	
+
+});
+
+function topTxtSearch(){
+
+	// 통합검색 화면으로 이동
+	var searchKwrd = $.trim($("#topSearchKey").val());
+	if( !searchUtils.keyWordCheck(searchKwrd, "#topSearchKey") ) {
+		return;
+	}
+	searchUtils.saveSearchHistory(searchKwrd); //검색어 저장
+	searchUtils.itgSearchVw(searchKwrd);
+
+}
+
+
+// 로그인 화면으로 이동
+function loginView(){
+	var frm = document.loginFrm;
+	frm.action = "/uat/uia/LoginUsr.do";
+	frm.submit();
+}
+
+// 회원가입 화면으로 이동
+function userJoinView(){
+	var frm = document.loginFrm;
+	frm.action = "/uat/uia/insertUserJoinVw.do";
+	frm.submit();
+}
+
+function show_sitemap(show) {
+	if (show == true) {
+		$(document.body).addClass("overflow-hidden");
+		$(".sitemap_modal").fadeIn();
+	} else {
+		$(document.body).removeClass("overflow-hidden");
+		$(".sitemap_modal").fadeOut();
+	}
+}
+
+</script>
+
+<!-- 네비게이션 -->
+<header class="header_st" id="top">
+	<!-- 스킵네비게이션 -->
+	<div class="accNav">
+		<p><a href="#wrap-web-ul">주메뉴 바로가기</a></p>
+		<p><a href="#contentWrap">본문 바로가기</a></p>
+	</div>
+	<!-- 스킵네비게이션 -->
+
+	<div class="egov_header_box">
+		<div class="egov_header">
+			<img src="/images/kpcs/eg_logo.png" alt="전자정부 누리집 입니다.">
+			<span>이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+		</div>
+	</div>
+	<div class="layout_res">
+		<div class="nav_top">
+			<div class="logo">
+				<a href="/main/index.html">
+					<img src="/images/kpcs/w_logo.png" alt="logo">
+				</a>
+			</div>
+
+			<!-- pc login area -->
+			<ul class="top_menu">
+				<!-- 로그인 전 -->
+				
+
+
+
+
+
+                <!-- 로그인 후 -->
+				
+
+
+
+
+
+					<li class="s_m_color1">
+                    	<a>admin님</a>
+						<a id="timeout">01:58:44</a>
+                    	<a href="/uat/uia/actionLogout.html" title="로그아웃" class="logout">로그아웃</a>
+                    </li>
+                    <li class="s_m_color2">
+                    	<a href="/uat/uia/updateUserJoinVw.html" title="내정보">내정보</a>
+                    </li>
+                
+
+
+                <li class="s_m_color3">
+                	<a href="javascript:void(0);" title="사이트맵" onclick="show_sitemap(true)">사이트맵</a>
+                </li>
+            </ul>
+			<!-- //pc login area -->
+
+			<!-- 2019.1.23 통합검색 추가 -->
+			<div class="top_search_box">
+				<div class="m_search_b">
+					<form id="topForm" name="topForm" method="post" onsubmit="return false;">
+						<input id="topSearchKey" name="searchKwrd" type="text" placeholder="검색어를 입력하세요" style="font-size:14px;" autocomplete="off" title="기술기준검색">
+					</form>
+				</div>
+				<div class="m_search_btn">
+					<label class="switch">
+						<input type="checkbox" id="tobutton">
+						<span class="auto_icon">
+						</span>
+					</label>
+					<a href="javascript:topTxtSearch()" class="search_icon_st"><img src="/images/kpcs/search_icon2.png" alt="검색버튼" style="padding-bottom:20px"></a>
+				</div>
+
+				<!-- 내가 찾은 검색어 box -->
+				<div class="autocomplete" id="divToggle" style="display: none;">
+					<div class="autocom_tit">내가 찾은 검색어</div>
+					<ul class="list_bx"></ul>
+				</div>
+				<!-- //내가 찾은 검색어 box -->
+
+				<script>
+				$(function (){
+				   $('#tobutton').click(function (){
+				   $('#divToggle').toggle();
+				  });
+				});
+				</script>
+			</div>
+			<!--// 2019.1.23통합검색 추가 -->
+		</div>
+	</div>
+
+	<!-- 네비게이션 사용자 -->
+	<div class="nav_wrapper">
+ 		<div class="layout_res">
+			<div class="spinner-master">
+				<input type="checkbox" id="spinner-form">
+				<label for="spinner-form" class="spinner-spin">
+					<div class="spinner diagonal part-1"></div>
+					<div class="spinner horizontal"></div>
+					<div class="spinner diagonal part-2"></div>
+				</label>
+			</div>
+
+			<nav id="menu" class="menu">
+				<ul class="dropdown" id="wrap-web-ul"><li class="left_line has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">기술기준</span></a><ul class="sub_mm sub-menu" style="border-left: 1px solid rgb(220, 220, 220); height: 265px; width: 14.2857%; display: none;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000123" onclick="javascript:gotoMenuLink('MENU0000000000000123','/kc/kcGuid.do')">기술기준 안내</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000125" onclick="javascript:gotoMenuLink('MENU0000000000000125','/kc/selectKcListVw.do?docGubun=KDS')">설계기준</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000126" onclick="javascript:gotoMenuLink('MENU0000000000000126','/kc/selectKcListVw.do?docGubun=KCS')">시방서(표준/전문)</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000036" onclick="javascript:gotoMenuLink('MENU0000000000000036','/infrm/ek/selectEtcKpcsListVw.do')">기타 기술기준</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001001" onclick="javascript:gotoMenuLink('MENU0000000000001001','/reprt/selectReprtListVw.do')">지침/매뉴얼 등</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">공사비 정보</span></a><ul class="sub_mm sub-menu" style="height: 265px; width: 14.2857%; display: none;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000147" onclick="javascript:gotoMenuLink('MENU0000000000000147','/kc/selectDbkListVw.do')">설계실무요령</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001018" onclick="javascript:gotoMenuLink('MENU0000000000001018','/cost/selectStdMrpOrgListVw.do')">표준시장단가 원문</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">열린마당</span></a><ul class="sub_mm sub-menu" style="height: 265px; width: 14.2857%; display: none;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000065" onclick="javascript:gotoMenuLink('MENU0000000000000065','/board/qna/selectQnaListVw.do')">질의응답</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000116" onclick="javascript:gotoMenuLink('MENU0000000000000116','/board/inv/selectInvListVw.do')">수요조사</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000060" onclick="javascript:gotoMenuLink('MENU0000000000000060','/board/open/selectOpenListVw.do')">열린토론</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000115" onclick="javascript:gotoMenuLink('MENU0000000000000115','/board/debate/selectDebateListVw.do')">실시간토론</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001012" onclick="javascript:gotoMenuLink('MENU0000000000001012','/board/minwon/selectMinwonVw.do')">온라인민원</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">해양기술마당</span></a><ul class="sub_mm sub-menu" style="height: 265px; width: 14.2857%; display: none;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000120" onclick="javascript:gotoMenuLink('MENU0000000000000120','/info/tech/selectTechListVw.do')">신기술홍보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000141" onclick="javascript:gotoMenuLink('MENU0000000000000141','/info/octech/selectOctechListVw.do')">열린해양기술마당</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001002" onclick="javascript:gotoMenuLink('MENU0000000000001002','/cmit/selectCmitListVw.do')">기술자문(신기술활용심의)위원등록</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">정보마당</span></a><ul class="sub_mm sub-menu" style="height: 265px; width: 14.2857%; display: none;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000118" onclick="javascript:gotoMenuLink('MENU0000000000000118','/info/law/infoLaw.do')">법령정보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000119" onclick="javascript:gotoMenuLink('MENU0000000000000119','/info/share/selectShareListVw.do')">최신정보공유</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001007" onclick="javascript:gotoMenuLink('MENU0000000000001007','/info/gpr/selectGprListVw.do')">Global Port Report</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">알림마당</span></a><ul class="sub_mm sub-menu" style="height: 265px; width: 14.2857%; display: none;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000028" onclick="javascript:gotoMenuLink('MENU0000000000000028','/infrm/notice/selectNoticeListVw.do')">공지사항</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000087" onclick="javascript:gotoMenuLink('MENU0000000000000087','/infrm/rn/selectRecentNotiListVw.do')">최근고시현황</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000091" onclick="javascript:gotoMenuLink('MENU0000000000000091','/infrm/bbc/selectBbcListVw.do')">해수부 보도자료</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu large_menu_active">관리</span></a><ul class="sub_mm sub-menu" style="height: 265px; width: 14.2857%; display: none;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000009" onclick="javascript:gotoMenuLink('MENU0000000000000009','/sym/usr/selectUserInfoListVw.do')">사용자관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000129" onclick="javascript:gotoMenuLink('MENU0000000000000129','/mng/doc/selectDocListVw.do')">기술기준관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000131" onclick="javascript:gotoMenuLink('MENU0000000000000131','/mng/stats/selectConnectStatsListVw.do')">접속정보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000130" onclick="javascript:gotoMenuLink('MENU0000000000000130','/mng/send/selectSendListVw.do')">알림관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000006" onclick="javascript:gotoMenuLink('MENU0000000000000006','/sym/cde/selectCmmnDetailCodeListVw.do')">시스템관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000022" onclick="javascript:gotoMenuLink('MENU0000000000000022','/cop/bbsMastr/selectBbsMastrListVw.do')">게시판관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001003" onclick="javascript:gotoMenuLink('MENU0000000000001003','/sym/cmitMng/selectCmitMngListVw.do')">기술자문위원관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001009" onclick="javascript:gotoMenuLink('MENU0000000000001009','/mng/nsl/selectNslMngListVw.do')">소식지 관리</a></li></ul></li>
+					<!-- 메뉴 들어갈 곳 -->
+					<!-- 모바일 로그인-->
+					<li class="mobile_login">
+						<!-- 로그인 전 -->
+						
+
+
+
+
+
+
+						<!-- 로그인 후 -->
+						
+
+
+
+
+
+							<div class="top_menu top_menu_dis">
+						    	<div class="t_m_dst t_m_dst2 s_m_color1">
+						    		<a href="/uat/uia/actionLogout.html">admin님</a>
+						    		<a href="/uat/uia/actionLogout.html" title="로그아웃" class="logout">로그아웃</a>
+						    	</div>
+						        <div class="t_m_dst s_m_color2"><a href="/uat/uia/updateUserJoinVw.html" title="내정보">내정보</a></div>
+						    </div>
+						
+
+
+					</li>
+					<!-- //모바일 로그인 -->
+				</ul>
+			</nav>
+		</div>
+		<div class="sub_menu_mc" style="height: 275px; display: none;"></div>
+		<div class=""></div>
+	</div>
+	<div class="sitemap_modal">
+		<div class="sitemap_header">
+			<div class="sitemap_title">
+				<h3>사이트맵</h3>
+				<a href="javascript:void(0);" class="sitemap_close" onclick="show_sitemap(false)">팝업 닫기</a>
+			</div>
+		</div>
+		<div class="sitemap_body">
+			<ul class="sitemap_list"><li class="has-submenu"><a><span>기술기준</span></a><div class="sitemap_subList"><ul class="sub-menu"><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000123','/kc/kcGuid.do')"><span>기술기준 안내</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000125','/kc/selectKcListVw.do?docGubun=KDS')"><span>설계기준</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000126','/kc/selectKcListVw.do?docGubun=KCS')"><span>시방서(표준/전문)</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000036','/infrm/ek/selectEtcKpcsListVw.do')"><span>기타 기술기준</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000001001','/reprt/selectReprtListVw.do')"><span>지침/매뉴얼 등</span></a></li></ul></div></li><li class="has-submenu"><a><span>공사비 정보</span></a><div class="sitemap_subList"><ul class="sub-menu"><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000147','/kc/selectDbkListVw.do')"><span>설계실무요령</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000001018','/cost/selectStdMrpOrgListVw.do')"><span>표준시장단가 원문</span></a></li></ul></div></li><li class="has-submenu"><a><span>열린마당</span></a><div class="sitemap_subList"><ul class="sub-menu"><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000065','/board/qna/selectQnaListVw.do')"><span>질의응답</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000116','/board/inv/selectInvListVw.do')"><span>수요조사</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000060','/board/open/selectOpenListVw.do')"><span>열린토론</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000115','/board/debate/selectDebateListVw.do')"><span>실시간토론</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000001012','/board/minwon/selectMinwonVw.do')"><span>온라인민원</span></a></li></ul></div></li><li class="has-submenu"><a><span>해양기술마당</span></a><div class="sitemap_subList"><ul class="sub-menu"><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000120','/info/tech/selectTechListVw.do')"><span>신기술홍보</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000141','/info/octech/selectOctechListVw.do')"><span>열린해양기술마당</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000001002','/cmit/selectCmitListVw.do')"><span>기술자문(신기술활용심의)위원등록</span></a></li></ul></div></li><li class="has-submenu"><a><span>정보마당</span></a><div class="sitemap_subList"><ul class="sub-menu"><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000118','/info/law/infoLaw.do')"><span>법령정보</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000119','/info/share/selectShareListVw.do')"><span>최신정보공유</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000001007','/info/gpr/selectGprListVw.do')"><span>Global Port Report</span></a></li></ul></div></li><li class="has-submenu"><a><span>알림마당</span></a><div class="sitemap_subList"><ul class="sub-menu"><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000028','/infrm/notice/selectNoticeListVw.do')"><span>공지사항</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000087','/infrm/rn/selectRecentNotiListVw.do')"><span>최근고시현황</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000091','/infrm/bbc/selectBbcListVw.do')"><span>해수부 보도자료</span></a></li></ul></div></li><li class="has-submenu"><a><span>관리</span></a><div class="sitemap_subList"><ul class="sub-menu"><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000009','/sym/usr/selectUserInfoListVw.do')"><span>사용자관리</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000129','/mng/doc/selectDocListVw.do')"><span>기술기준관리</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000131','/mng/stats/selectConnectStatsListVw.do')"><span>접속정보</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000130','/mng/send/selectSendListVw.do')"><span>알림관리</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000006','/sym/cde/selectCmmnDetailCodeListVw.do')"><span>시스템관리</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000000022','/cop/bbsMastr/selectBbsMastrListVw.do')"><span>게시판관리</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000001003','/sym/cmitMng/selectCmitMngListVw.do')"><span>기술자문위원관리</span></a></li><li><a href="javascript:;" onclick="javascript:gotoMenuLink('MENU0000000000001009','/mng/nsl/selectNslMngListVw.do')"><span>소식지 관리</span></a></li></ul></div></li></ul>
+		</div>
+	</div>
+</header>
+<!--// 네비게이션 -->
+
+<form name="loginFrm" method="post" action="/uat/uia/LoginUsr.do">
+</form>
+
+<script>
+
+var bodyWidth;
+bodyWidth = $("body").width();
+
+$(window).resize(function () {
+	bodyWidth = $("body").width()+17;
+	calMunuWidth(); // 메뉴 개수에 따른 스타일 변경
+});
+
+$(document).ready(function () {
+
+	$(".sub_mm").hide();
+
+	$(".nav_wrapper").hover(
+        function() {
+          if(bodyWidth > 999) $(".sub_mm").show();
+          if(bodyWidth > 999) $(".sub_menu_mc").show();
+        }, function() {
+        $(".sub_mm").hide();
+        $(".sub_menu_mc").hide();
+        }
+      );
+
+      $(".nav_wrapper").hover(
+        function() {
+          if(bodyWidth <= 999) $(".sub_mm").show();
+        }, function() {
+        $(".sub_mm").hide();
+        }
+      );
+
+      /* scrip.js 가져옴 - */
+      $('ul li:has(ul)').addClass('has-submenu');
+      $('ul li ul').addClass('sub-menu');
+      $('ul.dropdown li').hover(function () {
+          $(this).addClass('hover');
+      }, function () {
+          $(this).removeClass('hover');
+      });
+      var $menu = $('#menu'), $menulink = $('#spinner-form'), $search = $('#search'), $search_box = $('.search_box'), $menuTrigger = $('.has-submenu > a');
+      $menulink.click(function (e) {
+          $menulink.toggleClass('active');
+          $menu.toggleClass('active');
+          if ($search.hasClass('active')) {
+              $('.menu.active').css('padding-top', '50px');
+          }
+
+          if ($menu.hasClass('active')) {
+        	  $menu.show();
+          } else {
+        	  $menu.css("display", "");
+          }
+      });
+
+      $search.click(function (e) {
+          e.preventDefault();
+          $search_box.toggleClass('active');
+      });
+      $menuTrigger.click(function (e) {
+          e.preventDefault();
+          var t = $(this);
+          t.toggleClass('active').next('ul').toggleClass('active');
+      });
+      $('ul li:has(ul)');
+      $(function () {
+          var e = $(document).scrollTop();
+          var t = $('.nav_wrapper').outerHeight();
+          $(window).scroll(function () {
+              var n = $(document).scrollTop();
+              if ($(document).scrollTop() >= 50) {
+                  //$('.nav_wrapper').css('position', 'relative');
+              } else {
+                  //$('.nav_wrapper').css('position', 'relative');
+              }
+              if (n > t) {
+                  $('.nav_wrapper').addClass('scroll');
+              } else {
+                  $('.nav_wrapper').removeClass('scroll');
+              }
+              if (n > e) {
+                  //$('.nav_wrapper').removeClass('no-scroll');
+              } else {
+                 // $('.nav_wrapper').addClass('no-scroll');
+              }
+              e = $(document).scrollTop();
+          });
+      });
+
+    calMunuWidth(); // 메뉴 개수에 따른 스타일 변경
+
+});
+
+function calMunuWidth(){
+	var menuDepth1Cnt = $('#menu > ul > .has-submenu').length;
+	var width;
+
+	if(bodyWidth > 999){
+		width = 100 / menuDepth1Cnt;
+		$('.menu ul ul').css('height', '190px');
+
+		
+
+
+
+
+
+
+
+
+
+
+			$('.menu ul ul').css('height', '265px');
+			$(".sub_menu_mc").css('height', '275px');
+		
+
+	}else{
+		width = 100;
+		$('.menu ul ul').css('height', '');
+	}
+
+	$('#menu > ul > .has-submenu').css('width', width + '%');
+	$('.menu ul ul').css('width', width + '%');
+}
+
+</script>
+		<section class="section_mng">
+			<h2 class="hidden">관리자 본문</h2>
+			<div class="layout_res" id="contentWrap">
+				
+				
+
+<!-- <script src="/js/egovframework/com/cmm/left_menu_script.js"></script> -->
+    
+			<!-- 왼쪽 메뉴 -->
+			<div class="left_menu_mc1">
+				<div class="left_top_tit">관리</div>				
+				<div id="cssmenu">
+					<ul id="leftMenu-ul"><li class="has_sub has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">사용자관리</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000010" onclick="javascript:gotoMenuLink('MENU0000000000000010','/sym/usr/selectUserInfoListVw.do')" data-nav-menu-level="2">사용자관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001013" onclick="javascript:gotoMenuLink('MENU0000000000001013','/sym/usr/selectUserIndvdinfoListVw.do')" data-nav-menu-level="2">개인정보관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000033" onclick="javascript:gotoMenuLink('MENU0000000000000033','/sec/uia/multiAccesPermVw.do')" data-nav-menu-level="2">IP접근허용관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000021" onclick="javascript:gotoMenuLink('MENU0000000000000021','/sec/uia/multiAccesLmttVw.do')" data-nav-menu-level="2">IP접근제한관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001015" onclick="javascript:gotoMenuLink('MENU0000000000001015','/sym/log/selectUserPrvcLogListVw.do')" data-nav-menu-level="2">개인정보 접근이력</a></li></ul></li><li class="has_sub active has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">기술기준관리</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li class="active"><a href="javascript:;" data-nav-menu-no="MENU0000000000000145" onclick="javascript:gotoMenuLink('MENU0000000000000145','/mng/doc/selectDocListVw.do')" data-nav-menu-level="2">기술기준관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000146" onclick="javascript:gotoMenuLink('MENU0000000000000146','/mng/dbk/selectDbkListVw.do')" data-nav-menu-level="2">설계실무요령관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001021" onclick="javascript:gotoMenuLink('MENU0000000000001021','/mng/std/selectStdListVw.do')" data-nav-menu-level="2">표준시장단가 관리</a></li></ul></li><li class="has_sub has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">접속정보</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000138" onclick="javascript:gotoMenuLink('MENU0000000000000138','/mng/stats/selectConnectStatsListVw.do')" data-nav-menu-level="2">접속정보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000139" onclick="javascript:gotoMenuLink('MENU0000000000000139','/mng/stats/selectMenuStatsListVw.do')" data-nav-menu-level="2">활동정보</a></li></ul></li><li class="has_sub has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">알림관리</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000151" onclick="javascript:gotoMenuLink('MENU0000000000000151','/mng/send/selectSendListVw.do')" data-nav-menu-level="2">알림서비스</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001022" onclick="javascript:gotoMenuLink('MENU0000000000001022','/mng/send/sendGroupMngVw.do')" data-nav-menu-level="2">알림그룹관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000152" onclick="javascript:gotoMenuLink('MENU0000000000000152','/sym/pop/selectPopupListVw.do')" data-nav-menu-level="2">팝업관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001008" onclick="javascript:gotoMenuLink('MENU0000000000001008','/mng/send/selectMailListVw.do')" data-nav-menu-level="2">메일전송관리</a></li></ul></li><li class="has_sub has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">시스템관리</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000007" onclick="javascript:gotoMenuLink('MENU0000000000000007','/sym/cde/selectCmmnDetailCodeListVw.do')" data-nav-menu-level="2">시스템코드관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000008" onclick="javascript:gotoMenuLink('MENU0000000000000008','/sec/rgm/selectAuthorCodeListVw.do')" data-nav-menu-level="2">권한코드관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000014" onclick="javascript:gotoMenuLink('MENU0000000000000014','/sym/menu/selectMenuListVw.do')" data-nav-menu-level="2">메뉴관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000015" onclick="javascript:gotoMenuLink('MENU0000000000000015','/sym/menu/selectMenuAuthorRListVw.do')" data-nav-menu-level="2">권한별메뉴생성</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000016" onclick="javascript:gotoMenuLink('MENU0000000000000016','/sym/menu/selectMenuFnctAuthorRListVw.do')" data-nav-menu-level="2">권한별기능부여</a></li></ul></li><li class="has_sub has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">게시판관리</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000023" onclick="javascript:gotoMenuLink('MENU0000000000000023','/cop/bbsMastr/selectBbsMastrListVw.do')" data-nav-menu-level="2">공통게시판관리</a></li></ul></li><li class="has_sub has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">기술자문위원관리</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001004" onclick="javascript:gotoMenuLink('MENU0000000000001004','/sym/cmitMng/selectCmitMngListVw.do')" data-nav-menu-level="2">기술자문(신기술 활용 심의)위원회 등록 메뉴 오픈 및 알림관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001005" onclick="javascript:gotoMenuLink('MENU0000000000001005','/sym/cmitMng/selectCmitRegSttusListVw.do')" data-nav-menu-level="2">위원회 등록현황</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001006" onclick="javascript:gotoMenuLink('MENU0000000000001006','/sym/cmitMng/selectCnsltntCmitListVw.do')" data-nav-menu-level="2">위원회 명단</a></li></ul></li><li class="has_sub has-submenu"><a href="#"><span style="border-color: rgba(0, 0, 0, 0.35);">소식지 관리</span><span style="border-color: rgba(0, 0, 0, 0.35);"></span></a><ul class="sub-menu"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001010" onclick="javascript:gotoMenuLink('MENU0000000000001010','/mng/nsl/selectNslMngListVw.do')" data-nav-menu-level="2">소식지 관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001011" onclick="javascript:gotoMenuLink('MENU0000000000001011','/mng/nsl/selectSubscriberListVw.do')" data-nav-menu-level="2">구독자 관리</a></li></ul></li></ul>
+				</div>				
+			</div>
+			<!--// 왼쪽 메뉴 -->	
+				<div class="mng_view">
+					<div class="doc_list_tit" id="sub_top_tit">기술기준관리</div> <!-- 내용 제목 -->
+					
+
+
+
+
+
+
+
+
+
+
+
+<!-- 검색조건 유지를 위한 필드 -->
+<form id="hiddenForm" onsubmit="return false;">
+    <input type="hidden" name="searchParams" id="searchParams" value="{&quot;searchType&quot;:&quot;KDS&quot;}">
+</form>
+
+     <!-- 탭묶음 -->
+     <div class="tab_center_view2">
+     <!-- 탭 시작 -->
+     <div class="tab_box">
+         <div class="tab-button-outer" id="s_banner_wrap">
+         	<ul id="tab-button" class="tabsp">
+				<li class="active" id="tab_li_listDoc"><a href="#listDoc">기술기준목록</a></li>
+				<li id="tab_li_addDoc"><a href="#addDoc">기술기준추가</a></li>
+			</ul>
+         </div>
+
+			<!-- Tab_container -->
+			<div class="tab_container2">
+				<!-- Tab1 -->
+				<div id="listDoc" class="tab_content">
+                <div class="tab_help_txt dis_web">기술기준문서를 관리합니다.</div>
+
+                <!-- 검색 -->
+                <form id="searchForm" onsubmit="return false;">
+                <div class="sc_search_plus">
+					<ul class="sc_tbl_st_1">
+						<li class="sc_tbl_2dep">
+							<div class="sc_tbl_th">구분</div>
+							<div class="sc_tbl_td">
+								<select id="searchType" name="searchType" class="select_st7 w_180px" title="구분 선택">
+									
+										<option value="KDS" selected="selected">설계기준</option>
+                                       
+										<option value="KPDS">설계기준성능</option>
+                                       
+										<option value="KCS">표준시방서</option>
+                                       
+										<option value="KPCS">전문시방서</option>
+                                       
+								</select>
+							</div>
+						</li>
+						<li class="sc_tbl_2dep">
+							<div class="sc_tbl_th">명칭</div>
+							<div class="sc_tbl_td">
+								<input id="searchKey" name="searchKey" class="search_input" type="text" value="" title="검색어">
+							</div>
+						</li>
+					</ul>
+					<div class="search_btn_box">
+						<input type="button" value="검색" class="search_btn" data-button-search-type="search">
+					</div>
+				</div>
+	            </form>
+	            <!--// 검색 -->
+
+	             <!-- 기술기준 목록 -->
+	             <div class="board_list mar_t20">
+	                     <table class="w100p" id="webTbHd">
+	                     <caption class="hidden">기술기준 관리 목록</caption>
+	                            <colgroup>
+	                               <col style="width:20%">
+	                               <col style="width:20%">
+	                               <col style="width:30%">
+	                               <col style="width:30%">
+	                            </colgroup>
+	                            <thead>
+	                               	<tr>
+	                                    <th scope="col">순번</th>
+	                                    <th scope="col">중분류</th>
+	                                    <th scope="col">문서번호</th>
+	                                    <th scope="col">명칭</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody id="webTb"><tr>	<td>1</td>	<td></td>	<td title="KDS 22 32 22"><a href="#" onclick="contsList('178'); return false;">KDS 22 32 22</a></td>	<td style="text-align:left" title="제1편 일반사항"><a href="#" onclick="contsList('178'); return false;">제1편 일반사항</a></td></tr><tr>	<td>2</td>	<td> </td>	<td title="KDS 64 00 00"><a href="#" onclick="contsList('1'); return false;">KDS 64 00 00</a></td>	<td style="text-align:left" title="항만 및 어항 설계기준"><a href="#" onclick="contsList('1'); return false;">항만 및 어항 설계기준</a></td></tr><tr>	<td>3</td>	<td>총론</td>	<td title="KDS 64 05 00"><a href="#" onclick="contsList('2'); return false;">KDS 64 05 00</a></td>	<td style="text-align:left" title="총론"><a href="#" onclick="contsList('2'); return false;">총론</a></td></tr><tr>	<td>4</td>	<td>설계일반사항</td>	<td title="KDS 64 10 00"><a href="#" onclick="contsList('3'); return false;">KDS 64 10 00</a></td>	<td style="text-align:left" title="설계일반사항"><a href="#" onclick="contsList('3'); return false;">설계일반사항</a></td></tr><tr>	<td>5</td>	<td>설계일반사항</td>	<td title="KDS 64 10 10"><a href="#" onclick="contsList('4'); return false;">KDS 64 10 10</a></td>	<td style="text-align:left" title="설계조건"><a href="#" onclick="contsList('4'); return false;">설계조건</a></td></tr><tr>	<td>6</td>	<td>설계일반사항</td>	<td title="KDS 64 10 20"><a href="#" onclick="contsList('5'); return false;">KDS 64 10 20</a></td>	<td style="text-align:left" title="재료"><a href="#" onclick="contsList('5'); return false;">재료</a></td></tr><tr>	<td>7</td>	<td>설계일반사항</td>	<td title="KDS 64 10 30"><a href="#" onclick="contsList('6'); return false;">KDS 64 10 30</a></td>	<td style="text-align:left" title="방식"><a href="#" onclick="contsList('6'); return false;">방식</a></td></tr><tr>	<td>8</td>	<td>지반</td>	<td title="KDS 64 11 00"><a href="#" onclick="contsList('7'); return false;">KDS 64 11 00</a></td>	<td style="text-align:left" title="지반"><a href="#" onclick="contsList('7'); return false;">지반</a></td></tr><tr>	<td>9</td>	<td>구조</td>	<td title="KDS 64 14 00"><a href="#" onclick="contsList('8'); return false;">KDS 64 14 00</a></td>	<td style="text-align:left" title="구조"><a href="#" onclick="contsList('8'); return false;">구조</a></td></tr><tr>	<td>10</td>	<td>구조</td>	<td title="KDS 64 14 10"><a href="#" onclick="contsList('9'); return false;">KDS 64 14 10</a></td>	<td style="text-align:left" title="구조설계일반사항"><a href="#" onclick="contsList('9'); return false;">구조설계일반사항</a></td></tr><tr>	<td>11</td>	<td>구조</td>	<td title="KDS 64 14 20"><a href="#" onclick="contsList('10'); return false;">KDS 64 14 20</a></td>	<td style="text-align:left" title="프리캐스트 콘크리트 부재"><a href="#" onclick="contsList('10'); return false;">프리캐스트 콘크리트 부재</a></td></tr><tr>	<td>12</td>	<td>구조</td>	<td title="KDS 64 14 30"><a href="#" onclick="contsList('11'); return false;">KDS 64 14 30</a></td>	<td style="text-align:left" title="해상풍력 지지구조물"><a href="#" onclick="contsList('11'); return false;">해상풍력 지지구조물</a></td></tr><tr>	<td>13</td>	<td>내진</td>	<td title="KDS 64 17 00"><a href="#" onclick="contsList('12'); return false;">KDS 64 17 00</a></td>	<td style="text-align:left" title="내진"><a href="#" onclick="contsList('12'); return false;">내진</a></td></tr><tr>	<td>14</td>	<td>항만 및 어항 가시설</td>	<td title="KDS 64 21 00"><a href="#" onclick="contsList('13'); return false;">KDS 64 21 00</a></td>	<td style="text-align:left" title="항만 및 어항 가시설"><a href="#" onclick="contsList('13'); return false;">항만 및 어항 가시설</a></td></tr><tr>	<td>15</td>	<td>항만 및 어항 교량</td>	<td title="KDS 64 24 00"><a href="#" onclick="contsList('14'); return false;">KDS 64 24 00</a></td>	<td style="text-align:left" title="항만 및 어항 교량"><a href="#" onclick="contsList('14'); return false;">항만 및 어항 교량</a></td></tr><tr>	<td>16</td>	<td>설비시설</td>	<td title="KDS 64 31 00"><a href="#" onclick="contsList('15'); return false;">KDS 64 31 00</a></td>	<td style="text-align:left" title="설비시설"><a href="#" onclick="contsList('15'); return false;">설비시설</a></td></tr><tr>	<td>17</td>	<td>설비시설</td>	<td title="KDS 64 31 10"><a href="#" onclick="contsList('16'); return false;">KDS 64 31 10</a></td>	<td style="text-align:left" title="항만전기설비"><a href="#" onclick="contsList('16'); return false;">항만전기설비</a></td></tr><tr>	<td>18</td>	<td>항만 및 어항 조경</td>	<td title="KDS 64 34 00"><a href="#" onclick="contsList('17'); return false;">KDS 64 34 00</a></td>	<td style="text-align:left" title="항만 및 어항 조경"><a href="#" onclick="contsList('17'); return false;">항만 및 어항 조경</a></td></tr><tr>	<td>19</td>	<td>수역시설 및 준설매립</td>	<td title="KDS 64 40 00"><a href="#" onclick="contsList('18'); return false;">KDS 64 40 00</a></td>	<td style="text-align:left" title="수역시설 및 준설매립"><a href="#" onclick="contsList('18'); return false;">수역시설 및 준설매립</a></td></tr><tr>	<td>20</td>	<td>수역시설 및 준설매립</td>	<td title="KDS 64 40 10"><a href="#" onclick="contsList('19'); return false;">KDS 64 40 10</a></td>	<td style="text-align:left" title="수역시설"><a href="#" onclick="contsList('19'); return false;">수역시설</a></td></tr><tr>	<td>21</td>	<td>수역시설 및 준설매립</td>	<td title="KDS 64 40 20"><a href="#" onclick="contsList('20'); return false;">KDS 64 40 20</a></td>	<td style="text-align:left" title="준설"><a href="#" onclick="contsList('20'); return false;">준설</a></td></tr><tr>	<td>22</td>	<td>수역시설 및 준설매립</td>	<td title="KDS 64 40 30"><a href="#" onclick="contsList('21'); return false;">KDS 64 40 30</a></td>	<td style="text-align:left" title="매립"><a href="#" onclick="contsList('21'); return false;">매립</a></td></tr><tr>	<td>23</td>	<td>외곽시설</td>	<td title="KDS 64 45 00"><a href="#" onclick="contsList('22'); return false;">KDS 64 45 00</a></td>	<td style="text-align:left" title="외곽시설"><a href="#" onclick="contsList('22'); return false;">외곽시설</a></td></tr><tr>	<td>24</td>	<td>외곽시설</td>	<td title="KDS 64 45 10"><a href="#" onclick="contsList('23'); return false;">KDS 64 45 10</a></td>	<td style="text-align:left" title="외곽시설 설계일반"><a href="#" onclick="contsList('23'); return false;">외곽시설 설계일반</a></td></tr><tr>	<td>25</td>	<td>외곽시설</td>	<td title="KDS 64 45 20"><a href="#" onclick="contsList('24'); return false;">KDS 64 45 20</a></td>	<td style="text-align:left" title="방파제"><a href="#" onclick="contsList('24'); return false;">방파제</a></td></tr><tr>	<td>26</td>	<td>외곽시설</td>	<td title="KDS 64 45 30"><a href="#" onclick="contsList('25'); return false;">KDS 64 45 30</a></td>	<td style="text-align:left" title="기타형식 방파제"><a href="#" onclick="contsList('25'); return false;">기타형식 방파제</a></td></tr><tr>	<td>27</td>	<td>외곽시설</td>	<td title="KDS 64 45 40"><a href="#" onclick="contsList('26'); return false;">KDS 64 45 40</a></td>	<td style="text-align:left" title="호안"><a href="#" onclick="contsList('26'); return false;">호안</a></td></tr><tr>	<td>28</td>	<td>외곽시설</td>	<td title="KDS 64 45 50"><a href="#" onclick="contsList('27'); return false;">KDS 64 45 50</a></td>	<td style="text-align:left" title="갑문시설"><a href="#" onclick="contsList('27'); return false;">갑문시설</a></td></tr><tr>	<td>29</td>	<td>연안보전시설</td>	<td title="KDS 64 50 00"><a href="#" onclick="contsList('28'); return false;">KDS 64 50 00</a></td>	<td style="text-align:left" title="연안보전시설"><a href="#" onclick="contsList('28'); return false;">연안보전시설</a></td></tr><tr>	<td>30</td>	<td>계류시설</td>	<td title="KDS 64 55 00"><a href="#" onclick="contsList('29'); return false;">KDS 64 55 00</a></td>	<td style="text-align:left" title="계류시설"><a href="#" onclick="contsList('29'); return false;">계류시설</a></td></tr><tr>	<td>31</td>	<td>계류시설</td>	<td title="KDS 64 55 10"><a href="#" onclick="contsList('30'); return false;">KDS 64 55 10</a></td>	<td style="text-align:left" title="계류시설 설계일반"><a href="#" onclick="contsList('30'); return false;">계류시설 설계일반</a></td></tr><tr>	<td>32</td>	<td>계류시설</td>	<td title="KDS 64 55 20"><a href="#" onclick="contsList('31'); return false;">KDS 64 55 20</a></td>	<td style="text-align:left" title="고정식 계류시설"><a href="#" onclick="contsList('31'); return false;">고정식 계류시설</a></td></tr><tr>	<td>33</td>	<td>계류시설</td>	<td title="KDS 64 55 30"><a href="#" onclick="contsList('32'); return false;">KDS 64 55 30</a></td>	<td style="text-align:left" title="부유식 계류시설"><a href="#" onclick="contsList('32'); return false;">부유식 계류시설</a></td></tr><tr>	<td>34</td>	<td>계류시설</td>	<td title="KDS 64 55 40"><a href="#" onclick="contsList('33'); return false;">KDS 64 55 40</a></td>	<td style="text-align:left" title="기타형식 계류시설"><a href="#" onclick="contsList('33'); return false;">기타형식 계류시설</a></td></tr><tr>	<td>35</td>	<td>계류시설</td>	<td title="KDS 64 55 50"><a href="#" onclick="contsList('34'); return false;">KDS 64 55 50</a></td>	<td style="text-align:left" title="계류부대시설"><a href="#" onclick="contsList('34'); return false;">계류부대시설</a></td></tr><tr>	<td>36</td>	<td>전문부두</td>	<td title="KDS 64 60 00"><a href="#" onclick="contsList('35'); return false;">KDS 64 60 00</a></td>	<td style="text-align:left" title="전문부두"><a href="#" onclick="contsList('35'); return false;">전문부두</a></td></tr><tr>	<td>37</td>	<td>전문부두</td>	<td title="KDS 64 60 10"><a href="#" onclick="contsList('36'); return false;">KDS 64 60 10</a></td>	<td style="text-align:left" title="컨테이너부두"><a href="#" onclick="contsList('36'); return false;">컨테이너부두</a></td></tr><tr>	<td>38</td>	<td>전문부두</td>	<td title="KDS 64 60 20"><a href="#" onclick="contsList('37'); return false;">KDS 64 60 20</a></td>	<td style="text-align:left" title="페리부두"><a href="#" onclick="contsList('37'); return false;">페리부두</a></td></tr><tr>	<td>39</td>	<td>전문부두</td>	<td title="KDS 64 60 30"><a href="#" onclick="contsList('38'); return false;">KDS 64 60 30</a></td>	<td style="text-align:left" title="크루즈부두"><a href="#" onclick="contsList('38'); return false;">크루즈부두</a></td></tr><tr>	<td>40</td>	<td>어항</td>	<td title="KDS 64 65 00"><a href="#" onclick="contsList('39'); return false;">KDS 64 65 00</a></td>	<td style="text-align:left" title="어항"><a href="#" onclick="contsList('39'); return false;">어항</a></td></tr><tr>	<td>41</td>	<td>마리나</td>	<td title="KDS 64 70 00"><a href="#" onclick="contsList('40'); return false;">KDS 64 70 00</a></td>	<td style="text-align:left" title="마리나"><a href="#" onclick="contsList('40'); return false;">마리나</a></td></tr><tr>	<td>42</td>	<td>초대형석유탱커</td>	<td title="KDS 64 75 00"><a href="#" onclick="contsList('41'); return false;">KDS 64 75 00</a></td>	<td style="text-align:left" title="초대형석유탱커"><a href="#" onclick="contsList('41'); return false;">초대형석유탱커</a></td></tr><tr>	<td>43</td>	<td>해저파이프라인</td>	<td title="KDS 64 80 00"><a href="#" onclick="contsList('42'); return false;">KDS 64 80 00</a></td>	<td style="text-align:left" title="해저파이프라인"><a href="#" onclick="contsList('42'); return false;">해저파이프라인</a></td></tr><tr>	<td>44</td>	<td>해상저유시설</td>	<td title="KDS 64 85 00"><a href="#" onclick="contsList('43'); return false;">KDS 64 85 00</a></td>	<td style="text-align:left" title="해상저유시설"><a href="#" onclick="contsList('43'); return false;">해상저유시설</a></td></tr><tr>	<td>45</td>	<td>부대시설</td>	<td title="KDS 64 90 00"><a href="#" onclick="contsList('147'); return false;">KDS 64 90 00</a></td>	<td style="text-align:left" title="부대시설"><a href="#" onclick="contsList('147'); return false;">부대시설</a></td></tr><tr>	<td>46</td>	<td>부대시설</td>	<td title="KDS 64 90 10"><a href="#" onclick="contsList('44'); return false;">KDS 64 90 10</a></td>	<td style="text-align:left" title="항만하역시설"><a href="#" onclick="contsList('44'); return false;">항만하역시설</a></td></tr><tr>	<td>47</td>	<td>부대시설</td>	<td title="KDS 64 90 20"><a href="#" onclick="contsList('45'); return false;">KDS 64 90 20</a></td>	<td style="text-align:left" title="임항교통시설"><a href="#" onclick="contsList('45'); return false;">임항교통시설</a></td></tr><tr>	<td>48</td>	<td>부대시설</td>	<td title="KDS 64 90 30"><a href="#" onclick="contsList('46'); return false;">KDS 64 90 30</a></td>	<td style="text-align:left" title="항로표지시설"><a href="#" onclick="contsList('46'); return false;">항로표지시설</a></td></tr><tr>	<td>49</td>	<td>부대시설</td>	<td title="KDS 64 90 40"><a href="#" onclick="contsList('47'); return false;">KDS 64 90 40</a></td>	<td style="text-align:left" title="부대기타시설"><a href="#" onclick="contsList('47'); return false;">부대기타시설</a></td></tr><tr>	<td>50</td>	<td>기타시설</td>	<td title="KDS 64 95 00"><a href="#" onclick="contsList('48'); return false;">KDS 64 95 00</a></td>	<td style="text-align:left" title="기타시설"><a href="#" onclick="contsList('48'); return false;">기타시설</a></td></tr><tr>	<td>51</td>	<td>유지관리</td>	<td title="KDS 64 99 00"><a href="#" onclick="contsList('49'); return false;">KDS 64 99 00</a></td>	<td style="text-align:left" title="유지관리"><a href="#" onclick="contsList('49'); return false;">유지관리</a></td></tr></tbody>
+	                     </table>
+	             </div>
+	             <!--// 기술기준 목록 -->
+            </div>
+			<!--// Tab1 -->
+
+
+			<!-- Tab2 -->
+			<div id="addDoc" class="tab_content" style="display: none;">
+			<div class="tab_help_txt dis_web">기술기준코드를 추가합니다.</div>
+
+				<div class="doc_row">
+				<form id="writeForm" onsubmit="return false;">
+
+	              <table class="dis_serch_size">
+	              	<caption class="hidden">기술기준코드 추가 정보</caption>
+	                	  <colgroup>
+								<col style="width:20%">
+                                <col style="width:80%">
+                          </colgroup>
+	                      <tbody>
+	                            <tr>
+	                                <th scope="row">구분<span class="txt_red_small">*</span></th>
+	                                <td>
+					        		<select id="docGubun" name="docGubun" class="select_st7 w16p mar_r8" title="구분 선택">
+					        			
+											<option value="KDS">설계기준</option>
+                                        
+											<option value="KPDS">설계기준성능</option>
+                                        
+											<option value="KCS">표준시방서</option>
+                                        
+											<option value="KPCS">전문시방서</option>
+                                        
+									</select>
+	                            </td></tr>
+	                            <tr>
+	                            	<th scope="row">문서번호<span class="txt_red_small">*</span></th>
+	                            	<td>
+	                            		<input name="docKey" id="docKey" class="input_st1 w45p" type="text" placeholder="코드번호 6자리를 공백없이 입력하세요" title="문서번호" maxlength="6" data-ax5formatter="number(int)" data-validate-type="NotNull"> (예: 640500)</td>
+	                            	</tr>
+	                            <tr>
+	                                <th scope="row">명칭<span class="txt_red_small">*</span></th>
+	                                <td><input name="docNm" id="docNm" class="input_st1 w45p" type="text" maxlength="35" data-validate-type="NotNull" title="명칭"> (예: 총론)</td>
+	                            </tr>
+	                            <tr>
+	                                 <th scope="row">제정날짜</th>
+	                                 <td><input name="revDt" id="revDt" class="input_st1 w30p cal-type cal-type-ymd" readonly="readonly" type="text" placeholder="yyyy-mm-dd" title="제정날짜"> (추후 문서일 경우 공백으로 저장)
+	                                </td>
+	                            </tr>
+	                            <tr>
+	                                <th scope="row">비고</th>
+	                                <td><input name="note" id="note" class="input_st1 w45p" type="text" maxlength="5" title="비고"></td>
+	                            </tr>
+	                            <tr>
+	                                <th scope="row">본문내용</th>
+	                                <td><input type="checkbox" name="contsStatus" id="contsStatus" title="본문내용없음체크">본문 내용이 없을 경우 체크(예:추후마련검토, 중분류일 경우 본문이 없으므로 체크)
+	                                <input type="hidden" id="contsYn" name="contsYn">
+	                                </td>
+	                            </tr>
+	                            <tr>
+	                                <th scope="row">목록조회여부</th>
+	                                <td><input type="checkbox" name="viewStatus" id="viewStatus" title="목록제외체크">기술기준 검색 화면에서 제외할 경우 체크
+	                                <input type="hidden" id="viewYn" name="viewYn">
+	                                </td>
+	                            </tr>
+	                     </tbody>
+	              </table>
+             	</form>
+                </div>
+
+                <div data-file-upload-target-hwp="">	<div class="signup_mc2">		<div class="guide_m_tit">한글 파일첨부</div>		<div data-ax5uploader="vc1qukhd3oi">			<input type="hidden" name="maximunFileSize" value="314572800">			<input type="hidden" name="maximunFileSizeStr" value="300MB">			<input type="hidden" name="maximunAllFileSize" value="314572800">			<input type="hidden" name="maximunAllFileSizeStr" value="300MB">			<input type="hidden" name="maximumNumberOfFiles" value="1">			<input type="hidden" name="currentAllFilesSize" value="0">			<input type="hidden" name="accept" value=".hwp, .zip">		</div>	<div class="file_btn_box">		<button type="button" data-ax5uploader-button="selector" class="file_add_btn" data-original-title="" title="">파일추가</button>		<button type="button" data-upload-btn="removeFile" class="file_del_btn">파일삭제</button>	</div></div></div>
+			    <div data-ax5grid="grid-hwp"><div class="cmt_txt">* 첨부 가능한 파일 확장자 : <span class="txt_red">.hwp, .zip</span></div><div class="cmt_txt">* 전체 파일 업로드 용량 : <strong>300MB</strong>, 개별 파일 업로드 용량 : <strong>300MB</strong>, 최대 첨부파일수 : <strong>1개</strong></div><table class="file_table" style="display:inline-table;"> <caption class="hidden">파일 업로드, 파일명, 파일크기, 등록일시, 다운로드 항목으로 구성</caption>	<colgroup>		<col style="width: 5%;">		<col style="width: 5%;">		<col style="width: 45%;">		<col style="width: 5%;" class="dis_web_tablecell">		<col style="width: 10%;" class="dis_web_tablecell">		<col style="width: 10%;">	</colgroup>	<thead>		<tr>			<th scope="col">선택</th>			<th scope="col">상태</th>			<th scope="col">파일명</th>			<th scope="col" class="dis_web_tablecell">파일크기</th>			<th scope="col" class="dis_web_tablecell">등록일시</th>			<th scope="col">다운로드</th>		</tr>	</thead>	<tbody id="imgTableBody"><tr id="emptyTr"><td colspan="7" style="text-align: center;font-size: 15px;font-weight: bold;">파일추가 버튼을 누르면 파일을 첨부할 수 있습니다.</td></tr></tbody></table></div>
+
+			    <div data-file-upload-target-pdf="">	<div class="signup_mc2">		<div class="guide_m_tit">PDF 파일첨부</div>		<div data-ax5uploader="0c6qertn5s59">			<input type="hidden" name="maximunFileSize" value="314572800">			<input type="hidden" name="maximunFileSizeStr" value="300MB">			<input type="hidden" name="maximunAllFileSize" value="314572800">			<input type="hidden" name="maximunAllFileSizeStr" value="300MB">			<input type="hidden" name="maximumNumberOfFiles" value="1">			<input type="hidden" name="currentAllFilesSize" value="0">			<input type="hidden" name="accept" value=".pdf, .zip">		</div>	<div class="file_btn_box">		<button type="button" data-ax5uploader-button="selector" class="file_add_btn" data-original-title="" title="">파일추가</button>		<button type="button" data-upload-btn="removeFile" class="file_del_btn">파일삭제</button>	</div></div></div>
+			    <div data-ax5grid="grid-pdf"><div class="cmt_txt">* 첨부 가능한 파일 확장자 : <span class="txt_red">.pdf, .zip</span></div><div class="cmt_txt">* 전체 파일 업로드 용량 : <strong>300MB</strong>, 개별 파일 업로드 용량 : <strong>300MB</strong>, 최대 첨부파일수 : <strong>1개</strong></div><table class="file_table" style="display:inline-table;"> <caption class="hidden">파일 업로드, 파일명, 파일크기, 등록일시, 다운로드 항목으로 구성</caption>	<colgroup>		<col style="width: 5%;">		<col style="width: 5%;">		<col style="width: 45%;">		<col style="width: 5%;" class="dis_web_tablecell">		<col style="width: 10%;" class="dis_web_tablecell">		<col style="width: 10%;">	</colgroup>	<thead>		<tr>			<th scope="col">선택</th>			<th scope="col">상태</th>			<th scope="col">파일명</th>			<th scope="col" class="dis_web_tablecell">파일크기</th>			<th scope="col" class="dis_web_tablecell">등록일시</th>			<th scope="col">다운로드</th>		</tr>	</thead>	<tbody id="imgTableBody"><tr id="emptyTr"><td colspan="7" style="text-align: center;font-size: 15px;font-weight: bold;">파일추가 버튼을 누르면 파일을 첨부할 수 있습니다.</td></tr></tbody></table></div>
+
+                <div class="bo_btn_box">
+	               <button type="button" class="bo_btn_st write_btn" data-button-search-type="insert">저장</button>
+                </div>
+
+			</div>
+			<!--// Tab2 -->
+            </div>
+	     </div>
+	     </div>
+
+<script>
+
+	var viewtab=null;
+
+	$(document).ready(function() {
+
+		//전화번호,통화,숫자,사업자번호 등의 마스크 패턴 처리
+		$('[data-ax5formatter]').ax5formatter();
+
+		// 탭 관련
+		viewtab = commonUtils.addTabCtrl({
+			 sliderTarget : $('#tab-button')
+			,selectTarget : $('#tab-select')
+			,contentClass : $('.tab_content')
+		});
+
+		$('#tab-button').find('a').on('click', function(e){
+			var tabId = $(this).attr('href');
+		})
+
+	    var atchPosblFileSize = '300MB';
+	    var atchPosblFileNumber = '1';
+	    var fileGridHwp = null;
+	    var fileGridPdf = null;
+
+		// 파일첨부 처리
+	    fileGridHwp = fileUtils.fileUpload({
+	        target: $('[data-file-upload-target-hwp]')
+	        ,
+	        gridTarget: $('[data-ax5grid="grid-hwp"]')
+	        ,
+	        maximunFileSize: atchPosblFileSize
+	        ,
+	        maximunAllFileSize: atchPosblFileSize
+	        ,
+	        maximumNumberOfFiles: atchPosblFileNumber
+	        ,
+	        deleteBtn: true
+	        ,
+	        insertBtn: true
+	        ,
+	        accept : ".hwp, .zip" //허용확장자 (default : 전체확장자 허용)
+	        ,
+	        imgPreview: false //이미지 미리보기 표시여부 (default : true)
+	        ,
+	        titleMsg: '한글 파일첨부' //타이틀 제목
+	        ,
+	        gridEmptyMsg: '파일추가 버튼을 누르면 파일을 첨부할 수 있습니다.' //본문내용이 비어있을때 내용
+	        ,
+	        atchFileId: "" //첨부파일 아이디
+	    });
+
+	    fileGridPdf = fileUtils.fileUpload({
+	        target: $('[data-file-upload-target-pdf]')
+	        ,
+	        gridTarget: $('[data-ax5grid="grid-pdf"]')
+	        ,
+	        maximunFileSize: atchPosblFileSize
+	        ,
+	        maximunAllFileSize: atchPosblFileSize
+	        ,
+	        maximumNumberOfFiles: atchPosblFileNumber
+	        ,
+	        deleteBtn: true
+	        ,
+	        insertBtn: true
+	        ,
+	        accept : ".pdf, .zip" //허용확장자 (default : 전체확장자 허용)
+	        ,
+	        imgPreview: false //이미지 미리보기 표시여부 (default : true)
+	        ,
+	        titleMsg: 'PDF 파일첨부' //타이틀 제목
+	        ,
+	        gridEmptyMsg: '파일추가 버튼을 누르면 파일을 첨부할 수 있습니다.' //본문내용이 비어있을때 내용
+	        ,
+	        atchFileId: "" //첨부파일 아이디
+	    });
+
+	    commonUtils.datePicker({
+			target : $('#revDt'),
+			orientation : 'bottom'
+		});
+
+	    //검색 영역에서 엔터입력시
+	    $(document).on("keyup", '#searchForm', function (e) {
+	        if (e.keyCode === 13) {
+	            // searchData(); // disabled for local
+	        }
+	    });
+
+
+		$('[data-button-search-type]').click(function (e) {
+	        switch (this.getAttribute("data-button-search-type")) {
+	            //검색버튼 클릭시
+	            case "search":
+	                searchData();
+	                break;
+
+	              //등록버튼 클릭시
+	            case "insert":
+	                //파일업로드가 진행중인지 확인한다.
+	                if (fileGridHwp["__uploading"] || fileGridPdf["__uploading"]) {
+	                    commonUtils.alert({
+	                        title: "파일업로드가 진행중입니다."
+	                        ,
+	                        msg: '파일업로드가 완료된 후 등록을 해주시기 바랍니다.'
+	                        ,
+	                        theme: 'warning'
+	                    });
+	                    return false;
+	                }
+
+	                //폼 유효성체크
+	                if ($("#writeForm").validForm()) {
+	                    var params = []; //서버 전달용 배열 파라미터
+
+	                    $('#contsYn').val($('#contsStatus').prop('checked') ? 'N' : 'Y');
+	            		$('#viewYn').val($('#viewStatus').prop('checked') ? 'N' : 'Y');
+
+	                    var submitData = commonUtils.formToObject("writeForm");
+	                    //파라미터에 파일데이터 추가
+	                    submitData.hwpFileVOs = fileGridHwp.getGrid.list();
+	                    submitData.pdfFileVOs = fileGridPdf.getGrid.list();
+	                    if( formatUtils.objEmptyCheck(submitData.revDt) != '')
+	                    	submitData.revDt = submitData.revDt.replace(/-/gi, "");
+
+	                    // 최종 파라미터
+	                    params.push({
+	                        name: "submitData",
+	                        value: JSON.stringify(submitData)
+	                    });
+
+	                    commonUtils.confirm(
+	                        {
+	                            theme: 'warning',
+	                            msg: "등록 하시겠습니까?"
+	                        },
+	                        function () {
+	                            //사용자가 확인 버튼을 눌렀을때 실행되는 콜백함수
+	                            if (this.key === "ok") {
+	                                //등록 실행
+	                                commonUtils.ajax({
+	                                    url: '/mng/doc/insertDoc.do'
+	                                    ,
+	                                    data: params
+	                                    ,
+	                                    success: function (response) {
+	                                    	if(response.message){
+	                                    		commonUtils.alert({
+	                                                title: '알림',
+	                                                msg: response.message,
+	                                                theme: 'error'
+	                                            })
+	                                    	}else{
+		                                        var result = response.resultData.result;
+		                                        commonUtils.alert({
+		                                            title: '완료',
+		                                            msg: response.resultMessage,
+		                                            theme: 'info'
+		                                        }, function () {
+
+		                                        	var submitData = commonUtils.formToObject("searchForm");
+
+		                                        	//상세 화면 이동
+		                                            var params2 = [];
+		                                                params2.push({
+		                                                    name: "docSn",
+		                                                    value: result.docSn
+		                                                });
+		                                                params.push({
+		                                                    name: "submitData",
+		                                                    value: JSON.stringify(submitData)
+		                                                });
+
+		                                            commonUtils.pageSubmit({
+		                                                url: "/mng/doc/selectDocDtlVw.do" //요청 URL
+		                                               	,
+		                                                data: params2
+		                                            });
+
+		                                        });
+	                                    	}//end if
+	                                    }
+	                                });
+	                                //End of 등록
+	                            }
+	                        }
+	                    )
+	                }
+	                break;
+	        }
+		})
+		// searchData(); // disabled for local prototype
+
+		$("#searchType").change(function(){ //구분콤보박스 선택시 바로 검색
+			// searchData(); // disabled for local prototype
+		});
+
+	});
+
+	/* 기술기준목록 검색 */
+	function searchData(){
+		$("#searchParams").val(commonUtils.formToJSON("searchForm"));
+
+		var params = commonUtils.formToObject("searchForm");
+
+		commonUtils.ajax({
+			url : '/mng/doc/selectDocList.do',
+			data : params,
+			success : function(response) {
+
+				setWebTb(response.resultData.resultList);
+
+			}
+		});
+
+	}
+
+	function setWebTb(data) {
+		var webTb = '';
+		$.each(data, function(index, item) {
+			webTb += '<tr>';
+			webTb += '	<td>' + item.rowNo + '</td>';
+			webTb += '	<td>' + formatUtils.objEmptyCheck(item.midNm) + '</td>';
+			webTb += '	<td title="' + item.docCd + '"><a href="#" onClick="contsList(\'' + item.docSn + '\'); return false;">' + item.docCd + '</a></td>';
+			webTb += '	<td style="text-align:left" title="' + item.docNm + '"><a href="#" onClick="contsList(\'' + item.docSn + '\'); return false;">' + item.docNm + '</a></td>';
+			webTb += '</tr>';
+		});
+
+		// 데이터가 없을때 메세지 표시
+		if (data.length === 0) {
+			var colspan = $("#webTbHd").find("thead tr th").length;
+			webTb = '<tr style="height : 40px;"><td style="text-align: center;" colspan=' + colspan + '>조회된 데이터가 없습니다.</td></tr>';
+		}
+
+		$('#webTb').html('');
+		$('#webTb').html(webTb);
+	};
+
+
+	/* 기술기준 상세로 이동 */
+	function contsList(docSn){
+
+		var params = [];
+		params.push({name : "docSn", value : docSn},
+				{name : "searchParams", value : $('#searchParams').val()});
+		commonUtils.pageSubmit({
+			url : "/mng/doc/selectDocDtlVw.do",
+			data : params //요청 파라미터
+		});
+
+	}
+
+</script>
+				</div>
+			</div>
+		</section>      
+	    
+
+
+
+
+
+
+
+
+
+
+<!-- footer -->
+    <footer class="footer_bg">
+        <div class="layout_res">
+                <div class="foot_logo"><a href="#top"><img src="/images/kpcs/footer/foot_logo.png" width="242" height="47" alt="logo"></a>
+                </div>
+
+                <div class="foot_t_m">
+                    <div class="foot_addres">서울특별시 영등포구 양산로 53(양평동3가) 월드메르디앙 비즈센터 7층<br>대표전화 : 02)2165-0103~0106, 팩스번호 : 02)2165-0109<br>기술자문 위원등록 : 02)2165-0106</div>
+                    <div class="foot_copyright">Copyright 2019 Korea Ports &amp; Harbours Association. All right reserved.</div>
+                </div>
+
+                <div class="foot_policy">
+                    <a href="/policy/privacy_policy.html" title="개인정보처리방침"><span style="color: #d75e6f; font-weight: 600;">개인정보처리방침</span></a>
+		            <a href="/policy/email.html" title="이메일 무단수집거부">이메일 무단수집거부</a>
+				</div>
+        </div>
+    </footer>
+	<!-- //footer -->
+
+<input type="file" data-ax5uploader-input="7" name="file" accept=".hwp, .zip" title="첨부파일"><input type="file" data-ax5uploader-input="12" name="file" accept=".pdf, .zip" title="첨부파일">
+<script>
+  // Override pageSubmit for local prototype
+  if (typeof commonUtils !== 'undefined') {
+    commonUtils.pageSubmit = function(options) {
+      if (!options || !options.url) return;
+      var params = [];
+      if (options.data) {
+        $.each(options.data, function(i, v) {
+          params.push(encodeURIComponent(v.name) + '=' + encodeURIComponent(v.value));
+        });
+      }
+      location.href = options.url + (params.length ? '?' + params.join('&') : '');
+    };
+    // Override ajax to silently fail for local prototype
+    var _origAjax = commonUtils.ajax;
+    commonUtils.ajax = function(options) {
+      options.error = function() {}; // suppress error popups
+      try { _origAjax.call(commonUtils, options); } catch(e) {}
+    };
+    // Override showMask to no-op
+    commonUtils.showMask = function() {};
+    commonUtils.closeMask = function() {};
+  }
+</script>
+</body></html>

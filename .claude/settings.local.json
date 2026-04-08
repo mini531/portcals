@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(git remote:*)",
+      "Bash(git pull:*)",
+      "WebFetch(domain:digitelkr1.cafe24.com)"
+    ]
+  }
+}

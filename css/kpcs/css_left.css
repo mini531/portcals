@@ -1,0 +1,187 @@
+/******************* 왼쪽 메뉴 ****************************/
+.section_size { width:82.5%; margin:0 auto; }
+
+.left_menu_mc1 {
+	float: left;
+	width:22%;
+	margin-right:3%;
+	display: block;
+}
+
+.left_top_tit {
+	float: left;
+	display: block;	
+	border:1px solid #52b49b;
+	box-sizing: border-box;
+	font-size:28px;
+	line-height: 1em;
+	color:#333333;
+	font-weight:600;
+	width:100%;
+	margin:0 0 20px 0;
+	background: url("../../images/kpcs/left_tit_bg.png") center center no-repeat;
+	padding:30px 0;
+	text-align:center;
+	background-size: cover;
+	border-radius: 0px;
+}
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+	float:left;
+	width:100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 1;
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 0;
+}
+
+#cssmenu ul li ul li a {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom: 1px solid #94b4b3;
+}
+
+/*
+#cssmenu ul li:first-child a {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+#cssmenu ul li:last-child a {
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+*/
+
+
+#cssmenu { color: #ffffff; }
+#cssmenu ul ul { display: none; }
+#cssmenu ul .active ul{	display: block;}
+
+
+.align-right { float: right;}
+#cssmenu > ul > li > a {
+	padding: 15px 20px;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+	cursor: pointer;
+	z-index: 2;
+	font-size: 18px;
+	font-weight: 600;
+	text-decoration: none;
+	color: #265348;
+	background: #ffffff;
+}
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li.open > a {
+	color: #ffffff;
+	background: #52b49b;
+}
+#cssmenu > ul > li.open > a {
+	border-bottom: 1px solid #94b4b3;
+}
+#cssmenu > ul > li:last-child > a,
+#cssmenu > ul > li.last > a {
+	border-bottom: 1px solid #cccccc;
+}
+
+#cssmenu > ul > li > a:hover > span::after,
+#cssmenu > ul > li.active > a > span::after,
+#cssmenu > ul > li.open > a > span::after {
+	border-color: #52b49b;
+}
+
+#cssmenu ul ul li a {
+	cursor: pointer;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	padding: 10px 10px 10px 30px;
+	z-index: 1;
+	text-decoration: none;
+	font-size: 14px;
+	color: #666666;
+	background: #d6ebeb ;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.open > a,
+#cssmenu ul ul li.active > a {
+	color:#265348;
+	font-weight:600;
+	border-radius: 0;
+}
+#cssmenu ul .active ul .active a{ color:#265348; font-weight:600;border-radius: 0; }
+#cssmenu ul ul ul li a {
+	padding-left: 30px;
+	background: #52b49b;
+}
+#cssmenu > ul > li > ul > li:last-child > a,
+#cssmenu > ul > li > ul > li.last > a {
+	border-bottom:none; border-radius: 0;
+}
+#cssmenu > ul > li > ul > li.open:last-child > a,
+#cssmenu > ul > li > ul > li.last.open > a {
+	border-bottom: 1px solid #cccccc;
+}
+
+
+#cssmenu > ul > li > ul > li.open:last-child > ul > li:last-child > a {
+	border-bottom: 0;
+}
+#cssmenu ul ul li.has_sub > a::after {
+	display: block;
+	position: absolute;
+	content: "";
+	width: 7px;
+	height: 7px;
+	right: 20px;
+	z-index: 10;
+	top: 11.5px;
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	-webkit-transform: rotate(-135deg);
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+#cssmenu ul ul li.active > a::after,
+#cssmenu ul ul li.open > a::after,
+#cssmenu ul ul li > a:hover::after {
+	border-color: #ffffff;
+}
+
+@media all and (max-width: 1468px) {	
+	
+	.left_top_tit {font-size:24px;}	
+	#cssmenu > ul > li > a {
+		padding: 15px 10px;
+		font-size: 16px;
+	}
+}
+
+@media all and (max-width: 1200px) {
+	
+	.left_menu_mc1 {width:18%;}
+	.left_top_tit {font-size:24px;}	
+	#cssmenu > ul > li > a {
+		padding: 15px 10px;
+		font-size: 16px;		
+	}
+}
+
+@media all and (max-width:999px)
+{
+	.section_size { width:94%; }
+	.left_menu_mc1 {display: none;}
+}

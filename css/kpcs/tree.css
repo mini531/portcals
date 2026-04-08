@@ -1,0 +1,10 @@
+#menuTree {font-size:14px;position:relative;margin:0;padding:0; line-height:1.2em;}
+
+
+#menuTree .directory {
+    border-width: 1px;
+    max-height: 900px;
+    min-height:400px;
+    overflow: auto;
+    padding: 6px 7px;
+}

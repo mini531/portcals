@@ -1,0 +1,44 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>항만기술기준 정보시스템</title>
+	<link rel="stylesheet" type="text/css" href="/css/kpcs/custom_style.css">
+    <script>
+        function fncGoAfterErrorPage() {
+            history.back(-2);
+        }
+    </script>
+</head>
+<body>
+
+<div>
+        <!-- 헤더 -->
+        <header>
+           	<div class="top_header">
+            	<div class="logo">
+					<a href="/main/index.do"><img src="/images/kpcs/w_logo.png" alt="logo"></a>
+				</div>
+			</div>
+        </header>
+
+        <!-- 에러알림  -->
+        <div class="error-box">
+			<div class="error-massage type-db">
+				<strong><span>죄송합니다.</span><br>서비스 이용에 불편을 드려 죄송합니다.</strong>
+				<p>
+				<br>관리자에게 문의해주시면 조속한 시간내에 조치하겠습니다.<br>
+				</p>
+			</div>
+
+              <div class="pass_re_box1">
+                  <a href="javascript:fncGoAfterErrorPage();" class="after_change_btn">이전 페이지</a>
+                  <a href="/" class="change_btn">홈으로 이동</a>
+              </div>
+         </div>
+</div>
+</body>
+</html>
