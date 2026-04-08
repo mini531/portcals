@@ -713,13 +713,13 @@ function calMunuWidth(){
         // 등록 버튼 클릭
         $('#btnInsert').on('click', function () {
           // 실제 등록 URL은 확정 후 교체하세요.
-          location.href = '/mng/std/selectStdInsertVw.do';
+          location.href = _basePath + '/mng/std/selectStdInsertVw.html';
         });
 
 
         function contsList(stdUntpcId) {
           // Local prototype: direct navigation
-          location.href = "/mng/std/selectMrpDtlVw.html?stdUntpcId=" + stdUntpcId;
+          location.href = _basePath + "/mng/std/selectMrpDtlVw.html?stdUntpcId=" + stdUntpcId;
         }
 
       </script>

@@ -732,7 +732,7 @@ function calMunuWidth(){
                                 success: function (response) {
                                     alert(response.resultMessage);
                                     if (response.resultCode === 'success') {
-                                        location.href = '/mng/std/selectStdListVw.do';
+                                        location.href = _basePath + '/mng/std/selectStdListVw.html';
                                     }
                                 }
                             });
@@ -741,7 +741,7 @@ function calMunuWidth(){
 
                     // 목록으로 이동
                     $('#btnList').on('click', function () {
-                        location.href = '/mng/std/selectStdListVw.do';
+                        location.href = _basePath + '/mng/std/selectStdListVw.html';
                     });
                 });
             </script>

@@ -873,7 +873,8 @@
         }
 
         function goToStandardPrice() {
-            window.location.href = '/cost/selectStdMrpOrgListVw.html';
+            var _bp = location.pathname.indexOf('/portcals/') === 0 ? '/portcals' : '';
+            window.location.href = _bp + '/cost/selectStdMrpOrgListVw.html';
         }
 
         window.addEventListener('resize', () => {

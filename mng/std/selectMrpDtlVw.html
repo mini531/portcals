@@ -790,7 +790,7 @@ function calMunuWidth(){
                             success: function (response) {
                                 alert(response.resultMessage || "저장되었습니다.");
                                 if (response.resultCode === 'success') {
-                                    location.href = '/mng/std/selectStdListVw.do';
+                                    location.href = _basePath + '/mng/std/selectStdListVw.html';
                                 }
                             }
                         });
@@ -799,7 +799,7 @@ function calMunuWidth(){
 
                 // 목록
                 $('#btnList').on('click', function () {
-                    location.href = '/mng/std/selectStdListVw.do';
+                    location.href = _basePath + '/mng/std/selectStdListVw.html';
                 });
             });
 
