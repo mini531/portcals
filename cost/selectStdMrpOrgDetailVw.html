@@ -1020,16 +1020,13 @@ function calMunuWidth(){
                                 <div class="tbl_st_th"><div class="tbl_st_content">분석 기준</div></div>
                                 <div class="tbl_st_td">
                                   <div class="tbl_st_content">
-                                    <select class="select_st7 w_180px mar_r8" id="statsBasis" title="분석 기준">
+                                    <select class="select_st7" id="statsBasis" title="분석 기준" style="width:160px;">
                                       <option value="half" selected>반기별</option>
                                       <option value="year">연도별</option>
                                     </select>
-                                  </div>
-                                </div>
-                                <div class="tbl_st_th"><div class="tbl_st_content">기준 시기</div></div>
-                                <div class="tbl_st_td">
-                                  <div class="tbl_st_content">
-                                    <select class="select_st7 w_180px" id="statsBaseTime" title="기준 시기">
+                                    &nbsp;&nbsp;
+                                    <span style="font-weight:600; color:#555; margin:0 10px;">기준 시기</span>
+                                    <select class="select_st7" id="statsBaseTime" title="기준 시기" style="width:160px;">
                                       <option value="2025H2" selected>2025년 하반기</option>
                                       <option value="2025H1">2025년 상반기</option>
                                       <option value="2024H2">2024년 하반기</option>
@@ -1049,24 +1046,21 @@ function calMunuWidth(){
                                 <div class="tbl_st_th"><div class="tbl_st_content">분야</div></div>
                                 <div class="tbl_st_td">
                                   <div class="tbl_st_content">
-                                    <select class="select_st7 w_180px mar_r8" id="statsRealm" title="분야">
+                                    <select class="select_st7" id="statsRealm" title="분야" style="width:160px;">
                                       <option value="" selected>전체</option>
                                       <option value="OA">OA 배송관</option>
                                       <option value="OB">OB 사석</option>
                                     </select>
-                                  </div>
-                                </div>
-                                <div class="tbl_st_th"><div class="tbl_st_content">공종</div></div>
-                                <div class="tbl_st_td">
-                                  <div class="tbl_st_content">
-                                    <select class="select_st7 w_180px" id="statsCwknd" title="공종">
+                                    &nbsp;&nbsp;
+                                    <span style="font-weight:600; color:#555; margin:0 10px;">공종</span>
+                                    <select class="select_st7" id="statsCwknd" title="공종" style="width:160px;">
                                       <option value="" selected>전체</option>
                                     </select>
                                   </div>
                                 </div>
                               </li>
                             </ul>
-                            <div class="m_search_btn_box">
+                            <div style="text-align:center; padding:10px 0;">
                               <input type="button" class="search_btn" value="검색" onclick="renderStatsChart()">
                             </div>
                           </div>
