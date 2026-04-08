@@ -744,8 +744,8 @@ function calMunuWidth(){
                                 <li id="tab_li_detailDoc">
                                     <a href="#detailDoc">원문</a>
                                 </li>
-                                <li id="tab_li_rvsList">
-                                    <a href="#rvsList">제·개정 연혁</a>
+                                <li id="tab_li_stats">
+                                    <a href="#statsTab">통계</a>
                                 </li>
                             </ul>
                         </div>
@@ -1022,8 +1022,11 @@ function calMunuWidth(){
                     </div>
                     <!-- //tab2 -->
 
-                    <!-- tab3 -->
-                    <div id="rvsList" class="tab_content3">
+                    <!-- tab3: 통계 -->
+                    <div id="statsTab" class="tab_content3" style="display:none;">
+                      <div style="padding:20px 0;">
+                        <p style="text-align:center; color:#999; font-size:15px; padding:60px 0;">통계 기능이 준비 중입니다.</p>
+                      </div>
                     </div>
                     <!-- //tab3 -->
 
@@ -1146,16 +1149,9 @@ function calMunuWidth(){
 
                                 break;
 
-                            case "#rvsList":
-                                commonUtils.ajax({
-                                    url: '/cost/selectRvsListVw.do',
-                                    data: $("#tabForm").serializeArray(),
-                                    dataType: "html",
-                                    maskTarget: $('#rvsList'),
-                                    success: function (response) {
-                                        $("#rvsList").html(response);
-                                    }
-                                });
+                            case "#statsTab":
+                                // 통계 탭 - 정적 표시
+                                break;
                                 break;
 
                         }
