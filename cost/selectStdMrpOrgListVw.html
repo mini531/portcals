@@ -167,7 +167,7 @@ $(document).ready(function() {
 					msg : `${maxInactiveInterval/60}분 동안 반응이 없어 자동으로 로그아웃되었습니다. <br>다시 로그인해 주세요.`,
 					theme : 'error'
 				}, ()=>{
-					location.replace("/uat/uia/LoginUsr.do");
+					/* location.replace("/uat/uia/LoginUsr.do"); */
 				});
 			}
 			$('#timeout').text(formatSeconds((expiredTime - lastAccessedTime)/1000))
@@ -205,14 +205,14 @@ function topTxtSearch(){
 // 로그인 화면으로 이동
 function loginView(){
 	var frm = document.loginFrm;
-	frm.action = "/uat/uia/LoginUsr.do";
+	/* /* frm.action = "/uat/uia/LoginUsr.do"; */ */
 	frm.submit();
 }
 
 // 회원가입 화면으로 이동
 function userJoinView(){
 	var frm = document.loginFrm;
-	frm.action = "/uat/uia/insertUserJoinVw.do";
+	/* /* frm.action = "/uat/uia/insertUserJoinVw.do"; */ */
 	frm.submit();
 }
 
@@ -246,7 +246,7 @@ function show_sitemap(show) {
 	<div class="layout_res">
 		<div class="nav_top">
 			<div class="logo">
-				<a href="/main/index.do">
+				<a href="javascript:void(0)">
 					<img src="../images/kpcs/w_logo.png" alt="logo">
 				</a>
 			</div>
@@ -270,10 +270,10 @@ function show_sitemap(show) {
 					<li class="s_m_color1">
                     	<a>admin님</a>
 						<a id="timeout"></a>
-                    	<a href="/uat/uia/actionLogout.do" title="로그아웃" class="logout">로그아웃</a>
+                    	<a href="javascript:void(0)" title="로그아웃" class="logout">로그아웃</a>
                     </li>
                     <li class="s_m_color2">
-                    	<a href="/uat/uia/updateUserJoinVw.do" title="내정보" >내정보</a>
+                    	<a href="javascript:void(0)" title="내정보" >내정보</a>
                     </li>
                 
 
@@ -353,10 +353,10 @@ function show_sitemap(show) {
 
 							<div class="top_menu top_menu_dis">
 						    	<div class="t_m_dst t_m_dst2 s_m_color1">
-						    		<a href="/uat/uia/actionLogout.do" >admin님</a>
-						    		<a href="/uat/uia/actionLogout.do" title="로그아웃" class="logout">로그아웃</a>
+						    		<a href="javascript:void(0)" >admin님</a>
+						    		<a href="javascript:void(0)" title="로그아웃" class="logout">로그아웃</a>
 						    	</div>
-						        <div class="t_m_dst s_m_color2"><a href="/uat/uia/updateUserJoinVw.do" title="내정보" >내정보</a></div>
+						        <div class="t_m_dst s_m_color2"><a href="javascript:void(0)" title="내정보" >내정보</a></div>
 						    </div>
 						
 
@@ -391,7 +391,7 @@ function show_sitemap(show) {
 </header>
 <!--// 네비게이션 -->
 
-<form name="loginFrm" method="post" action="/uat/uia/LoginUsr.do">
+<form name="loginFrm" method="post" action="javascript:void(0)">
 </form>
 
 <script>
@@ -783,7 +783,7 @@ function calMunuWidth(){
                             temp += "	<td>";
                             if(v.contsYn == 'Y'){
                               temp += "	<a href='javascript:;' onclick='kdsView(this);' docSn='"+v.docSn+"' docKey='" +v.docKey+"' contsYn='"+v.contsYn+"'>";
-                              temp += "     <img src='/images/kpcs/eye_icon.png' alt='view'></a>";
+                              temp += "     <img src='../images/kpcs/eye_icon.png' alt='view'></a>";
                             }
                             temp += "	</td>";
                             temp += "	<td>";
@@ -791,9 +791,9 @@ function calMunuWidth(){
                             if(formatUtils.objEmptyCheck(v.hwpFileSn) != ''){
                               temp += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.hwpAtchFileId+"' fileSn='" +v.hwpFileSn+"' docKey='" +v.docKey+"'> ";
                               if(v.docKey == '640000'){
-                                temp += "	<img src='/images/kpcs/zip_icon.png' alt='zip'> ";
+                                temp += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
                               }else{
-                                temp += "	<img src='/images/kpcs/hangul_icon.png' alt='hangul'> ";
+                                temp += "	<img src='../images/kpcs/hangul_icon.png' alt='hangul'> ";
                               }
                               temp += "	</a> &nbsp;";
                             }
@@ -801,9 +801,9 @@ function calMunuWidth(){
                             if(formatUtils.objEmptyCheck(v.pdfFileSn) != ''){
                               temp += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.pdfAtchFileId+"' fileSn='" +v.pdfFileSn+"' docKey='" +v.docKey+"'> ";
                               if(v.docKey == '640000'){
-                                temp += "	<img src='/images/kpcs/zip_icon.png' alt='zip'> ";
+                                temp += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
                               }else{
-                                temp += "	<img src='/images/kpcs/pdf_icon.png' alt='pdf'> ";
+                                temp += "	<img src='../images/kpcs/pdf_icon.png' alt='pdf'> ";
                               }
                               temp += "	</a>";
                             }
@@ -837,9 +837,9 @@ function calMunuWidth(){
                             if(formatUtils.objEmptyCheck(v.hwpFileSn) != ''){
                               temp2 += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.hwpAtchFileId+"' fileSn='" +v.hwpFileSn+"' docKey='" +v.docKey+"'> ";
                               if(v.docKey == '640000'){
-                                temp2 += "	<img src='/images/kpcs/zip_icon.png' alt='zip'> ";
+                                temp2 += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
                               }else{
-                                temp2 += "	<img src='/images/kpcs/hangul_icon.png' alt='hangul'> ";
+                                temp2 += "	<img src='../images/kpcs/hangul_icon.png' alt='hangul'> ";
                               }
                               temp2 += "	</a> &nbsp;";
                             }
@@ -847,9 +847,9 @@ function calMunuWidth(){
                             if(formatUtils.objEmptyCheck(v.pdfFileSn) != ''){
                               temp2 += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.pdfAtchFileId+"' fileSn='" +v.pdfFileSn+"' docKey='" +v.docKey+"'> ";
                               if(v.docKey == '640000'){
-                                temp2 += "	<img src='/images/kpcs/zip_icon.png' alt='zip'> ";
+                                temp2 += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
                               }else{
-                                temp2 += "	<img src='/images/kpcs/pdf_icon.png' alt='pdf'> ";
+                                temp2 += "	<img src='../images/kpcs/pdf_icon.png' alt='pdf'> ";
                               }
                               temp2 += "	</a>";
                             }
@@ -966,8 +966,8 @@ function calMunuWidth(){
                 </div>
 
                 <div class="foot_policy">
-                    <a href="/policy/privacy_policy.do" title="개인정보처리방침"><span style="color: #d75e6f; font-weight: 600;">개인정보처리방침</span></a>
-		            <a href="/policy/email.do" title="이메일 무단수집거부">이메일 무단수집거부</a>
+                    <a href="javascript:void(0)" title="개인정보처리방침"><span style="color: #d75e6f; font-weight: 600;">개인정보처리방침</span></a>
+		            <a href="javascript:void(0)" title="이메일 무단수집거부">이메일 무단수집거부</a>
 				</div>
         </div>
     </footer>

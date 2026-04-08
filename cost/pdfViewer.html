@@ -208,11 +208,11 @@
         let isSearching = false;
         let pageFirstLines = {};
 
-        pdfjsLib.GlobalWorkerOptions.workerSrc = '/plugin/pdfjs/pdf.worker.min.js';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = '../plugin/pdfjs/pdf.worker.min.js';
 
         async function loadPDF() {
             try {
-                const response = await fetch('/upload/std/2025상반기.pdf');
+                const response = await fetch('../upload/std/2025상반기.pdf');
                 if (!response.ok) throw new Error('PDF 파일을 찾을 수 없습니다.');
                 
                 const arrayBuffer = await response.arrayBuffer();
@@ -864,7 +864,7 @@
 
         function downloadPDF() {
             const link = document.createElement('a');
-            link.href = '/upload/std/2025상반기.pdf';
+            link.href = '../upload/std/2025상반기.pdf';
             link.download = '2025상반기.pdf';
             document.body.appendChild(link);
             link.click();
