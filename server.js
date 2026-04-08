@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
   
   // Default to index
   if (filePath === ROOT + path.sep || filePath === ROOT) {
-    filePath = path.join(ROOT, 'mng/doc/selectDocListVw.html');
+    filePath = path.join(ROOT, 'index.html');
   }
 
   const ext = path.extname(filePath).toLowerCase();

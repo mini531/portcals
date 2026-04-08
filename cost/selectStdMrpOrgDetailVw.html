@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+	<title>항만기술기준 정보시스템</title>
+	
+
+<meta name="naver-site-verification" content="d752485c9d108184d8ccd17f3529f4de2817cdc9">
+<meta name="google-site-verification" content="gi90a0gVt21prfy9a-qbo1wm1DICeuQIlhmmfPvGdCk">
+<meta name="description" content="항만기술기준 정보시스템은 항만시설, 어항시설, 연안보전시설 등의 설계기준 및 시공기준을 제공합니다.">
+<meta name="Keywords" content="항만기술기준, 항만기술기준 정보시스템, 항만시설, 어항시설, 연안보전시설">
+<meta name="robots" content="index,follow">
+
+
+<link rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/css/animate.min.css">
+
+<!-- jquery plugin-->
+<script src="/plugin/jquery/jquery-3.4.1.min.js"></script>
+<script src="/plugin/jquery-ui/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/jquery-ui/jquery-ui.css">
+<script src="/plugin/RobinHerbots-Inputmask/dist/inputmask.min.js"></script>
+<script src="/plugin/RobinHerbots-Inputmask/dist/jquery.inputmask.min.js"></script>
+<script src="/plugin/js-cookie-master/src/js.cookie.js"></script>
+<script src="/plugin/form2js-master/src/form2js.js"></script>
+<script src="/plugin/busy-load/dist/app.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/busy-load/dist/app.min.css">
+<link type="text/css" rel="stylesheet" href="/plugin/jquery/ext/jquery-bxslider/css/bxslider.css">
+<script src="/plugin/jquery/ext/jquery-bxslider/js/jquery.bxslider.min.js"></script>
+<script src="/plugin/jquery/ext/jquery.fileDownload-1.4.2.min.js"></script>
+<script src="/plugin/jquery/ext/jquery.blockUI-2.70.min.js"></script>
+
+<!-- bootstrap 4.4.1 -->
+<link type="text/css" rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/css/bootstrap.css">
+<script src="/plugin/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+<script src="/plugin/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+
+<!-- bootstrap 확장 -->
+<link type="text/css" rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker3.css">
+<link type="text/css" rel="stylesheet" href="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker3.standalone.css">
+<script src="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="/plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker.ko.min.js"></script>
+
+<!-- ax5-->
+<script src="/plugin/ax5ui/ax5core/ax5core.min.js"></script>
+<script src="/plugin/ax5ui/ax5ui-formatter/ax5formatter.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/ax5ui/ax5ui-uploader/ax5uploader.css">
+<script src="/plugin/ax5ui/ax5ui-uploader/ax5uploader.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/ax5ui/ax5ui-toast/ax5toast.css">
+<script src="/plugin/ax5ui/ax5ui-toast/ax5toast.min.js"></script>
+
+<!-- jqGrid -->
+<script src="/plugin/jqgrid/js/i18n/grid.locale-kr.js"></script>
+<script src="/plugin/jqgrid/js/jquery.jqgrid.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/jqgrid/css/ui.jqgrid.min.css">
+
+<!-- handleBars -->
+<script src="/plugin/handlebars/handlebars-v4.7.6.js"></script>
+
+<script src="/js/gp/jquery.easing.1.3.js"></script>
+<script src="/js/gp/jquery.flexisel.js"></script>
+
+<!-- 시스템 추가 -->
+<script>
+	var contextPath = "";
+</script>
+
+<script src="/js/egovframework/com/cmm/handlebarHelper.js"></script>
+<script src="/js/egovframework/com/cmm/commonUtils.js"></script>
+<script>
+var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl; };
+commonUtils.ajax = function(options) {};
+commonUtils.showMask = function() {};
+commonUtils.closeMask = function() {};
+commonUtils.alert = function(o,cb) { if(cb) cb.call({key:'ok'}); };
+commonUtils.pageSubmit = function(options) {
+  if (!options || !options.url) return;
+  var params = [];
+  if (options.data) { $.each(options.data, function(i,v) { params.push(encodeURIComponent(v.name)+'='+encodeURIComponent(v.value)); }); }
+  location.href = options.url + (params.length ? '?' + params.join('&') : '');
+};
+.ajaxError(function(e){e.stopPropagation();});
+</script>
+<script src="/js/egovframework/com/cmm/formatUtils.js?v=202411051822"></script>
+<script src="/js/egovframework/com/cmm/fileUtils.js"></script>
+<script src="/js/egovframework/com/cmm/jqueryExtension.js"></script>
+<script src="/js/gp/autocom.js"></script>
+<script src="/js/gp/cookieUtil.js"></script>
+<link type="text/css" rel="stylesheet" href="/plugin/fontawesome-5.13.0-web/css/all.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/kpcs/style.css?v=202410311333">
+<link rel="stylesheet" type="text/css" href="/css/kpcs/css_sub.css?v=202407251333">
+<link rel="stylesheet" type="text/css" href="/css/kpcs/tree.css?v=202407251333">
+<link rel="stylesheet" type="text/css" href="/css/gp/gp-style.css?v=202409031322">
+
+
+
+
+</head>
+<body>
+		
+
+
+
+
+
+
+
+
+
+
+
+<!-- menu data removed -->
+<!-- menu.js removed -->
+<script src="/js/gp/searchUtils.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+	//내가찾은 검색어 목록 생성
+	searchUtils.initAutoComplet(".list_bx", "#topSearchKey", "#divToggle");
+
+	//검색 영역에서 엔터입력시
+	$(document).on("keyup", '#topForm', function (e) {
+		if (e.keyCode == 13) {
+			topTxtSearch();
+		}
+	});
+
+	
+		/* 세션 */
+		let lastAccessedTime = 1775654002307;
+		let maxInactiveInterval = 7200;
+		let expiredTime = lastAccessedTime + (maxInactiveInterval * 1000)
+
+		$('#timeout').text(formatSeconds((expiredTime - lastAccessedTime)/1000))
+		let sessionInterval = setInterval(()=>{
+			lastAccessedTime += 1000
+
+			/*if(lastAccessedTime >= expiredTime - 30000) {
+				commonUtils.alert({
+					title : '세션 만료 안내',
+					msg : `10분 후 반응이 없을 경우 자동으로 로그아웃됩니다.`,
+					theme : 'warning'
+				}, ()=>{});
+			}else */
+			if(lastAccessedTime >= expiredTime){
+				clearInterval(sessionInterval)
+
+				commonUtils.alert({
+					title : '세션 만료 안내',
+					msg : `${maxInactiveInterval/60}분 동안 반응이 없어 자동으로 로그아웃되었습니다. <br>다시 로그인해 주세요.`,
+					theme : 'error'
+				}, ()=>{
+					location.replace("/uat/uia/LoginUsr.do");
+				});
+			}
+			$('#timeout').text(formatSeconds((expiredTime - lastAccessedTime)/1000))
+		}, 1000)
+
+		function formatSeconds(totalSeconds) {
+			//console.log(totalSeconds)
+			const hours = Math.floor(totalSeconds / 3600);
+			const minutes = Math.floor((totalSeconds % 3600) / 60);
+			const seconds = Math.floor(totalSeconds % 60);
+
+			return [
+				hours.toString().padStart(2, '0'),
+				minutes.toString().padStart(2, '0'),
+				seconds.toString().padStart(2, '0')
+			].join(':');
+		}
+	
+
+});
+
+function topTxtSearch(){
+
+	// 통합검색 화면으로 이동
+	var searchKwrd = $.trim($("#topSearchKey").val());
+	if( !searchUtils.keyWordCheck(searchKwrd, "#topSearchKey") ) {
+		return;
+	}
+	searchUtils.saveSearchHistory(searchKwrd); //검색어 저장
+	searchUtils.itgSearchVw(searchKwrd);
+
+}
+
+
+// 로그인 화면으로 이동
+function loginView(){
+	var frm = document.loginFrm;
+	frm.action = "/uat/uia/LoginUsr.do";
+	frm.submit();
+}
+
+// 회원가입 화면으로 이동
+function userJoinView(){
+	var frm = document.loginFrm;
+	frm.action = "/uat/uia/insertUserJoinVw.do";
+	frm.submit();
+}
+
+function show_sitemap(show) {
+	if (show == true) {
+		$(document.body).addClass("overflow-hidden");
+		$(".sitemap_modal").fadeIn();
+	} else {
+		$(document.body).removeClass("overflow-hidden");
+		$(".sitemap_modal").fadeOut();
+	}
+}
+
+</script>
+
+<!-- 네비게이션 -->
+<header class="header_st" id="top">
+	<!-- 스킵네비게이션 -->
+	<div class="accNav">
+		<p><a href="#wrap-web-ul">주메뉴 바로가기</a></p>
+		<p><a href="#contentWrap">본문 바로가기</a></p>
+	</div>
+	<!-- 스킵네비게이션 -->
+
+	<div class="egov_header_box">
+		<div class="egov_header">
+			<img src="/images/kpcs/eg_logo.png" alt="전자정부 누리집 입니다.">
+			<span>이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+		</div>
+	</div>
+	<div class="layout_res">
+		<div class="nav_top">
+			<div class="logo">
+				<a href="/main/index.do">
+					<img src="/images/kpcs/w_logo.png" alt="logo">
+				</a>
+			</div>
+
+			<!-- pc login area -->
+			<ul class="top_menu">
+				<!-- 로그인 전 -->
+				
+
+
+
+
+
+                <!-- 로그인 후 -->
+				
+
+
+
+
+
+					<li class="s_m_color1">
+                    	<a>admin님</a>
+						<a id="timeout"></a>
+                    	<a href="/uat/uia/actionLogout.do" title="로그아웃" class="logout">로그아웃</a>
+                    </li>
+                    <li class="s_m_color2">
+                    	<a href="/uat/uia/updateUserJoinVw.do" title="내정보" >내정보</a>
+                    </li>
+                
+
+
+                <li class="s_m_color3">
+                	<a href="javascript:void(0);" title="사이트맵" onclick="show_sitemap(true)">사이트맵</a>
+                </li>
+            </ul>
+			<!-- //pc login area -->
+
+			<!-- 2019.1.23 통합검색 추가 -->
+			<div class="top_search_box">
+				<div class="m_search_b">
+					<form id="topForm" name="topForm" method="post" onsubmit="return false;">
+						<input id="topSearchKey" name="searchKwrd" type="text" placeholder="검색어를 입력하세요" style="font-size:14px;" autocomplete="off" title="기술기준검색">
+					</form>
+				</div>
+				<div class="m_search_btn">
+					<label class="switch">
+						<input type="checkbox" id="tobutton">
+						<span class="auto_icon">
+						</span>
+					</label>
+					<a href="javascript:topTxtSearch()" class="search_icon_st"><img src="/images/kpcs/search_icon2.png" alt="검색버튼" style="padding-bottom:20px"></a>
+				</div>
+
+				<!-- 내가 찾은 검색어 box -->
+				<div class="autocomplete" id="divToggle" style="display: none;">
+					<div class="autocom_tit">내가 찾은 검색어</div>
+					<ul class="list_bx"></ul>
+				</div>
+				<!-- //내가 찾은 검색어 box -->
+
+				<script>
+				$(function (){
+				   $('#tobutton').click(function (){
+				   $('#divToggle').toggle();
+				  });
+				});
+				</script>
+			</div>
+			<!--// 2019.1.23통합검색 추가 -->
+		</div>
+	</div>
+
+	<!-- 네비게이션 사용자 -->
+	<div class="nav_wrapper">
+ 		<div class="layout_res">
+			<div class="spinner-master">
+				<input type="checkbox" id="spinner-form">
+				<label for="spinner-form" class="spinner-spin">
+					<div class="spinner diagonal part-1"></div>
+					<div class="spinner horizontal"></div>
+					<div class="spinner diagonal part-2"></div>
+				</label>
+			</div>
+
+			<nav id="menu" class="menu">
+				<ul class="dropdown" id="wrap-web-ul"><li class="left_line has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">기술기준</span></a><ul class="sub_mm sub-menu" style="border-left: 1px solid rgb(220, 220, 220); display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000123" onclick="javascript:gotoMenuLink('MENU0000000000000123','/kc/kcGuid.do')">기술기준 안내</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000125" onclick="javascript:gotoMenuLink('MENU0000000000000125','/kc/selectKcListVw.do?docGubun=KDS')">설계기준</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000126" onclick="javascript:gotoMenuLink('MENU0000000000000126','/kc/selectKcListVw.do?docGubun=KCS')">시방서(표준/전문)</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000036" onclick="javascript:gotoMenuLink('MENU0000000000000036','/infrm/ek/selectEtcKpcsListVw.do')">기타 기술기준</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001001" onclick="javascript:gotoMenuLink('MENU0000000000001001','/reprt/selectReprtListVw.do')">지침/매뉴얼 등</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">공사비 정보</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000147" onclick="javascript:gotoMenuLink('MENU0000000000000147','/kc/selectDbkListVw.do')">설계실무요령</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001018" onclick="javascript:gotoMenuLink('MENU0000000000001018','/cost/selectStdMrpOrgListVw.do')">표준시장단가 원문</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">열린마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000065" onclick="javascript:gotoMenuLink('MENU0000000000000065','/board/qna/selectQnaListVw.do')">질의응답</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000116" onclick="javascript:gotoMenuLink('MENU0000000000000116','/board/inv/selectInvListVw.do')">수요조사</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000060" onclick="javascript:gotoMenuLink('MENU0000000000000060','/board/open/selectOpenListVw.do')">열린토론</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000115" onclick="javascript:gotoMenuLink('MENU0000000000000115','/board/debate/selectDebateListVw.do')">실시간토론</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001012" onclick="javascript:gotoMenuLink('MENU0000000000001012','/board/minwon/selectMinwonVw.do')">온라인민원</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">해양기술마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000120" onclick="javascript:gotoMenuLink('MENU0000000000000120','/info/tech/selectTechListVw.do')">신기술홍보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000141" onclick="javascript:gotoMenuLink('MENU0000000000000141','/info/octech/selectOctechListVw.do')">열린해양기술마당</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001002" onclick="javascript:gotoMenuLink('MENU0000000000001002','/cmit/selectCmitListVw.do')">기술자문(신기술활용심의)위원등록</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">정보마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000118" onclick="javascript:gotoMenuLink('MENU0000000000000118','/info/law/infoLaw.do')">법령정보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000119" onclick="javascript:gotoMenuLink('MENU0000000000000119','/info/share/selectShareListVw.do')">최신정보공유</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001007" onclick="javascript:gotoMenuLink('MENU0000000000001007','/info/gpr/selectGprListVw.do')">Global Port Report</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">알림마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000028" onclick="javascript:gotoMenuLink('MENU0000000000000028','/infrm/notice/selectNoticeListVw.do')">공지사항</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000087" onclick="javascript:gotoMenuLink('MENU0000000000000087','/infrm/rn/selectRecentNotiListVw.do')">최근고시현황</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000091" onclick="javascript:gotoMenuLink('MENU0000000000000091','/infrm/bbc/selectBbcListVw.do')">해수부 보도자료</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu large_menu_active">관리</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000009" onclick="javascript:gotoMenuLink('MENU0000000000000009','/sym/usr/selectUserInfoListVw.do')">사용자관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000129" onclick="javascript:gotoMenuLink('MENU0000000000000129','/mng/doc/selectDocListVw.do')">기술기준관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000131" onclick="javascript:gotoMenuLink('MENU0000000000000131','/mng/stats/selectConnectStatsListVw.do')">접속정보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000130" onclick="javascript:gotoMenuLink('MENU0000000000000130','/mng/send/selectSendListVw.do')">알림관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000006" onclick="javascript:gotoMenuLink('MENU0000000000000006','/sym/cde/selectCmmnDetailCodeListVw.do')">시스템관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000022" onclick="javascript:gotoMenuLink('MENU0000000000000022','/cop/bbsMastr/selectBbsMastrListVw.do')">게시판관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001003" onclick="javascript:gotoMenuLink('MENU0000000000001003','/sym/cmitMng/selectCmitMngListVw.do')">기술자문위원관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001009" onclick="javascript:gotoMenuLink('MENU0000000000001009','/mng/nsl/selectNslMngListVw.do')">소식지 관리</a></li></ul></li>
+						<!-- 메뉴 들어갈 곳 -->
+					<!-- 모바일 로그인-->
+					<li class="mobile_login">
+						<!-- 로그인 전 -->
+						
+
+
+
+
+
+
+						<!-- 로그인 후 -->
+						
+
+
+
+
+
+							<div class="top_menu top_menu_dis">
+						    	<div class="t_m_dst t_m_dst2 s_m_color1">
+						    		<a href="/uat/uia/actionLogout.do" >admin님</a>
+						    		<a href="/uat/uia/actionLogout.do" title="로그아웃" class="logout">로그아웃</a>
+						    	</div>
+						        <div class="t_m_dst s_m_color2"><a href="/uat/uia/updateUserJoinVw.do" title="내정보" >내정보</a></div>
+						    </div>
+						
+
+
+					</li>
+					<!-- //모바일 로그인 -->
+				</ul>
+			</nav>
+		</div>
+		<div class="sub_menu_mc"></div>
+		<div class=""></div>
+	</div>
+	<div class="sitemap_modal">
+		<div class="sitemap_header">
+			<div class="sitemap_title">
+				<h3>사이트맵</h3>
+				<a href="javascript:void(0);" class="sitemap_close" onclick="show_sitemap(false)">팝업 닫기</a>
+			</div>
+		</div>
+		<div class="sitemap_body">
+			<ul class="sitemap_list">
+				<li>
+					<a href="javascript:;"><span>정보공개</span></a>
+					<div class="sitemap_subList">
+						<ul>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+<!--// 네비게이션 -->
+
+<form name="loginFrm" method="post" action="/uat/uia/LoginUsr.do">
+</form>
+
+<script>
+
+var bodyWidth;
+bodyWidth = $("body").width();
+
+$(window).resize(function () {
+	bodyWidth = $("body").width()+17;
+	calMunuWidth(); // 메뉴 개수에 따른 스타일 변경
+});
+
+$(document).ready(function () {
+
+	$(".sub_mm").hide();
+
+	$(".nav_wrapper").hover(
+        function() {
+          if(bodyWidth > 999) $(".sub_mm").show();
+          if(bodyWidth > 999) $(".sub_menu_mc").show();
+        }, function() {
+        $(".sub_mm").hide();
+        $(".sub_menu_mc").hide();
+        }
+      );
+
+      $(".nav_wrapper").hover(
+        function() {
+          if(bodyWidth <= 999) $(".sub_mm").show();
+        }, function() {
+        $(".sub_mm").hide();
+        }
+      );
+
+      /* scrip.js 가져옴 - */
+      $('ul li:has(ul)').addClass('has-submenu');
+      $('ul li ul').addClass('sub-menu');
+      $('ul.dropdown li').hover(function () {
+          $(this).addClass('hover');
+      }, function () {
+          $(this).removeClass('hover');
+      });
+      var $menu = $('#menu'), $menulink = $('#spinner-form'), $search = $('#search'), $search_box = $('.search_box'), $menuTrigger = $('.has-submenu > a');
+      $menulink.click(function (e) {
+          $menulink.toggleClass('active');
+          $menu.toggleClass('active');
+          if ($search.hasClass('active')) {
+              $('.menu.active').css('padding-top', '50px');
+          }
+
+          if ($menu.hasClass('active')) {
+        	  $menu.show();
+          } else {
+        	  $menu.css("display", "");
+          }
+      });
+
+      $search.click(function (e) {
+          e.preventDefault();
+          $search_box.toggleClass('active');
+      });
+      $menuTrigger.click(function (e) {
+          e.preventDefault();
+          var t = $(this);
+          t.toggleClass('active').next('ul').toggleClass('active');
+      });
+      $('ul li:has(ul)');
+      $(function () {
+          var e = $(document).scrollTop();
+          var t = $('.nav_wrapper').outerHeight();
+          $(window).scroll(function () {
+              var n = $(document).scrollTop();
+              if ($(document).scrollTop() >= 50) {
+                  //$('.nav_wrapper').css('position', 'relative');
+              } else {
+                  //$('.nav_wrapper').css('position', 'relative');
+              }
+              if (n > t) {
+                  $('.nav_wrapper').addClass('scroll');
+              } else {
+                  $('.nav_wrapper').removeClass('scroll');
+              }
+              if (n > e) {
+                  //$('.nav_wrapper').removeClass('no-scroll');
+              } else {
+                 // $('.nav_wrapper').addClass('no-scroll');
+              }
+              e = $(document).scrollTop();
+          });
+      });
+
+    calMunuWidth(); // 메뉴 개수에 따른 스타일 변경
+
+});
+
+function calMunuWidth(){
+	var menuDepth1Cnt = $('#menu > ul > .has-submenu').length;
+	var width;
+
+	if(bodyWidth > 999){
+		width = 100 / menuDepth1Cnt;
+		$('.menu ul ul').css('height', '190px');
+
+		
+
+
+
+
+
+
+
+
+
+
+			$('.menu ul ul').css('height', '265px');
+			$(".sub_menu_mc").css('height', '275px');
+		
+
+	}else{
+		width = 100;
+		$('.menu ul ul').css('height', '');
+	}
+
+	$('#menu > ul > .has-submenu').css('width', width + '%');
+	$('.menu ul ul').css('width', width + '%');
+}
+
+</script>
+
+		<!-- 위치 네비게이션 -->
+	    <section class="top_banner_bg">
+	    	<h3 class="hidden">헤더 섹션</h3>
+	        <div class="layout_res">
+	        <!--위치 네비게이션 -->
+	                       <div class="top_small_nav navi_st">
+	                       		<!-- 화면경로 -->
+	                            <ul id="wrap-small-nav-ul"></ul>
+	       					</div>
+	        <!--위치 네비게이션 끝-->
+
+	        </div>
+	    </section>
+	    <!--// 위치 네비게이션 -->
+
+		<section class="criteria_m">
+			<h2 class="hidden">본문</h2>
+			<div class="layout_res" id="contentWrap">
+					<div class="criteria_list_tit" id="sub_top_tit"></div> <!-- 내용 제목 -->
+					
+    
+        
+
+
+
+
+
+
+
+
+
+            <style>
+                /* 모바일에서 탭 유지 */
+                .tab-button-outer {
+                    display: block !important;
+                }
+
+                /* 검색창 디자인 개선 (이미지 대응) */
+                .search_box_custom {
+                    border: 2px solid #52b49b;
+                    border-radius: 20px;
+                    padding: 20px;
+                    background-color: #fff;
+                }
+
+                .search_row_custom {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                }
+
+                .search_label {
+                    width: 80px;
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+
+                .search_fields {
+                    flex: 1;
+                }
+
+                .search_fields select,
+                .search_fields input[type="text"] {
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding: 8px;
+                    margin-bottom: 10px;
+                    box-sizing: border-box;
+                }
+
+                .btn_search_custom {
+                    width: 40%;
+                    margin: 0 auto;
+                    display: block;
+                    background-color: #52847a;
+                    color: #fff;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 10px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+
+                /* 엑셀 다운로드 버튼 스타일 (이미지 대응) */
+                .btn_excel_custom {
+                    width: 100%;
+                    background-color: #98b6b1;
+                    color: #fff;
+                    border: none;
+                    border-radius: 20px;
+                    padding: 12px;
+                    font-size: 16px;
+                    margin-top: 10px;
+                    cursor: pointer;
+                }
+
+                /* 모바일 카드 리스트 스타일 */
+                .mobile_card_list {
+                    display: none;
+                }
+
+                .mobile_card {
+                    background-color: #efefef;
+                    padding: 15px;
+                    margin-top: 15px;
+                    font-size: 14px;
+                    line-height: 1.6;
+                }
+
+                .card_title {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+
+                .card_row {
+                    display: block;
+                }
+
+                .card_label {
+                    font-weight: bold;
+                    display: inline-block;
+                    min-width: 80px;
+                }
+
+                @media all and (max-width: 640px) {
+                    .dis_web {
+                        display: none !important;
+                    }
+
+                    .mobile_card_list {
+                        display: block;
+                    }
+
+                    .search_label {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+
+                    /* 제목 스타일 조정 */
+                    .h1_tit {
+                        font-size: 28px;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .h1_tit img {
+                        margin-right: 10px;
+                        height: 32px;
+                    }
+
+                    .h2_tit {
+                        font-size: 26px;
+                        font-weight: bold;
+                        margin: 20px 0 10px 0;
+                    }
+                }
+
+                /* 목록가기 버튼 스타일 */
+                .btn_go_list_wrap {
+                    text-align: center;
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                }
+
+                .btn_go_list {
+                    display: inline-block;
+                    background-color: #98b6b1;
+                    color: #fff !important;
+                    font-size: 18px;
+                    font-weight: 600;
+                    padding: 12px 40px;
+                    border-radius: 30px;
+                    text-decoration: none;
+                    transition: background-color 0.3s;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .btn_go_list:hover {
+                    background-color: #7e9994;
+                }
+            </style>
+
+            <script>
+                function goOrgList() {
+                    commonUtils.pageSubmit({
+                        url: "/cost/selectStdMrpOrgListVw.do"
+                    });
+                }
+            </script>
+
+            <form id="tabForm" onsubmit="return false;">
+                <!-- 검색조건 유지를 위한 필드 -->
+                <input type="hidden" name="stdUntpcId" id="stdUntpcId" value=" 1">
+                <input type="hidden" name="searchParams" id="searchParams" value=" ">
+
+            </form>
+
+            
+                <h1>
+                    2026
+                    
+                         상반기
+                        
+                    
+                </h1>
+                <!-- 탭묶음 -->
+                <div class="tab_center_view2">
+
+                    <!-- 탭 시작 -->
+                    <div class="tab_box">
+                        <div class="tab-button-outer" id="s_banner_wrap">
+                            <ul id="tab-button" class="tabsp">
+                                <li class="active" id="tab_li_contentList">
+                                    <a href="#contentList">요약본</a>
+                                </li>
+                                <li id="tab_li_detailDoc">
+                                    <a href="#detailDoc">원문</a>
+                                </li>
+                                <li id="tab_li_rvsList">
+                                    <a href="#rvsList">제·개정 연혁</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //탭 시작 -->
+
+                    <!-- Tab_container -->
+                    <div class="tab_container2">
+                        <!-- tab1 -->
+                        <div id="contentList" class="tab_content3">
+                            <div class="search_box" style="margin-top:8px;">
+                                <div class="search_row">
+                                    <div class="search_tbl_mc">
+                                        <ul class="tbl_st_search_dtl">
+                                            <li class="depth1">
+                                                <div class="tbl_st_th">
+                                                    <div class="tbl_st_content">검색어</div>
+                                                </div>
+                                                <div class="tbl_st_td">
+                                                    <div class="tbl_st_content">
+                                                        <select class="select_st7 w20p mar_r8" title="분야 선택"
+                                                            id="searchTypeDetail">
+                                                            <option value="realm" >분야
+                                                            </option>
+                                                            <option value="cwkndCode" 
+                                                                >공종코드</option>
+                                                            <option value="cwkndNm" 
+                                                                >공종명칭
+                                                            </option>
+                                                        </select>
+                                                        <input class="input_st1 w50p mar_r8" type="text" title="검색어"
+                                                            placeholder="예시) OA02, 배수관" id="searchTextDetail"
+                                                            value=" ">
+                                                        <input type="button" value="검색" class="r_search_btn"
+                                                            id="btnContentSearch">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="m_search_btn_box">
+                                            <input type="button" class="search_btn" value="검색">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div style="text-align: right; margin-top: 10px;"><button type="button" class="view_btn_st"
+                                    id="btnExcelDown">엑셀파일 다운로드</button></div>
+
+                            <div class="board_list mar_t10 dis_web">
+                                <table class="w100p">
+                                    <colgroup>
+                                        <col style="width:8%">
+                                        <col style="width:12%">
+                                        <col style="width:18%">
+                                        <col style="width:auto">
+                                        <col style="width:6%">
+                                        <col style="width:10%">
+                                        <col style="width:8%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">분야</th>
+                                            <th scope="col">공종코드</th>
+                                            <th scope="col">공종명칭</th>
+                                            <th scope="col">규격</th>
+                                            <th scope="col">단위</th>
+                                            <th scope="col">단가(원)</th>
+                                            <th scope="col">노무비율(%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <tr class="clickable-row" style="cursor:pointer;"
+                                                data-untpc-dfn=" ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                            data-realm="
+                                            OA02* 배송관 부설"
+                                            data-cwknd-nm="
+                                            배송관부설및철거(육상관)">
+                                            <td>
+                                                OA02* 배송관 부설
+                                            </td>
+                                            <td>
+                                                OA020.62000
+                                            </td>
+                                            <td class="txt_l">
+                                                배송관부설및철거(육상관)
+                                            </td>
+                                            <td class="txt_l">
+                                                D760㎜×6m(플랜지접합)(크레인(트럭)15톤)
+                                            </td>
+                                            <td>
+                                                SET
+                                            </td>
+                                            <td class="txt_r">
+                                                119,571
+                                            </td>
+                                            <td>
+                                                73
+                                            </td>
+                                            </tr>
+                                        
+                                            <tr class="clickable-row" style="cursor:pointer;"
+                                                data-untpc-dfn=" ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                            data-realm="
+                                            OA02* 배송관 부설"
+                                            data-cwknd-nm="
+                                            배송관부설및철거(해상관)">
+                                            <td>
+                                                OA02* 배송관 부설
+                                            </td>
+                                            <td>
+                                                OA020.42000
+                                            </td>
+                                            <td class="txt_l">
+                                                배송관부설및철거(해상관)
+                                            </td>
+                                            <td class="txt_l">
+                                                D760㎜×6m(고무슬리브접합)(크레인(트럭)15톤)
+                                            </td>
+                                            <td>
+                                                SET
+                                            </td>
+                                            <td class="txt_r">
+                                                175,360
+                                            </td>
+                                            <td>
+                                                74
+                                            </td>
+                                            </tr>
+                                        
+                                            <tr class="clickable-row" style="cursor:pointer;"
+                                                data-untpc-dfn=" ① 이 단가는 사석을 선별하는데 필요한 장비 및 인력의 비용이다. ② 각종 규격은 규격석(0.015~0.03㎥급),
+준규격석(0.001~0.03㎥급) 및 비규격석(0.03㎥급이하)을 의미한다. 단, 피복석은 제외한다."
+                                            data-realm="
+                                            OB*** 사석 선별"
+                                            data-cwknd-nm="
+                                            사석선별">
+                                            <td>
+                                                OB*** 사석 선별
+                                            </td>
+                                            <td>
+                                                OB003.11000
+                                            </td>
+                                            <td class="txt_l">
+                                                사석선별
+                                            </td>
+                                            <td class="txt_l">
+                                                각종(굴삭기(무한궤도 1.0㎥))
+                                            </td>
+                                            <td>
+                                                ㎥
+                                            </td>
+                                            <td class="txt_r">
+                                                111
+                                            </td>
+                                            <td>
+                                                46
+                                            </td>
+                                            </tr>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- 모바일 버전 카드 리스트 -->
+                            <div class="mobile_card_list">
+                                
+                                    <div class="mobile_card clickable-row" data-untpc-dfn="
+                                        ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                    data-realm="
+                                    OA02* 배송관 부설"
+                                    data-cwknd-nm="
+                                    배송관부설및철거(육상관)">
+                                    <div class="card_title">[
+                                        OA02* 배송관 부설*
+                                        배송관부설및철거(육상관)]
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종코드:</span>
+                                        OA020.62000
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종명칭:</span>
+                                        배송관부설및철거(육상관)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">규격:</span>
+                                        D760㎜×6m(플랜지접합)(크레인(트럭)15톤)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단위:</span>
+                                        SET
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단가 (원):</span>
+                                        119,571
+                                    </div>
+                                    <div class="card_row"><span class="card_label">노무비율 (%):</span>
+                                        73
+                                    </div>
+                            </div>
+                            
+                                    <div class="mobile_card clickable-row" data-untpc-dfn="
+                                        ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                    data-realm="
+                                    OA02* 배송관 부설"
+                                    data-cwknd-nm="
+                                    배송관부설및철거(해상관)">
+                                    <div class="card_title">[
+                                        OA02* 배송관 부설*
+                                        배송관부설및철거(해상관)]
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종코드:</span>
+                                        OA020.42000
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종명칭:</span>
+                                        배송관부설및철거(해상관)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">규격:</span>
+                                        D760㎜×6m(고무슬리브접합)(크레인(트럭)15톤)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단위:</span>
+                                        SET
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단가 (원):</span>
+                                        175,360
+                                    </div>
+                                    <div class="card_row"><span class="card_label">노무비율 (%):</span>
+                                        74
+                                    </div>
+                            </div>
+                            
+                                    <div class="mobile_card clickable-row" data-untpc-dfn="
+                                        ① 이 단가는 사석을 선별하는데 필요한 장비 및 인력의 비용이다. ② 각종 규격은 규격석(0.015~0.03㎥급),
+준규격석(0.001~0.03㎥급) 및 비규격석(0.03㎥급이하)을 의미한다. 단, 피복석은 제외한다."
+                                    data-realm="
+                                    OB*** 사석 선별"
+                                    data-cwknd-nm="
+                                    사석선별">
+                                    <div class="card_title">[
+                                        OB*** 사석 선별*
+                                        사석선별]
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종코드:</span>
+                                        OB003.11000
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종명칭:</span>
+                                        사석선별
+                                    </div>
+                                    <div class="card_row"><span class="card_label">규격:</span>
+                                        각종(굴삭기(무한궤도 1.0㎥))
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단위:</span>
+                                        ㎥
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단가 (원):</span>
+                                        111
+                                    </div>
+                                    <div class="card_row"><span class="card_label">노무비율 (%):</span>
+                                        46
+                                    </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    <!-- //tab1 -->
+
+                    <!-- tab2 -->
+                    <div id="detailDoc" class="tab_content3">
+
+                    </div>
+                    <!-- //tab2 -->
+
+                    <!-- tab3 -->
+                    <div id="rvsList" class="tab_content3">
+                    </div>
+                    <!-- //tab3 -->
+
+                </div>
+                <!-- //Tab_container -->
+                </div>
+                <!-- //탭묶음 -->
+
+                <div class="btn_go_list_wrap">
+                    <a href="javascript:goOrgList();" class="btn_go_list">표준시장단가 목록가기</a>
+                </div>
+
+                <script>
+
+
+                    var viewtab = null;
+
+                    $(document).ready(function () {
+
+                        // 탭 관련
+                        viewtab = commonUtils.addTabCtrl({
+                            sliderTarget: $('#tab-button')
+                            , selectTarget: $('#tab-select')
+                            , contentClass: $('.tab_content3')
+                        });
+
+                        $('#tab-button').find('a').on('click', function (e) {
+                            var tabId = $(this).attr('href');
+                            clickTab(tabId);
+                        })
+
+                        // 요약본 검색 버튼 클릭
+                        $('#btnContentSearch').on('click', function () {
+                            goSearchDetail();
+                        });
+
+                        // 엔터키 검색
+                        $('#searchTextDetail').on('keypress', function (e) {
+                            if (e.which == 13) {
+                                goSearchDetail();
+                            }
+                        });
+
+                        // 행 클릭 시 단가 정의 팝업
+                        $('.clickable-row').on('click', function () {
+                            var dfn = $(this).data('untpcDfn');
+                            var realm = $(this).data('realm');
+                            var cwkndNm = $(this).data('cwkndNm');
+
+                            if (!dfn) {
+                                commonUtils.alert({ title: '알림', msg: '등록된 단가 정의 내용이 없습니다.', theme: 'info' });
+                                return;
+                            }
+
+                            // 엔터(\n)를 <br>로 변환 및 번호 매기기 등 포맷팅 (DB 데이터 형식에 따라 조정 필요)
+                            var formattedDfn = dfn.replace(/\n/g, '<br>');
+
+                            var html = '';
+                            html += '<div style="padding: 10px; line-height: 1.6;">';
+                            html += '  <div style="margin-bottom: 15px; font-size: 16px;">';
+                            html += '    <span style="font-weight: bold;">분야: </span>';
+                            html += '    <span style="color: #0076c0; font-weight: bold;">' + realm + ' ' + cwkndNm + '</span>';
+                            html += '  </div>';
+                            html += '  <div style="font-size: 14px; color: #333;">' + formattedDfn + '</div>';
+                            html += '</div>';
+
+                            commonUtils.modal({
+                                modalId: "untpcDfnModal",
+                                title: "단가 정의",
+                                maxWidth: 500,
+                                scrollable: true,
+                                html: html
+                            }, function () {
+                                // 팝업 오픈 콜백 (필요시 하단 버튼 추가 등)
+                                var footerHtml = '<button type="button" class="btn_st1" data-dismiss="modal" style="background-color: #9cd16a; border: none; color: white; padding: 10px 30px; border-radius: 4px; cursor: pointer;">닫기</button>';
+                                this.modalFooter.html(footerHtml);
+                            });
+                        });
+
+                    });
+
+                    function goSearchDetail() {
+                        var params = [];
+                        params.push({ name: "stdUntpcId", value: $("#stdUntpcId").val() });
+                        params.push({ name: "searchParams", value: $("#searchParams").val() });
+                        params.push({ name: "searchTypeDetail", value: $("#searchTypeDetail").val() });
+                        params.push({ name: "searchTextDetail", value: $("#searchTextDetail").val() });
+
+                        commonUtils.pageSubmit({
+                            url: "/cost/selectStdMrpOrgDetailVw.do",
+                            data: params
+                        });
+                    }
+
+                    $('#btnExcelDown').on('click', function () {
+                        var params = [];
+                        params.push({ name: "stdUntpcId", value: $("#stdUntpcId").val() });
+                        params.push({ name: "searchTypeDetail", value: $("#searchTypeDetail").val() });
+                        params.push({ name: "searchTextDetail", value: $("#searchTextDetail").val() });
+
+                        commonUtils.pageSubmit({
+                            url: "/cost/selectStdMrpOrgDetailExcelDown.do",
+                            data: params
+                        });
+                    });
+
+                    function clickTab(target) {
+
+                        switch (target) {
+                            case "#detailDoc":
+                                // 원문 탭: iframe으로 PDF 뷰어 호출
+                                var pdfSrc = "/html/pdfviewer.html";
+                                
+                                    pdfSrc += "?atchFileId=FILE_000000000163760&fileSn=2";
+                                
+                                $('#detailDoc').html('<iframe src="' + pdfSrc + '" style="width:100%; height:800px; border:none;"></iframe>');
+                                break;
+
+                            case "#contentList":
+
+                                break;
+
+                            case "#rvsList":
+                                commonUtils.ajax({
+                                    url: '/cost/selectRvsListVw.do',
+                                    data: $("#tabForm").serializeArray(),
+                                    dataType: "html",
+                                    maskTarget: $('#rvsList'),
+                                    success: function (response) {
+                                        $("#rvsList").html(response);
+                                    }
+                                });
+                                break;
+
+                        }
+                    }
+
+                </script>
+			</div>
+		</section>
+	    
+
+
+
+
+
+
+
+
+
+
+<!-- footer -->
+    <footer class="footer_bg">
+        <div class="layout_res">
+                <div class="foot_logo"><a href="#top"><img src="/images/kpcs/footer/foot_logo.png" width="242" height="47" alt="logo"></a>
+                </div>
+
+                <div class="foot_t_m">
+                    <div class="foot_addres">서울특별시 영등포구 양산로 53(양평동3가) 월드메르디앙 비즈센터 7층<br>대표전화 : 02)2165-0103~0106, 팩스번호 : 02)2165-0109<br>기술자문 위원등록 : 02)2165-0106</div>
+                    <div class="foot_copyright">Copyright 2019 Korea Ports & Harbours Association. All right reserved.</div>
+                </div>
+
+                <div class="foot_policy">
+                    <a href="/policy/privacy_policy.do" title="개인정보처리방침"><span style="color: #d75e6f; font-weight: 600;">개인정보처리방침</span></a>
+		            <a href="/policy/email.do" title="이메일 무단수집거부">이메일 무단수집거부</a>
+				</div>
+        </div>
+    </footer>
+	<!-- //footer -->
+</body>
+</html>
