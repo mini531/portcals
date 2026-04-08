@@ -81,7 +81,8 @@
 <script src="/js/egovframework/com/cmm/handlebarHelper.js"></script>
 <script src="/js/egovframework/com/cmm/commonUtils.js"></script>
 <script>
-var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl.replace(".do", ".html"); };
+var _basePath = location.pathname.indexOf('/portcals/') === 0 ? '/portcals' : '';
+var gotoMenuLink = function(menuNo, menuUrl) { location.href = _basePath + menuUrl.replace(".do", ".html"); };
 commonUtils.ajax = function(options) {};
 commonUtils.showMask = function() {};
 commonUtils.closeMask = function() {};
@@ -90,9 +91,9 @@ commonUtils.pageSubmit = function(options) {
   if (!options || !options.url) return;
   var params = [];
   if (options.data) { $.each(options.data, function(i,v) { params.push(encodeURIComponent(v.name)+'='+encodeURIComponent(v.value)); }); }
-  location.href = options.url.replace(".do", ".html")/, ".html$1") + (params.length ? '?' + params.join('&') : '');
+  location.href = _basePath + options.url.replace(".do", ".html") + (params.length ? '?' + params.join('&') : '');
 };
-.ajaxError(function(e){e.stopPropagation();});
+$(document).ajaxError(function(e){ e.stopPropagation(); });
 </script>
 <script src="/js/egovframework/com/cmm/formatUtils.js?v=202411051822"></script>
 <script src="/js/egovframework/com/cmm/fileUtils.js"></script>
@@ -554,10 +555,6 @@ function calMunuWidth(){
 			<h2 class="hidden">본문</h2>
 			<div class="layout_res" id="contentWrap">
 					<div class="criteria_list_tit" id="sub_top_tit">표준시장단가 조회<span class="help_txt">표준시장단가를 검색할 수 있습니다.</span></div>
-
-
-
-
 
             <style>
                 /* 모바일에서 탭 유지 */
@@ -1032,14 +1029,14 @@ function calMunuWidth(){
                               <tr>
                                 <td style="padding:12px 15px; font-size:16px; color:#555;">분석 기준</td>
                                 <td style="padding:12px 10px;">
-                                  <select class="select_st7" id="statsBasis" title="분석 기준" style="width:100%; padding:8px; font-size:15px;" onchange="onBasisChange()">
+                                  <select class="select_st7" id="statsBasis" title="분석 기준" style="width:100%; height:40px; padding:4px 10px; font-size:14px; line-height:1.4;" onchange="onBasisChange()">
                                     <option value="half" selected>반기별</option>
                                     <option value="year">연도별</option>
                                   </select>
                                 </td>
                                 <td style="padding:12px 15px; font-size:16px; color:#555;">기준 시기</td>
                                 <td style="padding:12px 10px;">
-                                  <select class="select_st7" id="statsBaseTime" title="기준 시기" style="width:100%; padding:8px; font-size:15px;">
+                                  <select class="select_st7" id="statsBaseTime" title="기준 시기" style="width:100%; height:40px; padding:4px 10px; font-size:14px; line-height:1.4;">
                                     <option value="2025H2" selected>2025년 하반기</option>
                                     <option value="2025H1">2025년 상반기</option>
                                     <option value="2024H2">2024년 하반기</option>
@@ -1057,7 +1054,7 @@ function calMunuWidth(){
                               <tr id="statsSearchRow2">
                                 <td style="padding:12px 15px; font-size:16px; color:#555;">분야</td>
                                 <td style="padding:12px 10px;">
-                                  <select class="select_st7" id="statsRealm" title="분야" style="width:100%; padding:8px; font-size:15px;">
+                                  <select class="select_st7" id="statsRealm" title="분야" style="width:100%; height:40px; padding:4px 10px; font-size:14px; line-height:1.4;">
                                     <option value="" selected>전체</option>
                                     <option value="OA">OA 배송관</option>
                                     <option value="OB">OB 사석</option>
@@ -1065,7 +1062,7 @@ function calMunuWidth(){
                                 </td>
                                 <td style="padding:12px 15px; font-size:16px; color:#555;">공종</td>
                                 <td style="padding:12px 10px;">
-                                  <select class="select_st7" id="statsCwknd" title="공종" style="width:100%; padding:8px; font-size:15px;">
+                                  <select class="select_st7" id="statsCwknd" title="공종" style="width:100%; height:40px; padding:4px 10px; font-size:14px; line-height:1.4;">
                                     <option value="" selected>전체</option>
                                   </select>
                                 </td>
@@ -1202,17 +1199,16 @@ function calMunuWidth(){
 
                     $(document).ready(function () {
 
-                        // 탭 관련
-                        viewtab = commonUtils.addTabCtrl({
-                            sliderTarget: $('#tab-button')
-                            , selectTarget: $('#tab-select')
-                            , contentClass: $('.tab_content3')
-                        });
-
+                        // 탭 전환 (로컬 프로토타입)
                         $('#tab-button').find('a').on('click', function (e) {
+                            e.preventDefault();
                             var tabId = $(this).attr('href');
+                            $('#tab-button li').removeClass('active');
+                            $(this).parent().addClass('active');
+                            $('.tab_content3').hide();
+                            $(tabId).show();
                             clickTab(tabId);
-                        })
+                        });
 
                         // 요약본 검색 버튼 클릭
                         $('#btnContentSearch').on('click', function () {

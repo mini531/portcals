@@ -62,6 +62,7 @@
 <script src="/js/egovframework/com/cmm/commonUtils.js"></script>
 <script>
 /* Synchronous local prototype overrides */
+var _basePath = location.pathname.indexOf('/portcals/') === 0 ? '/portcals' : '';
 commonUtils.ajax = function(options) {
   // silently ignore AJAX calls in local prototype
 };
@@ -78,7 +79,7 @@ commonUtils.pageSubmit = function(options) {
       params.push(encodeURIComponent(v.name) + '=' + encodeURIComponent(v.value));
     });
   }
-  location.href = options.url.replace(".do", ".html")/, ".html$1") + (params.length ? '?' + params.join('&') : '');
+  location.href = _basePath + options.url.replace(".do", ".html") + (params.length ? '?' + params.join('&') : '');
 };
 </script>
 
@@ -124,7 +125,8 @@ commonUtils.pageSubmit = function(options) {
 <!-- <script src="/js/egovframework/com/cmm/menu.js"></script> -->
 <script>
   // gotoMenuLink - replaces menu.js for local prototype
-  var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl.replace(".do", ".html"); };
+  var _basePath = location.pathname.indexOf('/portcals/') === 0 ? '/portcals' : '';
+  var gotoMenuLink = function(menuNo, menuUrl) { location.href = _basePath + menuUrl.replace(".do", ".html"); };
 </script>
 <script src="/js/gp/searchUtils.js"></script>
 
