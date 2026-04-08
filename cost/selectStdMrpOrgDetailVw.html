@@ -1285,12 +1285,7 @@ function calMunuWidth(){
 
                         switch (target) {
                             case "#detailDoc":
-                                // 원문 탭: iframe으로 PDF 뷰어 호출
-                                var pdfSrc = "/html/pdfviewer.html";
-                                
-                                    pdfSrc += "?atchFileId=FILE_000000000163760&fileSn=2";
-                                
-                                $('#detailDoc').html('<iframe src="' + pdfSrc + '" style="width:100%; height:800px; border:none;"></iframe>');
+                                // 원문 탭: 이미 iframe이 정적으로 삽입되어 있음
                                 break;
 
                             case "#contentList":
