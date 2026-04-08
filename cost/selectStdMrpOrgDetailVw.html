@@ -112,6 +112,18 @@ commonUtils.pageSubmit = function(options) {
 
 
 
+<style>
+/* 통계 검색/KPI 반응형 */
+#statsSearchTable { table-layout: fixed; }
+@media (max-width: 768px) {
+  #statsSearchTable { table-layout: auto; }
+  #statsSearchTable colgroup { display: none; }
+  #statsSearchTable tr { display: flex; flex-wrap: wrap; }
+  #statsSearchTable td { display: block; width: 100% !important; padding: 8px 15px !important; box-sizing: border-box; }
+  #statsSummary { flex-wrap: wrap !important; }
+  #statsSummary > div { flex: 1 1 45% !important; min-width: 140px; }
+}
+</style>
 </head>
 <body>
 		
@@ -1042,7 +1054,7 @@ function calMunuWidth(){
                                   </select>
                                 </td>
                               </tr>
-                              <tr>
+                              <tr id="statsSearchRow2">
                                 <td style="padding:12px 15px; font-size:16px; color:#555;">분야</td>
                                 <td style="padding:12px 10px;">
                                   <select class="select_st7" id="statsRealm" title="분야" style="width:100%; padding:8px; font-size:15px;">
@@ -1079,12 +1091,15 @@ function calMunuWidth(){
                       function onBasisChange() {
                         var basis = document.getElementById('statsBasis').value;
                         var sel = document.getElementById('statsBaseTime');
+                        var row2 = document.getElementById('statsSearchRow2');
                         sel.innerHTML = '';
                         if (basis === 'half') {
                           var opts = ['2025년 하반기','2025년 상반기','2024년 하반기','2024년 상반기','2023년 하반기','2023년 상반기','2022년 하반기','2022년 상반기','2021년 하반기','2021년 상반기','2020년 하반기'];
                           opts.forEach(function(o,i){ sel.innerHTML += '<option value="'+o+'"'+(i===0?' selected':'')+'>'+o+'</option>'; });
+                          if(row2) row2.style.display = '';
                         } else {
                           for(var y=2025; y>=2020; y--) sel.innerHTML += '<option value="'+y+'년"'+(y===2025?' selected':'')+'>'+y+'년</option>';
+                          if(row2) row2.style.display = '';
                         }
                       }
 
