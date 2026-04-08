@@ -852,11 +852,11 @@ function calMunuWidth(){
                     <div class="tab_box">
                         <div class="tab-button-outer" id="s_banner_wrap">
                             <ul id="tab-button" class="tabsp">
-                                <li id="tab_li_contentList">
-                                    <a href="#contentList">요약본</a>
-                                </li>
                                 <li class="active" id="tab_li_detailDoc">
                                     <a href="#detailDoc">원문</a>
+                                </li>
+                                <li id="tab_li_contentList">
+                                    <a href="#contentList">요약본</a>
                                 </li>
                                 <li id="tab_li_stats">
                                     <a href="#statsTab">통계</a>
@@ -868,18 +868,280 @@ function calMunuWidth(){
 
                     <!-- Tab_container -->
                     <div class="tab_container2">
-                        <!-- tab1 -->
-                        <div id="contentList" class="tab_content3" style="display:none;">
-                            <p style="text-align:center; color:#999; padding:40px 0;">요약본 내용</p>
-                        </div>
-                    <!-- //tab1 -->
-
-                    <!-- tab2 -->
+                        <!-- tab1: 원문 (PDF 뷰어) -->
+                        <div id="detailDoc" class="tab_content3">
+                            <!-- tab2 -->
                     <div id="detailDoc" class="tab_content3">
                         <!-- tab1 -->
                         <div id="contentList" class="tab_content3">
                             
                         </div>
+                    </div>
+                    <!-- //tab2 -->
+                        </div>
+                    <!-- //tab1 -->
+
+                    <!-- tab2: 요약본 -->
+                    <div id="contentList" class="tab_content3" style="display:none;">
+                        <div id="contentList" class="tab_content3">
+                            <div class="search_box" style="margin-top:8px;">
+                                <div class="search_row">
+                                    <div class="search_tbl_mc">
+                                        <ul class="tbl_st_search_dtl">
+                                            <li class="depth1">
+                                                <div class="tbl_st_th">
+                                                    <div class="tbl_st_content">검색어</div>
+                                                </div>
+                                                <div class="tbl_st_td">
+                                                    <div class="tbl_st_content">
+                                                        <select class="select_st7 w20p mar_r8" title="분야 선택"
+                                                            id="searchTypeDetail">
+                                                            <option value="realm" >분야
+                                                            </option>
+                                                            <option value="cwkndCode" 
+                                                                >공종코드</option>
+                                                            <option value="cwkndNm" 
+                                                                >공종명칭
+                                                            </option>
+                                                        </select>
+                                                        <input class="input_st1 w50p mar_r8" type="text" title="검색어"
+                                                            placeholder="예시) OA02, 배수관" id="searchTextDetail"
+                                                            value=" ">
+                                                        <input type="button" value="검색" class="r_search_btn"
+                                                            id="btnContentSearch">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="m_search_btn_box">
+                                            <input type="button" class="search_btn" value="검색">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div style="text-align: right; margin-top: 10px;"><button type="button" class="view_btn_st"
+                                    id="btnExcelDown">엑셀파일 다운로드</button></div>
+
+                            <div class="board_list mar_t10 dis_web">
+                                <table class="w100p">
+                                    <colgroup>
+                                        <col style="width:8%">
+                                        <col style="width:12%">
+                                        <col style="width:18%">
+                                        <col style="width:auto">
+                                        <col style="width:6%">
+                                        <col style="width:10%">
+                                        <col style="width:8%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">분야</th>
+                                            <th scope="col">공종코드</th>
+                                            <th scope="col">공종명칭</th>
+                                            <th scope="col">규격</th>
+                                            <th scope="col">단위</th>
+                                            <th scope="col">단가(원)</th>
+                                            <th scope="col">노무비율(%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <tr class="clickable-row" style="cursor:pointer;"
+                                                data-untpc-dfn=" ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                            data-realm="
+                                            OA02* 배송관 부설"
+                                            data-cwknd-nm="
+                                            배송관부설및철거(육상관)">
+                                            <td>
+                                                OA02* 배송관 부설
+                                            </td>
+                                            <td>
+                                                OA020.62000
+                                            </td>
+                                            <td class="txt_l">
+                                                배송관부설및철거(육상관)
+                                            </td>
+                                            <td class="txt_l">
+                                                D760㎜×6m(플랜지접합)(크레인(트럭)15톤)
+                                            </td>
+                                            <td>
+                                                SET
+                                            </td>
+                                            <td class="txt_r">
+                                                119,571
+                                            </td>
+                                            <td>
+                                                73
+                                            </td>
+                                            </tr>
+                                        
+                                            <tr class="clickable-row" style="cursor:pointer;"
+                                                data-untpc-dfn=" ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                            data-realm="
+                                            OA02* 배송관 부설"
+                                            data-cwknd-nm="
+                                            배송관부설및철거(해상관)">
+                                            <td>
+                                                OA02* 배송관 부설
+                                            </td>
+                                            <td>
+                                                OA020.42000
+                                            </td>
+                                            <td class="txt_l">
+                                                배송관부설및철거(해상관)
+                                            </td>
+                                            <td class="txt_l">
+                                                D760㎜×6m(고무슬리브접합)(크레인(트럭)15톤)
+                                            </td>
+                                            <td>
+                                                SET
+                                            </td>
+                                            <td class="txt_r">
+                                                175,360
+                                            </td>
+                                            <td>
+                                                74
+                                            </td>
+                                            </tr>
+                                        
+                                            <tr class="clickable-row" style="cursor:pointer;"
+                                                data-untpc-dfn=" ① 이 단가는 사석을 선별하는데 필요한 장비 및 인력의 비용이다. ② 각종 규격은 규격석(0.015~0.03㎥급),
+준규격석(0.001~0.03㎥급) 및 비규격석(0.03㎥급이하)을 의미한다. 단, 피복석은 제외한다."
+                                            data-realm="
+                                            OB*** 사석 선별"
+                                            data-cwknd-nm="
+                                            사석선별">
+                                            <td>
+                                                OB*** 사석 선별
+                                            </td>
+                                            <td>
+                                                OB003.11000
+                                            </td>
+                                            <td class="txt_l">
+                                                사석선별
+                                            </td>
+                                            <td class="txt_l">
+                                                각종(굴삭기(무한궤도 1.0㎥))
+                                            </td>
+                                            <td>
+                                                ㎥
+                                            </td>
+                                            <td class="txt_r">
+                                                111
+                                            </td>
+                                            <td>
+                                                46
+                                            </td>
+                                            </tr>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- 모바일 버전 카드 리스트 -->
+                            <div class="mobile_card_list">
+                                
+                                    <div class="mobile_card clickable-row" data-untpc-dfn="
+                                        ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                    data-realm="
+                                    OA02* 배송관 부설"
+                                    data-cwknd-nm="
+                                    배송관부설및철거(육상관)">
+                                    <div class="card_title">[
+                                        OA02* 배송관 부설*
+                                        배송관부설및철거(육상관)]
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종코드:</span>
+                                        OA020.62000
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종명칭:</span>
+                                        배송관부설및철거(육상관)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">규격:</span>
+                                        D760㎜×6m(플랜지접합)(크레인(트럭)15톤)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단위:</span>
+                                        SET
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단가 (원):</span>
+                                        119,571
+                                    </div>
+                                    <div class="card_row"><span class="card_label">노무비율 (%):</span>
+                                        73
+                                    </div>
+                            </div>
+                            
+                                    <div class="mobile_card clickable-row" data-untpc-dfn="
+                                        ① 이 단가는 배송관의 부설 및 철거에 소요되는 비용이다. ② 육상관은 “배송관 2본(플랜지접합)”을 1set로 구성하여 배송관
+접합 및 철거하는데 필요한 장비 및 인력의 비용이다."
+                                    data-realm="
+                                    OA02* 배송관 부설"
+                                    data-cwknd-nm="
+                                    배송관부설및철거(해상관)">
+                                    <div class="card_title">[
+                                        OA02* 배송관 부설*
+                                        배송관부설및철거(해상관)]
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종코드:</span>
+                                        OA020.42000
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종명칭:</span>
+                                        배송관부설및철거(해상관)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">규격:</span>
+                                        D760㎜×6m(고무슬리브접합)(크레인(트럭)15톤)
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단위:</span>
+                                        SET
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단가 (원):</span>
+                                        175,360
+                                    </div>
+                                    <div class="card_row"><span class="card_label">노무비율 (%):</span>
+                                        74
+                                    </div>
+                            </div>
+                            
+                                    <div class="mobile_card clickable-row" data-untpc-dfn="
+                                        ① 이 단가는 사석을 선별하는데 필요한 장비 및 인력의 비용이다. ② 각종 규격은 규격석(0.015~0.03㎥급),
+준규격석(0.001~0.03㎥급) 및 비규격석(0.03㎥급이하)을 의미한다. 단, 피복석은 제외한다."
+                                    data-realm="
+                                    OB*** 사석 선별"
+                                    data-cwknd-nm="
+                                    사석선별">
+                                    <div class="card_title">[
+                                        OB*** 사석 선별*
+                                        사석선별]
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종코드:</span>
+                                        OB003.11000
+                                    </div>
+                                    <div class="card_row"><span class="card_label">공종명칭:</span>
+                                        사석선별
+                                    </div>
+                                    <div class="card_row"><span class="card_label">규격:</span>
+                                        각종(굴삭기(무한궤도 1.0㎥))
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단위:</span>
+                                        ㎥
+                                    </div>
+                                    <div class="card_row"><span class="card_label">단가 (원):</span>
+                                        111
+                                    </div>
+                                    <div class="card_row"><span class="card_label">노무비율 (%):</span>
+                                        46
+                                    </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
                     </div>
                     <!-- //tab2 -->
 
