@@ -1,0 +1,156 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc_row">
+    <form id="updateForm" onsubmit="return false;">
+        <input type="hidden" name="hwpAtchFileId" value="FILE_000000000163759">
+        <input type="hidden" name="pdfAtchFileId" value="FILE_000000000163760">
+        <table class="dis_serch_size">
+            <caption class="hidden">문서정보</caption>
+            <colgroup>
+                <col style="width:20%">
+                <col style="width:80%">
+            </colgroup>
+            <tbody>
+            <tr>
+                <th scope="row">시기</th>
+                <td>
+                    
+                    <select id="stdyy" name="stdyy" class="select_st7 w30p mar_r8" title="시기 선택">
+                        
+                            
+                            <option value="2027" >2027년
+                            </option>
+                        
+                            
+                            <option value="2026" selected="selected">2026년
+                            </option>
+                        
+                            
+                            <option value="2025" >2025년
+                            </option>
+                        
+                    </select>
+                    <select name="ht" id="ht" class="select_st7 w30p" title="반기">
+                        <option value="H1" selected="selected" >상반기</option>
+                        <option value="H2"  >하반기</option>
+                    </select>
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <th scope="row">제목</th>
+                <td>
+                    <input name="sj" id="sj" class="input_st1 w98p" type="text" value="26년 상반기 표준시장단가."  title="제목">
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">제정날짜</th>
+                <td>
+                    <input name="revDt" id="revDt" class="input_st1 w30p" type="text" value="2026-02-03" placeholder="yyyy-mm-dd" title="제정날짜">
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<!-- 파일 첨부 -->
+<div data-file-upload-target-hwp></div>
+<div data-ax5grid="grid-hwp"></div>
+
+<div data-file-upload-target-pdf></div>
+<div data-ax5grid="grid-pdf"></div>
+
+<script>
+
+    $(document).ready(function() {
+
+        commonUtils.datePicker({
+            target : $('#revDt'),
+            orientation : 'bottom'
+        });
+
+
+        fileGridHwp = fileUtils.fileUpload({
+            target: $('[data-file-upload-target-hwp]')
+            ,
+            gridTarget: $('[data-ax5grid="grid-hwp"]')
+            ,
+            maximunFileSize: atchPosblFileSize
+            ,
+            maximunAllFileSize: atchPosblFileSize
+            ,
+            maximumNumberOfFiles: atchPosblFileNumber
+            ,
+            deleteBtn: true
+            ,
+            insertBtn: true
+            ,
+            accept : ".hwp, .zip" //허용확장자 (default : 전체확장자 허용)
+            //,imgOnly : true //이미지확장자만 허용 (default : false) - accept 를 설정할 경우 무시됨.
+            ,
+            imgPreview: false //이미지 미리보기 표시여부 (default : true)
+            ,
+            titleMsg: '한글 첨부파일' //타이틀 제목
+            ,
+            gridEmptyMsg: '첨부파일이 존재하지 않습니다.'
+            ,
+            atchFileId: "FILE_000000000163759" //첨부파일 아이디
+        });
+
+        fileGridPdf = fileUtils.fileUpload({
+            target: $('[data-file-upload-target-pdf]')
+            ,
+            gridTarget: $('[data-ax5grid="grid-pdf"]')
+            ,
+            maximunFileSize: atchPosblFileSize
+            ,
+            maximunAllFileSize: atchPosblFileSize
+            ,
+            maximumNumberOfFiles: atchPosblFileNumber
+            ,
+            deleteBtn: true
+            ,
+            insertBtn: true
+            ,
+            accept : ".pdf, .zip" //허용확장자 (default : 전체확장자 허용)
+            //,imgOnly : true //이미지확장자만 허용 (default : false) - accept 를 설정할 경우 무시됨.
+            ,
+            imgPreview: false //이미지 미리보기 표시여부 (default : true)
+            ,
+            titleMsg: 'PDF 첨부파일' //타이틀 제목
+            ,
+            gridEmptyMsg: '첨부파일이 존재하지 않습니다.'
+            ,
+            atchFileId: "FILE_000000000163760" //첨부파일 아이디
+        });
+
+    });
+
+</script>

@@ -64,12 +64,12 @@
 /* Synchronous local prototype overrides */
 commonUtils.ajax = function(options) {
   // silently ignore AJAX calls in local prototype
-  if (options && options.success) {
-    // return empty result to prevent errors
-  }
 };
 commonUtils.showMask = function() {};
 commonUtils.closeMask = function() {};
+commonUtils.alert = function(opts, cb) { if(cb) cb.call({key:'ok'}); };
+// Suppress jQuery global AJAX errors
+$(document).ajaxError(function(e, xhr, settings, error) { e.stopPropagation(); });
 commonUtils.pageSubmit = function(options) {
   if (!options || !options.url) return;
   var params = [];
@@ -564,9 +564,7 @@ function calMunuWidth(){
 							<li id="tab_li_contentList">
 								<a href="#contentList">요약본</a>
 							</li>
-							<li id="tab_li_rvsList">
-								<a href="#rvsList">제·개정 연혁</a>
-							</li>
+							
 						</ul>
 					</div>
 				</div>
@@ -630,6 +628,638 @@ function calMunuWidth(){
 
 					<!-- tab2 -->
 					<div id="contentList" class="tab_content3" style="display: none;">
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+        <!-- 검색조건 유지를 위한 히든폼 -->
+        <form id="hiddenForm" onsubmit="return false;">
+            <input type="hidden" name="searchParams" id="searchParams" value="">
+        </form>
+
+        <div class="search_box mar_b20">
+            <form id="writeForm" onsubmit="return false;">
+                <input type="hidden" name="stdUntpcId" id="stdUntpcId" value="1">
+                <input type="hidden" name="stdSumryId" id="stdSumryId" value="1">
+                <div class="search_row">
+                    <div class="search_tbl_mc">
+                        <ul class="tbl_st_search_dtl">
+                            <li class="depth1">
+                                <div class="tbl_st_th">
+                                    <div class="tbl_st_content">시기</div>
+                                </div>
+                                <div class="tbl_st_td">
+                                    <select name="stdyy" id="stdyy" class="select_st7 w20p mar_r8" title="연도">
+                                        <option value="2026">2026년</option>
+                                    </select>
+                                    <select name="ht" id="ht" class="select_st7 w20p" title="반기">
+                                        <option value="H1">
+                                            
+                                                상반기
+                                                
+                                            
+                                        </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="depth1">
+                                <div class="search_tbl_mc"
+                                    style="display:flex; align-items:center; width:100%; padding:10px 0;">
+                                    <div style="width:160px; text-align:right; padding-right:10px;">항만 건설 공사비 지수
+                                    </div>
+                                    <div style="width:80px;"><input type="text" name="cntrwkCtIdex" id="cntrwkCtIdex"
+                                            value="1" class="input_st1 w80p" title="항만 건설 공사비 지수">
+                                    </div>
+
+                                    <div style="width:160px; text-align:right; padding-right:10px; margin-left:20px;">
+                                        생산자 물가 지수</div>
+                                    <div style="width:80px;"><input type="text" name="mkerPcindx" id="mkerPcindx"
+                                            value="2" class="input_st1 w80p" title="생산자 물가 지수">
+                                    </div>
+
+                                    <div style="width:180px; text-align:right; padding-right:10px; margin-left:20px;">
+                                        농업
+                                        및 어업 분야 지수</div>
+                                    <div style="width:80px;"><input type="text" name="realmIdex" id="realmIdex"
+                                            value="3" class="input_st1 w80p" title="농업 및 어업 분야 지수">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <div data-file-upload-target style="height: 40px; margin-top: 100px"></div>
+            <div data-ax5grid="excel-upload-grid" style="height: 120px;"></div>
+        </div>
+        <span class="sear_txt">
+            ※ 첨부 파일을 새로 추가하면, 최근 등록한 데이터로 교체됩니다.
+        </span>
+        <span class="sear_txt">
+            ※'양식 다운로드'버튼을 클릭하여 양식을 다운로드한 후 정보를 작성하여 '파일추가' 버튼을 선택해주세요.
+        </span>
+
+        <div class="grid_list">
+            <table id="std-jqGrid"></table>
+        </div>
+
+        <div class="bo_btn_box">
+            <button type="button" class="bo_btn_st delete_btn" excel-button-upload-type="row-remove">항목삭제</button>
+            <button type="button" class="bo_btn_st edit_btn" excel-button-upload-type="row-add">항목추가</button>
+            <button type="button" class="bo_btn_st write_btn" excel-button-upload-type="insertExcel">데이터 등록</button>
+            <button type="button" class="bo_btn_st write_btn" excel-button-upload-type="clearExcel">초기화</button>
+            <button type="button" class="bo_btn_st write_btn" onclick="stdList();">
+                목록
+            </button>
+        </div>
+
+        <script type="text/javascript">
+            let gridObj = null;
+            let noDataId = null;
+            let sumDetailCnt = 3;
+
+            var fileGrid = fileUtils.fileUpload({
+                target: $('[data-file-upload-target]') //파일 업로드 타겟
+                , gridTarget: $('[data-ax5grid="excel-upload-grid"]') //그리드 타겟
+                , maximunFileSize: "10MB" //개별파일 용량제한  (default : 10MB)
+                , maximunAllFileSize: "10MB" //전체파일 용량제한 (default : 20MB)
+                , maximumNumberOfFiles: "1" //최대 첨부파일 개수 (default : 10)
+                , deleteBtn: true //삭제버튼 표시여부 (default : true)
+                , insertBtn: true //첨부버튼 표시여부 (default : true)
+                , imgPreview: false //이미지 미리보기
+                , allFileDownBtn: false//전체다운로드 버튼 표시여부 (default : true)
+                , accept: ".xls,.xlsx" //파일 허용 확장자 (생략할경우 모든파일 허용)
+                , gridEmptyMsg: "엑셀 파일을 첨부해주세요" //그리드 목록이 비어있을때 메세지 처리
+                , extraBtn: '<button type="button" class="bo_btn_st list_btn" onClick="javascript:location.href=\'/cmm/fms/docSampleDown.do?fileTypeNo=5000000001\'">양식 다운로드</button>'
+                , onuploadCompleteCallback: function () { //파일업로드가 정상적으로 완료되었을때 콜백함수
+                    searchList_excel();
+                }
+            });
+
+            $(document).ready(function () {
+                gridRender();
+
+                if (sumDetailCnt > 0) searchList(1);
+
+                // 양식 다운로드
+                $('#btnTemplateDown').on('click', function () {
+                    location.href = '/cmm/fms/docSampleDown.do?fileTypeNo=2000000002'; // 임시 ID
+                });
+
+
+                // 저장
+                $('#btnSave').on('click', function () {
+                    var gridData = gridObj.jqGrid('getGridParam', 'data');
+                    if (gridData.length === 0) {
+                        alert('등록할 데이터가 없습니다.');
+                        return;
+                    }
+
+                    if (confirm("저장 하시겠습니까?")) {
+                        var params = [];
+                        var submitData = commonUtils.formToObject("writeForm");
+                        submitData.gridData = gridData;
+
+                        params.push({ name: "submitData", value: JSON.stringify(submitData) });
+
+                        commonUtils.ajax({
+                            url: '/mng/std/insertStdSummary.do', // 컨트롤러 구현 필요
+                            data: params,
+                            success: function (response) {
+                                alert(response.resultMessage || "저장되었습니다.");
+                                if (response.resultCode === 'success') {
+                                    location.href = '/mng/std/selectStdListVw.do';
+                                }
+                            }
+                        });
+                    }
+                });
+
+                // 목록
+                $('#btnList').on('click', function () {
+                    location.href = '/mng/std/selectStdListVw.do';
+                });
+            });
+
+            function gridRender() {
+                var mainDataGridNames = ['사용여부', '<input type="checkbox" name="" id="checkAll">', '상태', '분야', '공종코드', '공종명칭', '규격', '단위', '단가(원)', '노무비율(%)', '단가 정의'];
+
+                var mainDataGridModel = [
+                    {
+                        label: '표준요약상세ID',
+                        name: 'stdSumryDetailId',
+                        index: 'stdSumryDetailId',
+                        hidden: true
+                    },
+                    /*  {
+                          name: 'stdSumryId',
+                          index: 'stdSumryId',
+                          hidden: true
+                      },*/
+                    {
+                        name: 'checkBox',
+                        index: 'checkBox',
+                        width: '30',
+                        align: 'center',
+                        sortable: false,
+                        edittype: 'checkbox',
+                        editoptions: {
+                            value: "Y:N",
+                            defaultValue: "N"
+                        },
+                        formatter: "checkbox",
+                        formatoptions: { disabled: false }
+                    },
+                    {
+                        name: 'crudType',
+                        index: "crudType",
+                        frozen: true,
+                        width: '60',
+                        sortable: false,
+                        align: 'center',
+                        formatter: function (cellvalue, options, rowObject) {
+                            var retVal = "";
+                            if (cellvalue == "C")
+                                retVal = "신규";
+                            else if (cellvalue == "U")
+                                retVal = "수정";
+                            else if (cellvalue == "D")
+                                retVal = "삭제";
+                            return retVal;
+                        },
+                        unformat: function (cellvalue, options, cell) {
+                            var retVal = "";
+                            if (cellvalue == "신규")
+                                retVal = "C";
+                            else if (cellvalue == "수정")
+                                retVal = "U";
+                            else if (cellvalue == "삭제")
+                                retVal = "D";
+                            return retVal;
+                        }
+                    },
+                    /*  {
+                          name: 'rn',
+                          width: '40',
+                          label: "번호",
+                          align: 'center',
+                          frozen:true,
+                          sortable:false
+                      },*/
+                    {
+                        name: 'realm',
+                        index: 'realm',
+                        editable: true,
+                        label: "분야",
+                        width: 100,
+                        align: 'center',
+                        sortable: false
+                    },
+                    {
+                        name: 'cwkndCode',
+                        index: 'cwkndCode',
+                        editable: true,
+                        label: "공종코드",
+                        width: 100,
+                        align: 'center',
+                        sortable: false
+                    },
+
+                    {
+                        name: 'cwkndNm',
+                        index: 'cwkndNm',
+                        editable: true,
+                        label: "공종명칭",
+                        width: 150,
+                        align: 'center',
+                        sortable: false
+                    },
+                    {
+                        name: 'stndrd',
+                        index: 'stndrd',
+                        editable: true,
+                        label: "규격",
+                        width: 150,
+                        align: 'center',
+                        sortable: false
+                    },
+                    {
+                        name: 'unit',
+                        index: 'unit',
+                        editable: true,
+                        label: "단위",
+                        width: 50,
+                        align: 'center',
+                        sortable: false
+                    },
+                    {
+                        name: 'untpc',
+                        index: 'untpc',
+                        editable: true,
+                        label: "단가(원)",
+                        width: 100,
+                        align: 'center',
+                        sortable: false,
+                        editoptions: {
+                            /*size:8
+                            , dataInit : function(el) {
+                                $(el).attr("data-ax5formatter", "date(month)");
+            
+                                //전화번호,통화,숫자,사업자번호 등의 마스크 패턴 처리
+                                $('[data-ax5formatter]').ax5formatter();
+            
+                                commonUtils.datePicker({
+                                    target : $(el)
+                                    ,viewMode: 'month'
+                                    ,format: 'yyyy-mm'
+                                });
+                            }*/
+                        }
+                    },
+                    {
+                        name: 'lbrcRate',
+                        index: 'lbrcRate',
+                        editable: true,
+                        label: "노무비율(%)",
+                        width: 80,
+                        align: 'center',
+                        sortable: false,
+                        editoptions: {
+                            /*	size:8
+                                , dataInit : function(el) {
+                                    $(el).attr("data-ax5formatter", "date(month)");
+                
+                                    //전화번호,통화,숫자,사업자번호 등의 마스크 패턴 처리
+                                    $('[data-ax5formatter]').ax5formatter();
+                
+                                    commonUtils.datePicker({
+                                        target : $(el)
+                                        ,viewMode: 'month'
+                                        ,format: 'yyyy-mm'
+                                    });
+                                }*/
+                        }
+                    },
+
+                    {
+                        name: 'untpcDfn',
+                        index: 'untpcDfn',
+                        editable: true,
+                        label: "단가정의",
+                        width: 300,
+                        align: 'center',
+                        sortable: false
+                    }
+                ];
+
+                gridObj = commonUtils.grid({
+                    target: $('#std-jqGrid'),
+                    mtype: "POST",
+                    datatype: "local",
+                    height: 570,
+                    width: $(".mng_view").width(),
+                    cellEdit: true, //cell 에디트 가능하도록
+                    scroll: 1,
+                    loadonce: true,
+                    rowNum: 40,
+                    gridview: true,
+                    viewrecords: false,
+                    shrinkToFit: false,
+                    colNames: mainDataGridNames,
+                    colModel: mainDataGridModel,
+                    jsonReader: {
+                        root: "resultData.resultList",
+                        records: "pageObj.totCnt",
+                        total: "pageObj.totCnt"
+                    },
+                    afterEditCell: function (rowid, cellname, value, iRow, iCol, rowObject) {
+                        // 해당 처리를 안하면 입력칸이 사라지지 않아 값이 <input> 태그부터 다 들어감. 선택을 해제하고 값을 바꾸는 역할
+                        if (cellname == 'pdBeginYm' || cellname == 'pdEndYm') {
+                            commonUtils.datePicker({ target: $("#" + iRow + "_" + cellname, this), viewMode: 'month', format: 'yyyy-mm' }).on("hide", function (e) {
+                                gridObj.saveCell(iRow, iCol);
+                            });
+
+                            setTimeout(function () {
+                                $("#" + iRow + "_" + cellname).focus();
+                            }, 1);
+                        } else {
+                            setTimeout(function () {
+                                $("#" + iRow + "_" + cellname).focus();
+                                $("#" + iRow + "_" + cellname).blur(function () {
+                                    gridObj.saveCell(iRow, iCol);
+                                });
+                            }, 1);
+                        }
+                    },
+                    afterSaveCell: function (rowid, cellname, value, iRow, iCol, rowObject) {
+                        //상태를 수정상태로 변경(삭제 상태일 때는 변경하지 말아야 함)
+                        if (gridObj.getCell(rowid, 'crudType') != 'D' && gridObj.getCell(rowid, 'crudType') != 'C') {
+                            gridObj.setCell(rowid, 'crudType', 'U');
+                            $('#std-jqGrid #' + rowid).css('background', '#D0ECE7');
+                        }
+                    },
+                    loadComplete: function (data) {
+                        if (data.pageObj != null) {
+                            $('#totCount').empty();
+                            $('#totCount').text(data.pageObj.totalElements);
+                        }
+
+                        if (data.resultData != null) {
+                            var totCount = data.resultData.resultList.length;
+                            if (totCount === 0) {
+                                noDataId = commonUtils.gridListEmptyMsg({
+                                    target: $('#std-jqGrid')
+                                    , msg: "파일추가버튼을 누르면 파일을 첨부할수 없습니다"
+                                    , toast: false
+                                });
+                            }
+                        }
+                    },
+                    gridComplete: function () {
+
+                        // 체크박스 이벤트
+                        $('#std-jqGrid').undelegate("input[type=checkbox]", "change");
+                        $('#std-jqGrid').delegate("input[type=checkbox]", "change", function (e) {
+                            var value = "N";
+                            if ($(this).prop("checked") == true)
+                                value = "Y";
+
+                            var rowId = $(this).closest("tr").prop("id");
+                            gridObj.setCell(rowId, 'checkBox', value);
+                        });
+
+                        // 삭제 데이터 색 변경
+                        if (gridObj) {
+                            var dataIds = gridObj.getDataIDs();
+
+                            $.each(dataIds, function (i, v) {
+
+                                if (gridObj.getCell(v, 'crudType') == 'D') {
+                                    $('#std-jqGrid #' + v).css('background', '#F5B7B1');
+                                }
+                            });
+
+                        }
+                    }
+                });
+
+                if (sumDetailCnt === 0) {
+                    noDataId = commonUtils.gridListEmptyMsg({
+                        target: $('#std-jqGrid')
+                        , msg: "파일추가버튼을 누르면 파일을 첨부할수 없습니다"
+                        , toast: false
+                    });
+                }
+            }
+
+            // 엑셀 업로드 후 데이터 처리
+            function searchList_excel(fileList) {
+                var params = [];
+                params.push({ name: "submitData", value: JSON.stringify(fileGrid.getGrid.list()) });
+
+                commonUtils.ajax({
+                    url: '/sym/cmitMng/insertCnsltntCmitExcelTemp.do',
+                    data: params,
+                    success: function (response) {
+                        var resultList = response.resultData.resultList || [];
+
+                        // 1. 신규 데이터(엑셀)에 crudType 'C' 부여
+                        $.each(resultList, function (i, row) {
+                            row.crudType = 'C';
+                        });
+
+                        // 2. 기존 그리드 데이터 가져오기 및 'D' 처리
+                        var currentData = $('#std-jqGrid').jqGrid('getGridParam', 'data') || [];
+
+                        // 기존 데이터 crudType 'D'로 변경
+                        $.each(currentData, function (i, row) {
+                            row.crudType = 'D';
+                        });
+
+                        // 3. 신규 데이터(상단) + 기존 D 데이터(하단) 병합
+                        var mergedData = resultList.concat(currentData);
+
+                        // 4. 그리드 갱신 (데이터 타입을 local로 강제 설정하여 갱신)
+                        $('#std-jqGrid').jqGrid('clearGridData');
+                        $('#std-jqGrid').setGridParam({
+                            datatype: 'local',
+                            data: mergedData
+                        }).trigger('reloadGrid');
+                    }
+                });
+            }
+
+            function searchList(pageNum) {
+
+                var searchUrl = '/mng/std/selectStdMrpSumryDetailList.do';
+                var params = commonUtils.formToObject("writeForm");
+                var searchOptions = {
+                    url: searchUrl,
+                    datatype: 'json',
+                    rowNum: $('#pageUnit').val(),
+                    postData: params,
+                    page: pageNum
+                };
+                commonUtils.gridSearch($('#std-jqGrid'), searchOptions);
+            }
+
+            //그리드 추가/삭제/적용 버튼 클릭시
+            $('[excel-button-upload-type]').click(function (e) {
+                switch (this.getAttribute("excel-button-upload-type")) {
+
+                    //항목추가 버튼 클릭시
+                    case "row-add":
+
+                        if (noDataId) {
+                            $(noDataId).remove();
+                            noDataId = null;
+                        }
+
+                        var rowId = $.jgrid.randId();
+                        gridObj.addRowData(rowId, { crudType: 'C', bbcSn: $('#bbcSn').val() }, 'last');
+                        break;
+
+                    //항목삭제 버튼 클릭시
+                    case "row-remove":
+
+                        var findCheck = false;
+                        var data = gridObj.jqGrid('getGridParam', 'data');
+                        $.each(data, function (i, v) {
+                            if (v.checkBox == 'Y') {
+                                findCheck = true;
+                                return false;
+                            }
+                        });
+
+                        if (findCheck == false) {
+                            return commonUtils.alert({
+                                title: '확인',
+                                msg: '삭제하려는 항목을 체크해주세요!',
+                                theme: 'warning'
+                            });
+                            break;
+                        }
+
+                        $.each(data, function (i, v) {
+                            if (v.checkBox == 'Y') {
+                                v.crudType = 'D';
+                                gridObj.setCell(v.id, 'crudType', 'D');
+                                $('#std-jqGrid #' + v.id).css('background', '#F5B7B1');
+                            }
+                        });
+
+                        break;
+
+                    //초기화 버튼 클릭시
+                    case "clearExcel":
+                        commonUtils.confirm(
+                            {
+                                theme: 'warning',
+                                msg: '엑셀데이터를 초기화 하시겠습니까?'
+                            },
+                            function () {
+                                //사용자가 확인 버튼을 눌렀을때 실행되는 콜백함수
+                                if (this.key === "ok") {
+                                    // 서버 데이터를 가져와서 초기화
+                                    searchList(1);
+                                }
+                            }
+                        )
+                        break;
+
+                    //데이터 등록 버튼 클릭시
+                    case "insertExcel":
+
+                        if (formatUtils.objEmptyCheck($('#cntrwkCtIdex').val()) == '') {
+                            commonUtils.alert({ title: '확인', msg: '항만 건설 공사비 지수를 입력해 주세요!', theme: 'warning' });
+                            $('#cntrwkCtIdex').focus();
+                            return;
+                        }
+                        if (formatUtils.objEmptyCheck($('#mkerPcindx').val()) == '') {
+                            commonUtils.alert({ title: '확인', msg: '생산자 물가 지수를 입력해 주세요!', theme: 'warning' });
+                            $('#mkerPcindx').focus();
+                            return;
+                        }
+                        if (formatUtils.objEmptyCheck($('#realmIdex').val()) == '') {
+                            commonUtils.alert({ title: '확인', msg: '농업 및 어업 분야 지수를 입력해 주세요!', theme: 'warning' });
+                            $('#realmIdex').focus();
+                            return;
+                        }
+
+                        var submitData = gridObj.jqGrid('getGridParam', 'data'); //그리드 목록 전체데이터 추출
+                        var formData = commonUtils.formToObject("writeForm");
+
+
+
+                        var param = []; //서버 전달용 배열 파라미터
+                        //배열 파라미터에 [submitData] 이름으로 그리드 오브젝트를 JSON 으로 변환해서 담는다.
+                        param.push({ name: "submitData", value: JSON.stringify(submitData) });
+                        param.push({ name: "formData", value: JSON.stringify(formData) });
+
+                        commonUtils.confirm(
+                            { theme: 'warning', msg: '등록하시겠습니까?' },
+                            function () {
+                                //사용자가 확인 버튼을 눌렀을때 실행되는 콜백함수
+                                if (this.key === "ok") {
+                                    commonUtils.ajax({
+                                        url: '/mng/std/stdMrpSummaryExcelUpload.do',
+                                        data: param,
+                                        success: function (response) {
+                                            commonUtils.alert({
+                                                title: '완료',
+                                                msg: response,
+                                                theme: 'info'
+                                            }, function () {
+                                                commonUtils.pageSubmit({
+                                                    url: "/mng/std/selectStdListVw.do"
+                                                });
+                                            });
+                                        }
+                                    });
+                                }
+                            }
+
+                        )
+                        break;
+                }
+            });
+
+
+            function stdList() {
+
+                var params = $("#hiddenForm").serializeArray();
+                params.push({ name: "searchParams", value: $("#searchParams").val() });	//검색조건 유지용
+
+                //목록화면으로 이동한다.
+                commonUtils.pageSubmit({
+                    url: "/mng/std/selectStdListVw.do"
+                    , data: params
+                });
+            }
+
+        </script>
+
 					</div>
 					<!-- //tab2 -->
 
@@ -905,29 +1535,9 @@ function calMunuWidth(){
 						case "#detailDoc":
 							break;
 
-						case "#contentList":
-							commonUtils.ajax({
-								url: '/mng/std/selectContentsListVw.do',
-								data: $("#tabForm").serializeArray(),
-								dataType: "html",
-								maskTarget: $('#contentList'),
-								success: function (response) {
-									$("#contentList").html(response);
-								}
-							});
-							break;
+						case "#contentList": break; // content already loaded statically
 
-						case "#rvsList":
-							commonUtils.ajax({
-								url: '/mng/std/selectRvsListVw.do',
-								data: $("#tabForm").serializeArray(),
-								dataType: "html",
-								maskTarget: $('#rvsList'),
-								success: function (response) {
-									$("#rvsList").html(response);
-								}
-							});
-							break;
+						// rvsList tab removed
 
 					}
 				}
