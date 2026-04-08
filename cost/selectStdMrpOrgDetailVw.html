@@ -1011,9 +1011,170 @@ function calMunuWidth(){
 
                     <!-- tab3: 통계 -->
                     <div id="statsTab" class="tab_content3" style="display:none;">
-                      <div style="padding:20px 0;">
-                        <p style="text-align:center; color:#999; font-size:15px; padding:60px 0;">통계 기능이 준비 중입니다.</p>
+                      <!-- 검색 영역 -->
+                      <div class="search_box" style="margin-top:8px;">
+                        <div class="search_row">
+                          <div class="search_tbl_mc">
+                            <ul class="tbl_st_search_dtl">
+                              <li class="depth1">
+                                <div class="tbl_st_th"><div class="tbl_st_content">분석 기준</div></div>
+                                <div class="tbl_st_td">
+                                  <div class="tbl_st_content">
+                                    <select class="select_st7 w_180px mar_r8" id="statsBasis" title="분석 기준">
+                                      <option value="half" selected>반기별</option>
+                                      <option value="year">연도별</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="tbl_st_th"><div class="tbl_st_content">기준 시기</div></div>
+                                <div class="tbl_st_td">
+                                  <div class="tbl_st_content">
+                                    <select class="select_st7 w_180px" id="statsBaseTime" title="기준 시기">
+                                      <option value="2025H2" selected>2025년 하반기</option>
+                                      <option value="2025H1">2025년 상반기</option>
+                                      <option value="2024H2">2024년 하반기</option>
+                                      <option value="2024H1">2024년 상반기</option>
+                                      <option value="2023H2">2023년 하반기</option>
+                                      <option value="2023H1">2023년 상반기</option>
+                                      <option value="2022H2">2022년 하반기</option>
+                                      <option value="2022H1">2022년 상반기</option>
+                                      <option value="2021H2">2021년 하반기</option>
+                                      <option value="2021H1">2021년 상반기</option>
+                                      <option value="2020H2">2020년 하반기</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="depth1">
+                                <div class="tbl_st_th"><div class="tbl_st_content">분야</div></div>
+                                <div class="tbl_st_td">
+                                  <div class="tbl_st_content">
+                                    <select class="select_st7 w_180px mar_r8" id="statsRealm" title="분야">
+                                      <option value="" selected>전체</option>
+                                      <option value="OA">OA 배송관</option>
+                                      <option value="OB">OB 사석</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="tbl_st_th"><div class="tbl_st_content">공종</div></div>
+                                <div class="tbl_st_td">
+                                  <div class="tbl_st_content">
+                                    <select class="select_st7 w_180px" id="statsCwknd" title="공종">
+                                      <option value="" selected>전체</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                            <div class="m_search_btn_box">
+                              <input type="button" class="search_btn" value="검색" onclick="renderStatsChart()">
+                            </div>
+                          </div>
+                        </div>
                       </div>
+
+                      <!-- 요약 정보 카드 -->
+                      <div style="display:flex; gap:0; margin:15px 0; border:1px solid #e0e0e0; border-radius:6px; overflow:hidden;">
+                        <div style="flex:1; text-align:center; padding:18px 10px; border-right:1px solid #e0e0e0;">
+                          <div style="font-size:13px; color:#666; margin-bottom:6px;">직전 년도 대비 증감률</div>
+                          <div style="font-size:22px; font-weight:700; color:#e74c3c;">+3.54%</div>
+                        </div>
+                        <div style="flex:1; text-align:center; padding:18px 10px; border-right:1px solid #e0e0e0;">
+                          <div style="font-size:13px; color:#666; margin-bottom:6px;">직전 동기 대비 증감률</div>
+                          <div style="font-size:22px; font-weight:700; color:#3498db;">-0.01%</div>
+                        </div>
+                        <div style="flex:1; text-align:center; padding:18px 10px; border-right:1px solid #e0e0e0;">
+                          <div style="font-size:13px; color:#666; margin-bottom:6px;">직전 반기 대비 증감률</div>
+                          <div style="font-size:22px; font-weight:700; color:#e74c3c;">+2.32%</div>
+                        </div>
+                        <div style="flex:1; text-align:center; padding:18px 10px;">
+                          <div style="font-size:13px; color:#666; margin-bottom:6px;">기준 시기 평균 단가</div>
+                          <div style="font-size:22px; font-weight:700; color:#333;">152,300원</div>
+                        </div>
+                      </div>
+
+                      <!-- 차트 영역 -->
+                      <div id="statsChartArea" style="width:100%; height:480px; border:1px solid #e0e0e0; border-radius:6px; padding:15px; margin-top:10px;"></div>
+
+                      <script src="/plugin/echarts/echarts.min.js"></script>
+                      <script>
+                      function renderStatsChart() {
+                        var chartDom = document.getElementById('statsChartArea');
+                        var myChart = echarts.init(chartDom);
+
+                        var xLabels = ['2020년 하반기','2021년 상반기','2021년 하반기','2022년 상반기','2022년 하반기',
+                                       '2023년 상반기','2023년 하반기','2024년 상반기','2024년 하반기','2025년 상반기','2025년 하반기'];
+                        var priceData = [100500, 103200, 108700, 110500, 115800, 119200, 125400, 128900, 133600, 139200, 142500];
+                        var yoyRate = [null, 2.7, 5.3, 7.1, 6.5, 7.9, 5.7, 8.1, 7.5, 8.0, 7.5];
+                        var qoqRate = [null, null, 5.3, 1.7, 4.8, 2.9, 5.2, 2.8, 3.6, 4.2, 2.4];
+                        var yearAvgRate = [null, null, null, null, 5.9, 4.1, 6.1, 5.2, 6.8, 6.9, 6.9];
+                        var constructIdx = [96.2, 98.5, 100.0, 103.5, 106.8, 109.2, 112.5, 115.0, 117.8, 120.0, 122.5];
+                        var producerIdx = [98.0, 99.5, 100.5, 102.8, 104.2, 105.5, 106.2, 106.8, 107.0, 107.8, 108.5];
+                        var agriIdx = [97.5, 99.0, 100.2, 102.0, 103.5, 104.8, 105.5, 105.8, 106.0, 106.0, 106.5];
+
+                        var option = {
+                          tooltip: {
+                            trigger: 'axis',
+                            axisPointer: { type: 'cross' },
+                            backgroundColor: 'rgba(255,255,255,0.95)',
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            textStyle: { fontSize: 12 },
+                            formatter: function(params) {
+                              var tip = '<b>' + params[0].axisValue + '</b><br/>';
+                              params.forEach(function(p) {
+                                if (p.value != null) {
+                                  var unit = p.seriesName === '단가' ? '원' : (p.seriesName.indexOf('지수') > -1 ? '' : '%');
+                                  var val = p.seriesName === '단가' ? p.value.toLocaleString() : p.value;
+                                  tip += p.marker + ' ' + p.seriesName + ': ' + val + unit + '<br/>';
+                                }
+                              });
+                              return tip;
+                            }
+                          },
+                          legend: {
+                            data: ['단가','전년 동기 대비 증감률','직전 반기 대비 증감률','전년 평균 대비 증감률',
+                                   '항만 건설 공사비 지수','생산자 물가 지수','농업 및 어업 분야 지수'],
+                            bottom: 0, textStyle: { fontSize: 11 }, itemWidth: 14, itemHeight: 10
+                          },
+                          grid: { left: 70, right: 80, top: 30, bottom: 60 },
+                          xAxis: { type: 'category', data: xLabels, axisLabel: { fontSize: 11, rotate: 0 } },
+                          yAxis: [
+                            { type: 'value', name: '단가 (원)', position: 'left', min: 94500,
+                              axisLabel: { formatter: function(v){ return v.toLocaleString(); } },
+                              splitLine: { lineStyle: { type: 'dashed', color: '#e8e8e8' } } },
+                            { type: 'value', name: '증감률 (%)  기준 지수', position: 'right', min: 90,
+                              splitLine: { show: false } }
+                          ],
+                          series: [
+                            { name: '단가', type: 'bar', data: priceData, barWidth: 30,
+                              itemStyle: { color: 'rgba(75, 128, 115, 0.25)', borderColor: 'rgba(75, 128, 115, 0.5)', borderWidth: 1 },
+                              emphasis: { itemStyle: { color: 'rgba(75, 128, 115, 0.5)' } } },
+                            { name: '전년 동기 대비 증감률', type: 'line', yAxisIndex: 1, data: yoyRate, smooth: true,
+                              lineStyle: { color: '#e74c3c', width: 2 }, itemStyle: { color: '#e74c3c' }, symbol: 'circle', symbolSize: 6 },
+                            { name: '직전 반기 대비 증감률', type: 'line', yAxisIndex: 1, data: qoqRate, smooth: true,
+                              lineStyle: { color: '#f39c12', width: 2 }, itemStyle: { color: '#f39c12' }, symbol: 'circle', symbolSize: 6 },
+                            { name: '전년 평균 대비 증감률', type: 'line', yAxisIndex: 1, data: yearAvgRate, smooth: true,
+                              lineStyle: { color: '#2ecc71', width: 2 }, itemStyle: { color: '#2ecc71' }, symbol: 'circle', symbolSize: 6 },
+                            { name: '항만 건설 공사비 지수', type: 'line', yAxisIndex: 1, data: constructIdx, smooth: true,
+                              lineStyle: { color: '#3498db', width: 1.5, type: 'dashed' }, itemStyle: { color: '#3498db' }, symbol: 'diamond', symbolSize: 5 },
+                            { name: '생산자 물가 지수', type: 'line', yAxisIndex: 1, data: producerIdx, smooth: true,
+                              lineStyle: { color: '#9b59b6', width: 1.5, type: 'dashed' }, itemStyle: { color: '#9b59b6' }, symbol: 'diamond', symbolSize: 5 },
+                            { name: '농업 및 어업 분야 지수', type: 'line', yAxisIndex: 1, data: agriIdx, smooth: true,
+                              lineStyle: { color: '#e67e22', width: 1.5, type: 'dashed' }, itemStyle: { color: '#e67e22' }, symbol: 'diamond', symbolSize: 5 }
+                          ]
+                        };
+                        myChart.setOption(option);
+                        window.addEventListener('resize', function() { myChart.resize(); });
+                      }
+                      // 탭 클릭 시 차트 렌더링
+                      var _origClickTab = typeof clickTab === 'function' ? clickTab : null;
+                      document.addEventListener('click', function(e) {
+                        if (e.target && e.target.getAttribute('href') === '#statsTab') {
+                          setTimeout(renderStatsChart, 200);
+                        }
+                      });
+                      </script>
                     </div>
                     <!-- //tab3 -->
 
