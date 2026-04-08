@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script>document.write('<base href="'+(location.pathname.indexOf('/portcals/')===0?'/portcals/':'/')+'">');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF 뷰어</title>
-    <script src="plugin/pdfjs/pdf.min.js"></script>
+    <script src="../plugin/pdfjs/pdf.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { height: 100%; overflow: hidden; }
@@ -134,8 +133,8 @@
                 </div>
                 <div class="icon-buttons">
                     <button class="icon-btn" onclick="printPDF()" title="인쇄"><img src="https://kpcs.portcals.go.kr/images/kpcs/print_icon.png" style="width: 20px; height: 20px;" /></button>
-                    <button class="icon-btn" onclick="downloadHWP()" title="한글파일"><img src="images/kpcs/hangul_icon.png" style="width: 20px; height: 20px;" /></button>
-                    <button class="icon-btn" onclick="downloadPDF()" title="PDF파일"><img src="images/kpcs/pdf_icon.png" style="width: 20px; height: 20px;" /></button>
+                    <button class="icon-btn" onclick="downloadHWP()" title="한글파일"><img src="../images/kpcs/hangul_icon.png" style="width: 20px; height: 20px;" /></button>
+                    <button class="icon-btn" onclick="downloadPDF()" title="PDF파일"><img src="../images/kpcs/pdf_icon.png" style="width: 20px; height: 20px;" /></button>
                 </div>
                 
                 <div class="nav-section" id="navSection" style="display: none;">
