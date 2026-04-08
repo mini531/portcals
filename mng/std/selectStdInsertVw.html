@@ -61,7 +61,7 @@
 <script src="/js/egovframework/com/cmm/handlebarHelper.js"></script>
 <script src="/js/egovframework/com/cmm/commonUtils.js"></script>
 <script>
-var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl; };
+var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl.replace(".do", ".html"); };
 commonUtils.ajax = function(options) {};
 commonUtils.showMask = function() {};
 commonUtils.closeMask = function() {};
@@ -69,7 +69,7 @@ commonUtils.pageSubmit = function(options) {
   if (!options || !options.url) return;
   var params = [];
   if (options.data) { $.each(options.data, function(i, v) { params.push(encodeURIComponent(v.name) + '=' + encodeURIComponent(v.value)); }); }
-  location.href = options.url + (params.length ? '?' + params.join('&') : '');
+  location.href = options.url.replace(".do", ".html")/, ".html$1") + (params.length ? '?' + params.join('&') : '');
 };
 </script>
 <script src="/js/egovframework/com/cmm/formatUtils.js?v=202411051822"></script>

@@ -102,9 +102,7 @@
 <!-- <script src="/js/egovframework/com/cmm/menu.js"></script> -->
 <script>
   // gotoMenuLink - replaces menu.js for local prototype
-  var gotoMenuLink = function(menuNo, menuUrl) {
-    location.href = menuUrl;
-  };
+  var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl.replace(".do", ".html"); };
 </script>
 <script src="/js/gp/searchUtils.js"></script>
 
@@ -719,7 +717,7 @@ function calMunuWidth(){
 
         function contsList(stdUntpcId) {
           // Local prototype: direct navigation
-          location.href = "/mng/std/selectMrpDtlVw.do?stdUntpcId=" + stdUntpcId;
+          location.href = "/mng/std/selectMrpDtlVw.html?stdUntpcId=" + stdUntpcId;
         }
 
       </script>
@@ -768,7 +766,7 @@ function calMunuWidth(){
           params.push(encodeURIComponent(v.name) + '=' + encodeURIComponent(v.value));
         });
       }
-      location.href = options.url + (params.length ? '?' + params.join('&') : '');
+      location.href = options.url.replace(".do", ".html")/, ".html$1") + (params.length ? '?' + params.join('&') : '');
     };
     // Override ajax to silently fail for local prototype
     var _origAjax = commonUtils.ajax;

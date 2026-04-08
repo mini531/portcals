@@ -81,7 +81,7 @@
 <script src="/js/egovframework/com/cmm/handlebarHelper.js"></script>
 <script src="/js/egovframework/com/cmm/commonUtils.js"></script>
 <script>
-var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl; };
+var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl.replace(".do", ".html"); };
 commonUtils.ajax = function(options) {};
 commonUtils.showMask = function() {};
 commonUtils.closeMask = function() {};
@@ -89,7 +89,7 @@ commonUtils.pageSubmit = function(options) {
   if (!options || !options.url) return;
   var params = [];
   if (options.data) { $.each(options.data, function(i, v) { params.push(encodeURIComponent(v.name) + '=' + encodeURIComponent(v.value)); }); }
-  location.href = options.url + (params.length ? '?' + params.join('&') : '');
+  location.href = options.url.replace(".do", ".html")/, ".html$1") + (params.length ? '?' + params.join('&') : '');
 };
 </script>
 <script src="/js/egovframework/com/cmm/formatUtils.js?v=202411051822"></script>
@@ -635,7 +635,7 @@ function calMunuWidth(){
                 <td>2026 상반기</td>
                 <td class="txt_l">26년 상반기 표준시장단가.</td>
                 <td>2026-02-03</td>
-                <td><a href="/cost/selectStdMrpOrgDetailVw.do?stdUntpcId=1" title="본문보기"><img src="/images/kpcs/search_icon.png" alt="본문보기"></a></td>
+                <td><a href="/cost/selectStdMrpOrgDetailVw.html?stdUntpcId=1" title="본문보기"><img src="/images/kpcs/search_icon.png" alt="본문보기"></a></td>
                 <td>
                   <a href="javascript:;" title="한글파일 다운로드"><img src="/images/kpcs/hangul_icon.png" alt="한글파일"></a>
                   <a href="javascript:;" title="PDF파일 다운로드"><img src="/images/kpcs/pdf_icon.png" alt="PDF파일"></a>
@@ -933,7 +933,7 @@ function calMunuWidth(){
           });
 
           commonUtils.pageSubmit({
-            url: "/cost/selectStdMrpOrgDetailVw.do",
+            url: "/cost/selectStdMrpOrgDetailVw.html",
             data: params
           });
         }

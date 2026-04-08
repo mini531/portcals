@@ -81,7 +81,7 @@
 <script src="/js/egovframework/com/cmm/handlebarHelper.js"></script>
 <script src="/js/egovframework/com/cmm/commonUtils.js"></script>
 <script>
-var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl; };
+var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl.replace(".do", ".html"); };
 commonUtils.ajax = function(options) {};
 commonUtils.showMask = function() {};
 commonUtils.closeMask = function() {};
@@ -90,7 +90,7 @@ commonUtils.pageSubmit = function(options) {
   if (!options || !options.url) return;
   var params = [];
   if (options.data) { $.each(options.data, function(i,v) { params.push(encodeURIComponent(v.name)+'='+encodeURIComponent(v.value)); }); }
-  location.href = options.url + (params.length ? '?' + params.join('&') : '');
+  location.href = options.url.replace(".do", ".html")/, ".html$1") + (params.length ? '?' + params.join('&') : '');
 };
 .ajaxError(function(e){e.stopPropagation();});
 </script>
@@ -542,13 +542,6 @@ function calMunuWidth(){
 			<h2 class="hidden">본문</h2>
 			<div class="layout_res" id="contentWrap">
 					<div class="criteria_list_tit" id="sub_top_tit">표준시장단가 조회<span class="help_txt">표준시장단가를 검색할 수 있습니다.</span></div>
-					
-    
-        
-
-
-
-
 
 
 
@@ -756,7 +749,6 @@ function calMunuWidth(){
 
                     <!-- tab2: 요약본 -->
                     <div id="contentList" class="tab_content3" style="display:none;">
-                        <div id="contentList" class="tab_content3">
                             <div class="search_box" style="margin-top:8px;">
                                 <div class="search_row">
                                     <div class="search_tbl_mc">
@@ -1014,7 +1006,6 @@ function calMunuWidth(){
                             
                             
                         </div>
-                    </div>
                     </div>
                     <!-- //tab2 -->
 

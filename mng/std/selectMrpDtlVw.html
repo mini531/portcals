@@ -78,7 +78,7 @@ commonUtils.pageSubmit = function(options) {
       params.push(encodeURIComponent(v.name) + '=' + encodeURIComponent(v.value));
     });
   }
-  location.href = options.url + (params.length ? '?' + params.join('&') : '');
+  location.href = options.url.replace(".do", ".html")/, ".html$1") + (params.length ? '?' + params.join('&') : '');
 };
 </script>
 
@@ -124,9 +124,7 @@ commonUtils.pageSubmit = function(options) {
 <!-- <script src="/js/egovframework/com/cmm/menu.js"></script> -->
 <script>
   // gotoMenuLink - replaces menu.js for local prototype
-  var gotoMenuLink = function(menuNo, menuUrl) {
-    location.href = menuUrl;
-  };
+  var gotoMenuLink = function(menuNo, menuUrl) { location.href = menuUrl.replace(".do", ".html"); };
 </script>
 <script src="/js/gp/searchUtils.js"></script>
 
