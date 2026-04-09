@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+	<title>항만기술기준 정보시스템</title>
+	
+
+<meta name="naver-site-verification" content="d752485c9d108184d8ccd17f3529f4de2817cdc9">
+<meta name="google-site-verification" content="gi90a0gVt21prfy9a-qbo1wm1DICeuQIlhmmfPvGdCk">
+<meta name="description" content="항만기술기준 정보시스템은 항만시설, 어항시설, 연안보전시설 등의 설계기준 및 시공기준을 제공합니다.">
+<meta name="Keywords" content="항만기술기준, 항만기술기준 정보시스템, 항만시설, 어항시설, 연안보전시설">
+<meta name="robots" content="index,follow">
+
+
+<link rel="stylesheet" href="../plugin/bootstrap-4.4.1-dist/css/animate.min.css">
+
+<!-- jquery plugin-->
+<script src="../plugin/jquery/jquery-3.4.1.min.js"></script>
+<script src="../plugin/jquery-ui/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="../plugin/jquery-ui/jquery-ui.css">
+<script src="../plugin/RobinHerbots-Inputmask/dist/inputmask.min.js"></script>
+<script src="../plugin/RobinHerbots-Inputmask/dist/jquery.inputmask.min.js"></script>
+<script src="../plugin/js-cookie-master/src/js.cookie.js"></script>
+<script src="../plugin/form2js-master/src/form2js.js"></script>
+<script src="../plugin/busy-load/dist/app.js"></script>
+<link type="text/css" rel="stylesheet" href="../plugin/busy-load/dist/app.min.css">
+<link type="text/css" rel="stylesheet" href="../plugin/jquery/ext/jquery-bxslider/css/bxslider.css">
+<script src="../plugin/jquery/ext/jquery-bxslider/js/jquery.bxslider.min.js"></script>
+<script src="../plugin/jquery/ext/jquery.fileDownload-1.4.2.min.js"></script>
+<script src="../plugin/jquery/ext/jquery.blockUI-2.70.min.js"></script>
+
+<!-- bootstrap 4.4.1 -->
+<link type="text/css" rel="stylesheet" href="../plugin/bootstrap-4.4.1-dist/css/bootstrap.css">
+<script src="../plugin/bootstrap-4.4.1-dist/js/popper.min.js"></script>
+<script src="../plugin/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+
+<!-- bootstrap 확장 -->
+<link type="text/css" rel="stylesheet" href="../plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker3.css">
+<link type="text/css" rel="stylesheet" href="../plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker3.standalone.css">
+<script src="../plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="../plugin/bootstrap-4.4.1-dist/ext/bootstrap-datepicker/bootstrap-datepicker.ko.min.js"></script>
+
+<!-- ax5-->
+<script src="../plugin/ax5ui/ax5core/ax5core.min.js"></script>
+<script src="../plugin/ax5ui/ax5ui-formatter/ax5formatter.js"></script>
+<link type="text/css" rel="stylesheet" href="../plugin/ax5ui/ax5ui-uploader/ax5uploader.css">
+<script src="../plugin/ax5ui/ax5ui-uploader/ax5uploader.js"></script>
+<link type="text/css" rel="stylesheet" href="../plugin/ax5ui/ax5ui-toast/ax5toast.css">
+<script src="../plugin/ax5ui/ax5ui-toast/ax5toast.min.js"></script>
+
+<!-- jqGrid -->
+<script src="../plugin/jqgrid/js/i18n/grid.locale-kr.js"></script>
+<script src="../plugin/jqgrid/js/jquery.jqgrid.min.js"></script>
+<link type="text/css" rel="stylesheet" href="../plugin/jqgrid/css/ui.jqgrid.min.css">
+
+<!-- handleBars -->
+<script src="../plugin/handlebars/handlebars-v4.7.6.js"></script>
+
+<script src="../js/gp/jquery.easing.1.3.js"></script>
+<script src="../js/gp/jquery.flexisel.js"></script>
+
+<!-- 시스템 추가 -->
+<script>
+	var contextPath = "";
+</script>
+
+<script src="../js/egovframework/com/cmm/handlebarHelper.js"></script>
+<script src="../js/egovframework/com/cmm/commonUtils.js"></script>
+<script>
+var _basePath = location.pathname.indexOf('/portcals/') === 0 ? '/portcals' : '';
+var gotoMenuLink = function(menuNo, menuUrl) { location.href = _basePath + menuUrl.replace(".do", ".html"); };
+commonUtils.ajax = function(options) {};
+commonUtils.showMask = function() {};
+commonUtils.closeMask = function() {};
+commonUtils.pageSubmit = function(options) {
+  if (!options || !options.url) return;
+  var params = [];
+  if (options.data) { $.each(options.data, function(i, v) { params.push(encodeURIComponent(v.name) + '=' + encodeURIComponent(v.value)); }); }
+  location.href = _basePath + options.url.replace(".do", ".html") + (params.length ? '?' + params.join('&') : '');
+};
+</script>
+<script src="../js/egovframework/com/cmm/formatUtils.js?v=202411051822"></script>
+<script src="../js/egovframework/com/cmm/fileUtils.js"></script>
+<script src="../js/egovframework/com/cmm/jqueryExtension.js"></script>
+<script src="../js/gp/autocom.js"></script>
+<script src="../js/gp/cookieUtil.js"></script>
+<link type="text/css" rel="stylesheet" href="../plugin/fontawesome-5.13.0-web/css/all.min.css">
+
+
+
+<link rel="stylesheet" type="text/css" href="../css/kpcs/style.css?v=202410311333">
+<link rel="stylesheet" type="text/css" href="../css/kpcs/css_sub.css?v=202407251333">
+<link rel="stylesheet" type="text/css" href="../css/kpcs/tree.css?v=202407251333">
+<link rel="stylesheet" type="text/css" href="../css/gp/gp-style.css?v=202409031322">
+
+
+
+
+</head>
+<body>
+		
+
+
+
+
+
+
+
+
+
+
+
+<!-- menu data script removed -->
+<!-- menu.js removed -->
+<script src="../js/gp/searchUtils.js"></script>
+
+<script>
+
+$(document).ready(function() {
+
+	//내가찾은 검색어 목록 생성
+	searchUtils.initAutoComplet(".list_bx", "#topSearchKey", "#divToggle");
+
+	//검색 영역에서 엔터입력시
+	$(document).on("keyup", '#topForm', function (e) {
+		if (e.keyCode == 13) {
+			topTxtSearch();
+		}
+	});
+
+	
+		/* 세션 */
+		let lastAccessedTime = 1775652800395;
+		let maxInactiveInterval = 7200;
+		let expiredTime = lastAccessedTime + (maxInactiveInterval * 1000)
+
+		$('#timeout').text(formatSeconds((expiredTime - lastAccessedTime)/1000))
+		let sessionInterval = setInterval(()=>{
+			lastAccessedTime += 1000
+
+			/*if(lastAccessedTime >= expiredTime - 30000) {
+				commonUtils.alert({
+					title : '세션 만료 안내',
+					msg : `10분 후 반응이 없을 경우 자동으로 로그아웃됩니다.`,
+					theme : 'warning'
+				}, ()=>{});
+			}else */
+			if(lastAccessedTime >= expiredTime){
+				clearInterval(sessionInterval)
+
+				commonUtils.alert({
+					title : '세션 만료 안내',
+					msg : `${maxInactiveInterval/60}분 동안 반응이 없어 자동으로 로그아웃되었습니다. <br>다시 로그인해 주세요.`,
+					theme : 'error'
+				}, ()=>{
+					/* location.replace("/uat/uia/LoginUsr.do"); */
+				});
+			}
+			$('#timeout').text(formatSeconds((expiredTime - lastAccessedTime)/1000))
+		}, 1000)
+
+		function formatSeconds(totalSeconds) {
+			//console.log(totalSeconds)
+			const hours = Math.floor(totalSeconds / 3600);
+			const minutes = Math.floor((totalSeconds % 3600) / 60);
+			const seconds = Math.floor(totalSeconds % 60);
+
+			return [
+				hours.toString().padStart(2, '0'),
+				minutes.toString().padStart(2, '0'),
+				seconds.toString().padStart(2, '0')
+			].join(':');
+		}
+	
+
+});
+
+function topTxtSearch(){
+
+	// 통합검색 화면으로 이동
+	var searchKwrd = $.trim($("#topSearchKey").val());
+	if( !searchUtils.keyWordCheck(searchKwrd, "#topSearchKey") ) {
+		return;
+	}
+	searchUtils.saveSearchHistory(searchKwrd); //검색어 저장
+	searchUtils.itgSearchVw(searchKwrd);
+
+}
+
+
+// 로그인 화면으로 이동
+function loginView(){
+	var frm = document.loginFrm;
+	/* /* frm.action = "/uat/uia/LoginUsr.do"; */ */
+	frm.submit();
+}
+
+// 회원가입 화면으로 이동
+function userJoinView(){
+	var frm = document.loginFrm;
+	/* /* frm.action = "/uat/uia/insertUserJoinVw.do"; */ */
+	frm.submit();
+}
+
+function show_sitemap(show) {
+	if (show == true) {
+		$(document.body).addClass("overflow-hidden");
+		$(".sitemap_modal").fadeIn();
+	} else {
+		$(document.body).removeClass("overflow-hidden");
+		$(".sitemap_modal").fadeOut();
+	}
+}
+
+</script>
+
+<!-- 네비게이션 -->
+<header class="header_st" id="top">
+	<!-- 스킵네비게이션 -->
+	<div class="accNav">
+		<p><a href="#wrap-web-ul">주메뉴 바로가기</a></p>
+		<p><a href="#contentWrap">본문 바로가기</a></p>
+	</div>
+	<!-- 스킵네비게이션 -->
+
+	<div class="egov_header_box">
+		<div class="egov_header">
+			<img src="../images/kpcs/eg_logo.png" alt="전자정부 누리집 입니다.">
+			<span>이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+		</div>
+	</div>
+	<div class="layout_res">
+		<div class="nav_top">
+			<div class="logo">
+				<a href="javascript:void(0)">
+					<img src="../images/kpcs/w_logo.png" alt="logo">
+				</a>
+			</div>
+
+			<!-- pc login area -->
+			<ul class="top_menu">
+				<!-- 로그인 전 -->
+				
+
+
+
+
+
+                <!-- 로그인 후 -->
+				
+
+
+
+
+
+					<li class="s_m_color1">
+                    	<a>admin님</a>
+						<a id="timeout"></a>
+                    	<a href="javascript:void(0)" title="로그아웃" class="logout">로그아웃</a>
+                    </li>
+                    <li class="s_m_color2">
+                    	<a href="javascript:void(0)" title="내정보" >내정보</a>
+                    </li>
+                
+
+
+                <li class="s_m_color3">
+                	<a href="javascript:void(0);" title="사이트맵" onclick="show_sitemap(true)">사이트맵</a>
+                </li>
+            </ul>
+			<!-- //pc login area -->
+
+			<!-- 2019.1.23 통합검색 추가 -->
+			<div class="top_search_box">
+				<div class="m_search_b">
+					<form id="topForm" name="topForm" method="post" onsubmit="return false;">
+						<input id="topSearchKey" name="searchKwrd" type="text" placeholder="검색어를 입력하세요" style="font-size:14px;" autocomplete="off" title="기술기준검색">
+					</form>
+				</div>
+				<div class="m_search_btn">
+					<label class="switch">
+						<input type="checkbox" id="tobutton">
+						<span class="auto_icon">
+						</span>
+					</label>
+					<a href="javascript:topTxtSearch()" class="search_icon_st"><img src="../images/kpcs/search_icon2.png" alt="검색버튼" style="padding-bottom:20px"></a>
+				</div>
+
+				<!-- 내가 찾은 검색어 box -->
+				<div class="autocomplete" id="divToggle" style="display: none;">
+					<div class="autocom_tit">내가 찾은 검색어</div>
+					<ul class="list_bx"></ul>
+				</div>
+				<!-- //내가 찾은 검색어 box -->
+
+				<script>
+				$(function (){
+				   $('#tobutton').click(function (){
+				   $('#divToggle').toggle();
+				  });
+				});
+				</script>
+			</div>
+			<!--// 2019.1.23통합검색 추가 -->
+		</div>
+	</div>
+
+	<!-- 네비게이션 사용자 -->
+	<div class="nav_wrapper">
+ 		<div class="layout_res">
+			<div class="spinner-master">
+				<input type="checkbox" id="spinner-form">
+				<label for="spinner-form" class="spinner-spin">
+					<div class="spinner diagonal part-1"></div>
+					<div class="spinner horizontal"></div>
+					<div class="spinner diagonal part-2"></div>
+				</label>
+			</div>
+
+			<nav id="menu" class="menu">
+				<ul class="dropdown" id="wrap-web-ul"><li class="left_line has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">기술기준</span></a><ul class="sub_mm sub-menu" style="border-left: 1px solid rgb(220, 220, 220); display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000123" onclick="javascript:gotoMenuLink('MENU0000000000000123','/kc/kcGuid.do')">기술기준 안내</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000125" onclick="javascript:gotoMenuLink('MENU0000000000000125','/kc/selectKcListVw.do?docGubun=KDS')">설계기준</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000126" onclick="javascript:gotoMenuLink('MENU0000000000000126','/kc/selectKcListVw.do?docGubun=KCS')">시방서(표준/전문)</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000036" onclick="javascript:gotoMenuLink('MENU0000000000000036','/infrm/ek/selectEtcKpcsListVw.do')">기타 기술기준</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001001" onclick="javascript:gotoMenuLink('MENU0000000000001001','/reprt/selectReprtListVw.do')">지침/매뉴얼 등</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu large_menu_active">공사비 정보</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000147" onclick="javascript:gotoMenuLink('MENU0000000000000147','/kc/selectDbkListVw.do')">설계실무요령</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001018" onclick="javascript:gotoMenuLink('MENU0000000000001018','/cost/selectStdMrpOrgListVw.do')">표준시장단가</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">열린마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000065" onclick="javascript:gotoMenuLink('MENU0000000000000065','/board/qna/selectQnaListVw.do')">질의응답</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000116" onclick="javascript:gotoMenuLink('MENU0000000000000116','/board/inv/selectInvListVw.do')">수요조사</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000060" onclick="javascript:gotoMenuLink('MENU0000000000000060','/board/open/selectOpenListVw.do')">열린토론</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000115" onclick="javascript:gotoMenuLink('MENU0000000000000115','/board/debate/selectDebateListVw.do')">실시간토론</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001012" onclick="javascript:gotoMenuLink('MENU0000000000001012','/board/minwon/selectMinwonVw.do')">온라인민원</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">해양기술마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000120" onclick="javascript:gotoMenuLink('MENU0000000000000120','/info/tech/selectTechListVw.do')">신기술홍보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000141" onclick="javascript:gotoMenuLink('MENU0000000000000141','/info/octech/selectOctechListVw.do')">열린해양기술마당</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001002" onclick="javascript:gotoMenuLink('MENU0000000000001002','/cmit/selectCmitListVw.do')">기술자문(신기술활용심의)위원등록</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">정보마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000118" onclick="javascript:gotoMenuLink('MENU0000000000000118','/info/law/infoLaw.do')">법령정보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000119" onclick="javascript:gotoMenuLink('MENU0000000000000119','/info/share/selectShareListVw.do')">최신정보공유</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001007" onclick="javascript:gotoMenuLink('MENU0000000000001007','/info/gpr/selectGprListVw.do')">Global Port Report</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">알림마당</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000028" onclick="javascript:gotoMenuLink('MENU0000000000000028','/infrm/notice/selectNoticeListVw.do')">공지사항</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000087" onclick="javascript:gotoMenuLink('MENU0000000000000087','/infrm/rn/selectRecentNotiListVw.do')">최근고시현황</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000091" onclick="javascript:gotoMenuLink('MENU0000000000000091','/infrm/bbc/selectBbcListVw.do')">해수부 보도자료</a></li></ul></li><li class="has-submenu" style="width: 14.2857%;"><a href="javascript:;" class="right_line"><span class="large_menu">관리</span></a><ul class="sub_mm sub-menu" style="display: none; height: 265px; width: 14.2857%;"><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000009" onclick="javascript:gotoMenuLink('MENU0000000000000009','/sym/usr/selectUserInfoListVw.do')">사용자관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000129" onclick="javascript:gotoMenuLink('MENU0000000000000129','/mng/doc/selectDocListVw.do')">기술기준관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000131" onclick="javascript:gotoMenuLink('MENU0000000000000131','/mng/stats/selectConnectStatsListVw.do')">접속정보</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000130" onclick="javascript:gotoMenuLink('MENU0000000000000130','/mng/send/selectSendListVw.do')">알림관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000006" onclick="javascript:gotoMenuLink('MENU0000000000000006','/sym/cde/selectCmmnDetailCodeListVw.do')">시스템관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000000022" onclick="javascript:gotoMenuLink('MENU0000000000000022','/cop/bbsMastr/selectBbsMastrListVw.do')">게시판관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001003" onclick="javascript:gotoMenuLink('MENU0000000000001003','/sym/cmitMng/selectCmitMngListVw.do')">기술자문위원관리</a></li><li><a href="javascript:;" data-nav-menu-no="MENU0000000000001009" onclick="javascript:gotoMenuLink('MENU0000000000001009','/mng/nsl/selectNslMngListVw.do')">소식지 관리</a></li></ul></li>
+						<!-- 메뉴 들어갈 곳 -->
+					<!-- 모바일 로그인-->
+					<li class="mobile_login">
+						<!-- 로그인 전 -->
+						
+
+
+
+
+
+
+						<!-- 로그인 후 -->
+						
+
+
+
+
+
+							<div class="top_menu top_menu_dis">
+						    	<div class="t_m_dst t_m_dst2 s_m_color1">
+						    		<a href="javascript:void(0)" >admin님</a>
+						    		<a href="javascript:void(0)" title="로그아웃" class="logout">로그아웃</a>
+						    	</div>
+						        <div class="t_m_dst s_m_color2"><a href="javascript:void(0)" title="내정보" >내정보</a></div>
+						    </div>
+						
+
+
+					</li>
+					<!-- //모바일 로그인 -->
+				</ul>
+			</nav>
+		</div>
+		<div class="sub_menu_mc"></div>
+		<div class=""></div>
+	</div>
+	<div class="sitemap_modal">
+		<div class="sitemap_header">
+			<div class="sitemap_title">
+				<h3>사이트맵</h3>
+				<a href="javascript:void(0);" class="sitemap_close" onclick="show_sitemap(false)">팝업 닫기</a>
+			</div>
+		</div>
+		<div class="sitemap_body">
+			<ul class="sitemap_list">
+				<li>
+					<a href="javascript:;"><span>정보공개</span></a>
+					<div class="sitemap_subList">
+						<ul>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+<!--// 네비게이션 -->
+
+<form name="loginFrm" method="post" action="javascript:void(0)">
+</form>
+
+<script>
+
+var bodyWidth;
+bodyWidth = $("body").width();
+
+$(window).resize(function () {
+	bodyWidth = $("body").width()+17;
+	calMunuWidth(); // 메뉴 개수에 따른 스타일 변경
+});
+
+$(document).ready(function () {
+
+	$(".sub_mm").hide();
+
+	$(".nav_wrapper").hover(
+        function() {
+          if(bodyWidth > 999) $(".sub_mm").show();
+          if(bodyWidth > 999) $(".sub_menu_mc").show();
+        }, function() {
+        $(".sub_mm").hide();
+        $(".sub_menu_mc").hide();
+        }
+      );
+
+      $(".nav_wrapper").hover(
+        function() {
+          if(bodyWidth <= 999) $(".sub_mm").show();
+        }, function() {
+        $(".sub_mm").hide();
+        }
+      );
+
+      /* scrip.js 가져옴 - */
+      $('ul li:has(ul)').addClass('has-submenu');
+      $('ul li ul').addClass('sub-menu');
+      $('ul.dropdown li').hover(function () {
+          $(this).addClass('hover');
+      }, function () {
+          $(this).removeClass('hover');
+      });
+      var $menu = $('#menu'), $menulink = $('#spinner-form'), $search = $('#search'), $search_box = $('.search_box'), $menuTrigger = $('.has-submenu > a');
+      $menulink.click(function (e) {
+          $menulink.toggleClass('active');
+          $menu.toggleClass('active');
+          if ($search.hasClass('active')) {
+              $('.menu.active').css('padding-top', '50px');
+          }
+
+          if ($menu.hasClass('active')) {
+        	  $menu.show();
+          } else {
+        	  $menu.css("display", "");
+          }
+      });
+
+      $search.click(function (e) {
+          e.preventDefault();
+          $search_box.toggleClass('active');
+      });
+      $menuTrigger.click(function (e) {
+          e.preventDefault();
+          var t = $(this);
+          t.toggleClass('active').next('ul').toggleClass('active');
+      });
+      $('ul li:has(ul)');
+      $(function () {
+          var e = $(document).scrollTop();
+          var t = $('.nav_wrapper').outerHeight();
+          $(window).scroll(function () {
+              var n = $(document).scrollTop();
+              if ($(document).scrollTop() >= 50) {
+                  //$('.nav_wrapper').css('position', 'relative');
+              } else {
+                  //$('.nav_wrapper').css('position', 'relative');
+              }
+              if (n > t) {
+                  $('.nav_wrapper').addClass('scroll');
+              } else {
+                  $('.nav_wrapper').removeClass('scroll');
+              }
+              if (n > e) {
+                  //$('.nav_wrapper').removeClass('no-scroll');
+              } else {
+                 // $('.nav_wrapper').addClass('no-scroll');
+              }
+              e = $(document).scrollTop();
+          });
+      });
+
+    calMunuWidth(); // 메뉴 개수에 따른 스타일 변경
+
+});
+
+function calMunuWidth(){
+	var menuDepth1Cnt = $('#menu > ul > .has-submenu').length;
+	var width;
+
+	if(bodyWidth > 999){
+		width = 100 / menuDepth1Cnt;
+		$('.menu ul ul').css('height', '190px');
+
+		
+
+
+
+
+
+
+
+
+
+
+			$('.menu ul ul').css('height', '265px');
+			$(".sub_menu_mc").css('height', '275px');
+		
+
+	}else{
+		width = 100;
+		$('.menu ul ul').css('height', '');
+	}
+
+	$('#menu > ul > .has-submenu').css('width', width + '%');
+	$('.menu ul ul').css('width', width + '%');
+}
+
+</script>
+
+		<!-- 위치 네비게이션 -->
+	    <section class="top_banner_bg">
+	    	<h3 class="hidden">헤더 섹션</h3>
+	        <div class="layout_res">
+	        <!--위치 네비게이션 -->
+	                       <div class="top_small_nav navi_st">
+	                       		<!-- 화면경로 -->
+	                            <ul id="wrap-small-nav-ul"><li>Home</li><li>공사비 정보</li><li>표준시장단가</li></ul>
+	       					</div>
+	        <!--위치 네비게이션 끝-->
+
+	        </div>
+	    </section>
+	    <!--// 위치 네비게이션 -->
+
+		<section class="criteria_m">
+			<h2 class="hidden">본문</h2>
+			<div class="layout_res" id="contentWrap">
+					<div class="criteria_list_tit" id="sub_top_tit"></div> <!-- 내용 제목 -->
+					
+  
+    
+
+
+
+
+
+
+
+
+
+      <!-- 검색조건 유지를 위한 필드 -->
+      <form id="hiddenForm" onsubmit="return false;">
+        <input type="hidden" name="searchParams" id="searchParams" value="">
+      </form>
+
+      <!-- 검색영역 (시기: 연도 시작~종료 + 검색 버튼) -->
+      <form id="searchForm" name="searchForm" onsubmit="return false;">
+        <div class="search_box">
+          <div class="search_row">
+            <div class="search_tbl_mc">
+              <ul class="tbl_st_search_dtl">
+                <li class="depth1">
+                  <div class="tbl_st_th">
+                    <div class="tbl_st_content">시기</div>
+                  </div>
+                  <div class="tbl_st_td">
+                    <div class="tbl_st_content">
+                      
+                      
+                      
+                      
+                      <select id="startYear" name="startYear" class="select_st7 w20p mar_r8" title="시작연도">
+                        
+                          
+                          <option value="2027" >2027년</option>
+                        
+                          
+                          <option value="2026" selected="selected">2026년</option>
+                        
+                      </select>
+                      ~
+                      <select id="endYear" name="endYear" class="select_st7 w20p mar_l8 mar_r8" title="종료연도">
+                        
+                          
+                          <option value="2027" selected="selected">2027년 </option>
+                        
+                          
+                          <option value="2026" >2026년 </option>
+                        
+                      </select>
+                      <input type="button" value="검색" class="r_search_btn" data-button-search-type="search">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="m_search_btn_box">
+                <input type="button" class="search_btn" value="검색" data-button-search-type="search">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- //검색영역 -->
+
+      <div class="search_total1">
+        검색결과 : <span id="totCount" class="txt_c_skyblue">1</span> 건
+      </div>
+
+      <!-- 웹 리스트 -->
+      <div class="dis_web">
+        <div class="board_list">
+          <table id="tableList" class="w100p">
+            <caption class="hidden">표준시장단가 목록</caption>
+            <colgroup>
+              <col style="width:25%">
+              <col style="width:20%">
+              <col style="width:15%">
+              <col style="width:20%">
+              <col style="width:auto">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">시기</th>
+                <th scope="col">제목</th>
+                <th scope="col">제·개정 일자</th>
+                <th scope="col">본문보기</th>
+                <th scope="col">파일</th>
+              </tr>
+            </thead>
+            <tbody id="listTemplateTarget">
+              <tr>
+                <td>2026 상반기</td>
+                <td class="txt_l">26년 상반기 표준시장단가.</td>
+                <td>2026-02-03</td>
+                <td><a href="selectStdMrpOrgDetailVw.html?stdUntpcId=1" title="본문보기"><img src="../images/kpcs/search_icon.png" alt="본문보기"></a></td>
+                <td>
+                  <a href="javascript:;" title="한글파일 다운로드"><img src="../images/kpcs/hangul_icon.png" alt="한글파일"></a>
+                  <a href="javascript:;" title="PDF파일 다운로드"><img src="../images/kpcs/pdf_icon.png" alt="PDF파일"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- //웹 리스트 -->
+
+      <!-- 모바일 리스트 -->
+      <div class="dis_mobile">
+        <div class="sc_table_a">
+          <table id="moTableList" class="w100p">
+            <caption class="hidden">표준시장단가 목록</caption>
+            <thead style="display:none;">
+              <tr>
+                <th>시기</th>
+                <th>제·개정 일자</th>
+                <th>본문보기</th>
+                <th>파일</th>
+                <th>비고</th>
+              </tr>
+            </thead>
+            <tbody id="moListTemplateTarget"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- //모바일 리스트 -->
+
+      <!-- 페이징 자리표시자 -->
+      <div class="tCent">
+        <ul id="pagination" class="pagination">
+        </ul>
+      </div>
+
+      <script type="text/javascript">
+        $(function () {
+          // 상단 제목/설명
+          $("#sub_top_tit").html("표준시장단가 조회");
+          $("#sub_top_tit").append('<span class="help_txt">표준시장단가를 검색할 수 있습니다.</span>');
+
+          // 검색 버튼
+          $(document).on('click', '[data-button-search-type=search]', function () {
+            search(1);
+          });
+
+          // 초기 로딩
+          search(1);
+        });
+
+        function search(pageNo) {
+
+          $("#searchParams").val(commonUtils.formToJSON("searchForm"));
+          var params = $("#searchForm").serializeArray();
+          commonUtils.ajax({
+            url: "/cost/selectStdMrpOrgList.do",
+            data: params,
+            success: function (response) {
+
+              var rows = response.resultData.resultList; //목록 데이터
+              if (rows.length > 0) {
+
+                // 결과 카운트
+                $('#totCount').text(rows.length);
+
+                // 웹 테이블 렌더링
+                var html = '';
+                $.each(rows, function (i, r) {
+                  let term = r.stdyy;
+                  if (r.ht === "H1") term = term + " 상반기";
+                  else term = term + " 하반기";
+                  html += '<tr>' +
+                    '<td>' + term + '</td>' +
+                    '<td>' + r.sj + '</td>' +
+                    '<td>' + r.revDt + '</td>' +
+                    '<td><a href="javascript:;" onclick="goDetail(\'' + r.stdUntpcId + '\');"><img src="../images/kpcs/search_icon.png" alt="본문보기"></a></td>' +
+                    '<td>' +
+                    (r.hwpAtchFileId ? '<a href="javascript:;" onclick="fileDown(this);" atchFileId=' + r.hwpAtchFileId + ' fileSn=' + r.hwpFileSn + '><img src="../images/kpcs/hangul_icon.png" alt="HWP"></a>' : '') +
+                    '&nbsp;&nbsp;&nbsp;' +
+                    (r.pdfAtchFileId ? '<a href="javascript:;" onclick="fileDown(this);" atchFileId=' + r.pdfAtchFileId + ' fileSn=' + r.pdfFileSn + '><img src="../images/kpcs/pdf_icon.png" alt="PDF"></a>' : '') +
+                    '</td>' +
+                    '</tr>';
+                });
+                $('#listTemplateTarget').html(html);
+
+                // 모바일 렌더링 (첨부 이미지 형태로 간소화: 왼쪽 시기, 오른쪽 파일 아이콘)
+                var mo = '';
+                $.each(rows, function (i, r) {
+                  let term = r.stdyy;
+                  if (r.ht === "H1") term = term + " 상반기";
+                  else term = term + " 하반기";
+
+                  mo += '<tr><td colspan="5">' +
+                    '<div class="mo_simple_row" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid #eee;">' +
+                    '<div class="mo_term" style="font-size:14px;color:#333;"><a href="javascript:;" onclick="goDetail(\'' + r.stdUntpcId + '\');">' + term + '</a></div>' +
+                    '<div class="mo_files">' +
+                    (r.hwpAtchFileId ? '<a href="javascript:;" onclick="fileDown(this);" atchFileId=' + r.hwpAtchFileId + ' fileSn=' + r.hwpFileSn + '><img src="../images/kpcs/hangul_icon.png" alt="HWP" style="width:24px;height:24px;"></a>' : '') +
+                    '&nbsp;&nbsp;&nbsp;' +
+                    (r.pdfAtchFileId ? '<a href="javascript:;" onclick="fileDown(this);" atchFileId=' + r.pdfAtchFileId + ' fileSn=' + r.pdfFileSn + '><img src="../images/kpcs/pdf_icon.png" alt="PDF"  style="width:24px;height:24px;"></a>' : '') +
+                    '</div>' +
+                    '</div>' +
+                    '</td></tr>';
+                });
+                $('#moListTemplateTarget').html(mo);
+                var page = 1;
+                //페이징처리
+                commonUtils.pagination(
+                  page //페이징 오브젝트
+                  , $("#pagination") //페이징 타겟
+                  //페이징버튼 클릭시 콜백 함수 (페이징처리 버튼을 클릭하면 page번호 세팅후 검색처리 함수를 호출한다.)
+                  , function () {
+                    $("input[name='pageIndex']").val(this.page.selectPage + 1);
+                    // searchData();
+                  }
+                );
+
+
+
+
+
+                /*
+                          $("#tblList > tbody").empty();
+                          $("#moList > tbody").empty();
+                          var temp = "";
+                
+                          $.each(list, function(i, v){
+                            temp += "<tr>";
+                            temp += "	<td>"+formatUtils.objEmptyCheck(v.midNm)+"</td>";
+                
+                            if(v.contsYn == 'Y'){
+                              temp += "	<td><a href='javascript:;' onclick='kdsView(this);' docSn='"+v.docSn+"' docKey='" +v.docKey+"' contsYn='"+v.contsYn+"'>"+formatUtils.objEmptyCheck(v.docCd)+"</a></td>";
+                            }else{
+                              temp += "	<td>"+formatUtils.objEmptyCheck(v.docCd)+"</td>";
+                            }
+                
+                            if(v.contsYn == 'Y'){
+                              temp += "	<td><a href='javascript:;' onclick='kdsView(this);' docSn='"+v.docSn+"' docKey='" +v.docKey+"' contsYn='"+v.contsYn+"'>"+formatUtils.objEmptyCheck(v.docNm)+"</a></td>";
+                            }else{
+                              temp += "	<td>"+formatUtils.objEmptyCheck(v.docNm)+"</td>";
+                            }
+                            temp += "	<td>"+formatUtils.objEmptyCheck(v.revDt)+"</td>";
+                            temp += "	<td>";
+                            if(v.contsYn == 'Y'){
+                              temp += "	<a href='javascript:;' onclick='kdsView(this);' docSn='"+v.docSn+"' docKey='" +v.docKey+"' contsYn='"+v.contsYn+"'>";
+                              temp += "     <img src='../images/kpcs/eye_icon.png' alt='view'></a>";
+                            }
+                            temp += "	</td>";
+                            temp += "	<td>";
+                
+                            if(formatUtils.objEmptyCheck(v.hwpFileSn) != ''){
+                              temp += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.hwpAtchFileId+"' fileSn='" +v.hwpFileSn+"' docKey='" +v.docKey+"'> ";
+                              if(v.docKey == '640000'){
+                                temp += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
+                              }else{
+                                temp += "	<img src='../images/kpcs/hangul_icon.png' alt='hangul'> ";
+                              }
+                              temp += "	</a> &nbsp;";
+                            }
+                
+                            if(formatUtils.objEmptyCheck(v.pdfFileSn) != ''){
+                              temp += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.pdfAtchFileId+"' fileSn='" +v.pdfFileSn+"' docKey='" +v.docKey+"'> ";
+                              if(v.docKey == '640000'){
+                                temp += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
+                              }else{
+                                temp += "	<img src='../images/kpcs/pdf_icon.png' alt='pdf'> ";
+                              }
+                              temp += "	</a>";
+                            }
+                
+                            temp += "	</td>";
+                            temp += "	<td>"+formatUtils.objEmptyCheck(v.note)+"</td>";
+                            temp += "</tr>";
+                
+                          });
+                
+                
+                          $("#tblList > tbody:last").append(temp);
+                
+                          var temp2 = "";
+                          $.each(list, function(i, v){
+                
+                            temp2 += "	<tr><td> ";
+                            temp2 += "  	<span class='mo_t_t1'>"+v.midNm ;
+                            temp2 += "  	<span class='mo_t_m'>|</span>"+v.docCd ;
+                            temp2 += "  	<span class='mo_t_m'>|</span>"+v.revDt +"</span><br>" ;
+                            if(v.contsYn == 'Y'){
+                              temp2 += "<span class='mo_t_t2'><a href='javascript:;' onclick='kdsView(this);' docSn='"+v.docSn+"' docKey='" +v.docKey+"' contsYn='"+v.contsYn+"'> "+v.docNm+"</a></span>";
+                
+                            }else{
+                              temp2 += "<span class='mo_t_t2'>"+v.docNm+"</span>";
+                            }
+                
+                            temp2 += "<span class='down_mo' style='text-align:left; padding-left:15px'>";
+                
+                
+                            if(formatUtils.objEmptyCheck(v.hwpFileSn) != ''){
+                              temp2 += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.hwpAtchFileId+"' fileSn='" +v.hwpFileSn+"' docKey='" +v.docKey+"'> ";
+                              if(v.docKey == '640000'){
+                                temp2 += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
+                              }else{
+                                temp2 += "	<img src='../images/kpcs/hangul_icon.png' alt='hangul'> ";
+                              }
+                              temp2 += "	</a> &nbsp;";
+                            }
+                
+                            if(formatUtils.objEmptyCheck(v.pdfFileSn) != ''){
+                              temp2 += "	<a href='javascript:;' onClick='fileDown(this)' atchFileId='" +v.pdfAtchFileId+"' fileSn='" +v.pdfFileSn+"' docKey='" +v.docKey+"'> ";
+                              if(v.docKey == '640000'){
+                                temp2 += "	<img src='../images/kpcs/zip_icon.png' alt='zip'> ";
+                              }else{
+                                temp2 += "	<img src='../images/kpcs/pdf_icon.png' alt='pdf'> ";
+                              }
+                              temp2 += "	</a>";
+                            }
+                
+                            temp2 += "	</span></td></tr>";
+                
+                          });
+                
+                          $("#moList > tbody:last").append(temp2);
+                */
+              } else {
+                $("#tblList > tbody").empty();
+                $("#moList > tbody").empty();
+
+                var temp = "";
+                var temp2 = "";
+
+                temp += "<tr><td colspan='7'>조회된 결과가 없습니다.</td></tr>";
+                temp2 += "<tr><td><span class='mo_t_t1'>조회된 결과가 없습니다.</span></td></tr>";
+
+                $("#tblList > tbody:last").append(temp);
+                $("#moList > tbody:last").append(temp2);
+              }
+            }
+          });
+
+
+          // 퍼블리싱 요구사항: 목업 데이터로 렌더링 (백엔드 연동 전)
+          /* var rows = [
+            {term:'2025년 하반기', revDate:'2025-04-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2025년 상반기', revDate:'2024-10-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2024년 하반기', revDate:'2024-04-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2024년 상반기', revDate:'2023-10-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2023년 하반기', revDate:'2023-04-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2023년 상반기', revDate:'2022-10-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2022년 하반기', revDate:'2022-04-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2022년 상반기', revDate:'2021-10-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2021년 하반기', revDate:'2021-04-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'},
+             {term:'2021년 상반기', revDate:'2020-10-30', hasView:true, hasHwp:true, hasPdf:true, note:'통합문서'}
+           ];*/
+
+
+        }
+
+        function fileDown(obj) {
+
+          var params = [];
+          params.push({
+            name: "atchFileId",
+            value: $(obj).attr('atchFileId')
+          });
+          params.push({
+            name: "fileSn",
+            value: $(obj).attr('fileSn')
+          });
+          /* 파일 다운로드시 통계 insert */
+          params.push({
+            name: "menuCd",
+            value: 18 //메뉴코드
+          });
+          params.push({
+            name: "menuDtlCd",
+            value: $("#docSn").val()
+          });
+          params.push({
+            name: "docGubun",
+            value: $("#fieldCd").val()
+          });
+
+          fileUtils.fileDownload(params);
+        }
+
+        function goDetail(stdUntpcId) {
+          var params = [];
+          params.push({
+            name: "stdUntpcId",
+            value: stdUntpcId
+          });
+          params.push({
+            name: "searchParams",
+            value: $("#searchParams").val()
+          });
+
+          commonUtils.pageSubmit({
+            url: "/cost/selectStdMrpOrgDetailVw.html",
+            data: params
+          });
+        }
+
+
+      </script>
+			</div>
+		</section>
+	    
+
+
+
+
+
+
+
+
+
+
+<!-- footer -->
+    <footer class="footer_bg">
+        <div class="layout_res">
+                <div class="foot_logo"><a href="#top"><img src="../images/kpcs/footer/foot_logo.png" width="242" height="47" alt="logo"></a>
+                </div>
+
+                <div class="foot_t_m">
+                    <div class="foot_addres">서울특별시 영등포구 양산로 53(양평동3가) 월드메르디앙 비즈센터 7층<br>대표전화 : 02)2165-0103~0106, 팩스번호 : 02)2165-0109<br>기술자문 위원등록 : 02)2165-0106</div>
+                    <div class="foot_copyright">Copyright 2019 Korea Ports & Harbours Association. All right reserved.</div>
+                </div>
+
+                <div class="foot_policy">
+                    <a href="javascript:void(0)" title="개인정보처리방침"><span style="color: #d75e6f; font-weight: 600;">개인정보처리방침</span></a>
+		            <a href="javascript:void(0)" title="이메일 무단수집거부">이메일 무단수집거부</a>
+				</div>
+        </div>
+    </footer>
+	<!-- //footer -->
+</body>
+</html>
