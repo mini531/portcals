@@ -2380,8 +2380,6 @@ function calMunuWidth(){
                                 <td style="padding:12px 10px;">
                                   <select class="select_st7" id="statsRealm" title="분야" style="width:100%; height:40px; padding:4px 10px; font-size:14px; line-height:1.4;">
                                     <option value="" selected>전체</option>
-                                    <option value="OA">OA 배송관</option>
-                                    <option value="OB">OB 사석</option>
                                   </select>
                                 </td>
                                 <td style="padding:12px 15px; font-size:16px; color:#555;">공종</td>
@@ -2500,9 +2498,50 @@ function calMunuWidth(){
                         window.addEventListener('resize', function(){ if(statsChart) statsChart.resize(); });
                       }
 
+                      // 분야/공종 셀렉트 초기화
+                      function initStatsRealmSelect() {
+                        var sel = document.getElementById('statsRealm');
+                        if (sel.options.length > 1) return;
+                        for (var i = 0; i < _summaryIndex.length; i++) {
+                          var item = _summaryIndex[i];
+                          var opt = document.createElement('option');
+                          opt.value = item.realmCode + '|' + item.realmNm;
+                          opt.textContent = '[' + item.realmCode + '] ' + item.realmNm;
+                          sel.appendChild(opt);
+                        }
+                        sel.addEventListener('change', onStatsRealmChange);
+                        // 공종도 전체 목록으로 초기화
+                        populateCwkndSelect(_summaryDetails);
+                      }
+
+                      function populateCwkndSelect(list) {
+                        var cwkndSel = document.getElementById('statsCwknd');
+                        cwkndSel.innerHTML = '<option value="" selected>전체</option>';
+                        for (var i = 0; i < list.length; i++) {
+                          var opt = document.createElement('option');
+                          opt.value = list[i].cwkndCode;
+                          opt.textContent = '[' + list[i].cwkndCode + '] ' + list[i].cwkndNm;
+                          cwkndSel.appendChild(opt);
+                        }
+                      }
+
+                      // 분야 변경 시 공종 목록 재구성
+                      function onStatsRealmChange() {
+                        var sel = document.getElementById('statsRealm');
+                        if (!sel.value) {
+                          populateCwkndSelect(_summaryDetails);
+                          return;
+                        }
+                        var parts = sel.value.split('|');
+                        var filtered = _summaryDetails.filter(function(d) {
+                          return d.realmCode === parts[0] && d.realmNm === parts[1];
+                        });
+                        populateCwkndSelect(filtered);
+                      }
+
                       document.addEventListener('click', function(e) {
                         if (e.target && e.target.getAttribute('href') === '#statsTab') {
-                          setTimeout(renderStatsChart, 200);
+                          initStatsRealmSelect();
                         }
                       });
                       </script>
@@ -2619,16 +2658,24 @@ function calMunuWidth(){
 
                         switch (target) {
                             case "#detailDoc":
-                                // 원문 탭: 이미 iframe이 정적으로 삽입되어 있음
+                                // 원문 탭 초기화: 검색 클리어
+                                if (typeof pvClearSearch === 'function') pvClearSearch();
                                 break;
 
                             case "#contentList":
-
+                                // 요약본 탭 초기화: 검색/선택 리셋, 차트 닫기
+                                showSummaryIndex();
                                 break;
 
                             case "#statsTab":
-                                // 통계 탭 - 정적 표시
-                                break;
+                                // 통계 탭 초기화: 검색 조건 리셋 → 반기별 전체 차트 표시
+                                var statsBasis = document.getElementById('statsBasis');
+                                if (statsBasis) { statsBasis.value = 'half'; onBasisChange(); }
+                                var statsRealm = document.getElementById('statsRealm');
+                                if (statsRealm) { statsRealm.value = ''; }
+                                initStatsRealmSelect();
+                                populateCwkndSelect(_summaryDetails);
+                                setTimeout(renderStatsChart, 200);
                                 break;
 
                         }

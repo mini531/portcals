@@ -760,6 +760,12 @@
 
 }
 
+/* 표준시장단가 목록 - 행 호버 */
+#tableList tbody tr { cursor: pointer; transition: background-color 0.15s; }
+#tableList tbody tr td a { color: #616161; text-decoration: none; }
+#tableList tbody tr:hover td { background-color: #e8f4f2 !important; }
+#tableList tbody tr:hover td a { color: #0076ba !important; font-weight: 600; }
+
 /* 요약본 탭 - 분야 목록 */
 #summaryIndexView .board_list tbody tr { cursor: pointer; }
 #summaryIndexView .board_list tbody tr:hover td { background-color: #e8f4f2 !important; }
