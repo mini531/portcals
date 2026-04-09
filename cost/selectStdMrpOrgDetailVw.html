@@ -1481,12 +1481,14 @@ function calMunuWidth(){
                                         <col class="w8p">
                                         <col class="w15p">
                                         <col>
+                                        <col class="w10p">
                                     </colgroup>
                                     <thead>
                                         <tr>
                                             <th scope="col">번호</th>
                                             <th scope="col">분야코드</th>
                                             <th scope="col">분야명</th>
+                                            <th scope="col">공종 건수</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1494,216 +1496,259 @@ function calMunuWidth(){
                                             <td>1</td>
                                             <td>OA02*</td>
                                             <td class="txt_l"><a href="javascript:;">배송관 부설</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(1)">
                                             <td>2</td>
                                             <td>OB***</td>
                                             <td class="txt_l"><a href="javascript:;">사석 선별</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(2)">
                                             <td>3</td>
                                             <td>OB0**</td>
                                             <td class="txt_l"><a href="javascript:;">사석 덤프 적재</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(3)">
                                             <td>4</td>
                                             <td>OB0**</td>
                                             <td class="txt_l"><a href="javascript:;">사석 투하 또는 제거</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(4)">
                                             <td>5</td>
                                             <td>OB00*</td>
                                             <td class="txt_l"><a href="javascript:;">사석정리</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(5)">
                                             <td>6</td>
                                             <td>OB***</td>
                                             <td class="txt_l"><a href="javascript:;">피복석 선별</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(6)">
                                             <td>7</td>
                                             <td>OB30*</td>
                                             <td class="txt_l"><a href="javascript:;">피복석 덤프 적재</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(7)">
                                             <td>8</td>
                                             <td>OB30*</td>
                                             <td class="txt_l"><a href="javascript:;">피복석 대선 적재</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(8)">
                                             <td>9</td>
                                             <td>OB32*</td>
                                             <td class="txt_l"><a href="javascript:;">피복석 투하 또는 제거(육상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(9)">
                                             <td>10</td>
                                             <td>OB3**</td>
                                             <td class="txt_l"><a href="javascript:;">피복석 투하 또는 제거(해상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(10)">
                                             <td>11</td>
                                             <td>OB***</td>
                                             <td class="txt_l"><a href="javascript:;">필터사석 덤프적재</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(11)">
                                             <td>12</td>
                                             <td>OB4**</td>
                                             <td class="txt_l"><a href="javascript:;">필터사석 투하(육상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(12)">
                                             <td>13</td>
                                             <td>OB4**</td>
                                             <td class="txt_l"><a href="javascript:;">필터사석 투하(해상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(13)">
                                             <td>14</td>
                                             <td>OC1**</td>
                                             <td class="txt_l"><a href="javascript:;">사석기초고르기</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(14)">
                                             <td>15</td>
                                             <td>OC***</td>
                                             <td class="txt_l"><a href="javascript:;">내부사석고르기</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(15)">
                                             <td>16</td>
                                             <td>OC3**</td>
                                             <td class="txt_l"><a href="javascript:;">피복석고르기</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(16)">
                                             <td>17</td>
                                             <td>OC4**</td>
                                             <td class="txt_l"><a href="javascript:;">피복석거친고르기</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(17)">
                                             <td>18</td>
                                             <td>OC7**</td>
                                             <td class="txt_l"><a href="javascript:;">필터사석고르기</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(18)">
                                             <td>19</td>
                                             <td>OD00*</td>
                                             <td class="txt_l"><a href="javascript:;">블록 및 케이슨제작 등 (콘크리트타설)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(19)">
                                             <td>20</td>
                                             <td>OD00*</td>
                                             <td class="txt_l"><a href="javascript:;">블록 및 케이슨제작 등 (비닐 깔기)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(20)">
                                             <td>21</td>
                                             <td>OD40*</td>
                                             <td class="txt_l"><a href="javascript:;">블록의 이적 및 적재(육상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(21)">
                                             <td>22</td>
                                             <td>OD40*</td>
                                             <td class="txt_l"><a href="javascript:;">블록대선적재</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(22)">
                                             <td>23</td>
                                             <td>OD40*</td>
                                             <td class="txt_l"><a href="javascript:;">블록의 이적 및 적재(해상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(23)">
                                             <td>24</td>
                                             <td>OD40*</td>
                                             <td class="txt_l"><a href="javascript:;">블록의 전치</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(24)">
                                             <td>25</td>
                                             <td>OD01*</td>
                                             <td class="txt_l"><a href="javascript:;">콘크리트블록 거치 또는 제거(육상수상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(25)">
                                             <td>26</td>
                                             <td>OD02*</td>
                                             <td class="txt_l"><a href="javascript:;">콘크리트블록 거치 또는 제거(육상수중)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(26)">
                                             <td>27</td>
                                             <td>OD0**</td>
                                             <td class="txt_l"><a href="javascript:;">콘크리트블록 거치 또는 제거(해상수상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(27)">
                                             <td>28</td>
                                             <td>OD0**</td>
                                             <td class="txt_l"><a href="javascript:;">콘크리트블록 거치 또는 제거(해상수중)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(28)">
                                             <td>29</td>
                                             <td>OD31*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록 거치 또는 제거(육상수상)(난적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(29)">
                                             <td>30</td>
                                             <td>OD31*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록거치(육상수상)(층적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(30)">
                                             <td>31</td>
                                             <td>OD32*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록 거치 또는 제거(육상수중)(난적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(31)">
                                             <td>32</td>
                                             <td>OD32*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록거치(육상수중)(층적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(32)">
                                             <td>33</td>
                                             <td>OD33*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록 거치 또는 제거(해상수상)(난적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(33)">
                                             <td>34</td>
                                             <td>OD33*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록거치(해상수상)(층적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(34)">
                                             <td>35</td>
                                             <td>OD34*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록 거치 또는 제거(해상수중)(난적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(35)">
                                             <td>36</td>
                                             <td>OD34*</td>
                                             <td class="txt_l"><a href="javascript:;">소파블록거치(해상수중)(층적)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(36)">
                                             <td>37</td>
                                             <td>OI34*</td>
                                             <td class="txt_l"><a href="javascript:;">앵커블록 거치(해상)</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(37)">
                                             <td>38</td>
                                             <td>OG20**</td>
                                             <td class="txt_l"><a href="javascript:;">고무 방충재</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(38)">
                                             <td>39</td>
                                             <td>OR29*</td>
                                             <td class="txt_l"><a href="javascript:;">차막이 설치</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(39)">
                                             <td>40</td>
                                             <td>OX00*</td>
                                             <td class="txt_l"><a href="javascript:;">필터매트부설</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(40)">
                                             <td>41</td>
                                             <td>OX00*</td>
                                             <td class="txt_l"><a href="javascript:;">상치지보공</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(41)">
                                             <td>42</td>
                                             <td>OX0**</td>
                                             <td class="txt_l"><a href="javascript:;">녹막이페인트</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                         <tr onclick="showSummaryDetail(42)">
                                             <td>43</td>
                                             <td>OX0**</td>
                                             <td class="txt_l"><a href="javascript:;">조합페인트</a></td>
+                                            <td class="cnt_cell"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2243,6 +2288,18 @@ function calMunuWidth(){
   {realmCode:'OX0**',realmNm:'조합페인트',cwkndCode:'OX010.01000',cwkndNm:'조합페인트칠 철재면,2회 붓칠',stndrd:'',unit:'㎡',untpc:9428,lbrcRate:98},
 ];
 
+                        // index 테이블에 공종 건수 채우기
+                        (function() {
+                            var rows = document.querySelectorAll('#summaryIndexView .board_list tbody tr');
+                            for (var i = 0; i < _summaryIndex.length; i++) {
+                                var item = _summaryIndex[i];
+                                var cnt = _summaryDetails.filter(function(d) {
+                                    return d.realmCode === item.realmCode && d.realmNm === item.realmNm;
+                                }).length;
+                                var cell = rows[i] ? rows[i].querySelector('.cnt_cell') : null;
+                                if (cell) cell.textContent = cnt;
+                            }
+                        })();
 
                         function showSummaryDetail(idx) {
                             var item = _summaryIndex[idx];
