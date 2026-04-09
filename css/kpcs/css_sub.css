@@ -1015,6 +1015,42 @@
     font-size: 14px;
 }
 
+/* v2 모바일 카드 */
+.v2-mobile-cards {
+    display: none;
+    padding: 0 4px;
+}
+.v2-mobile-cards .mobile_card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    cursor: pointer;
+}
+.v2-mobile-cards .mobile_card.active {
+    border-color: #4b8073;
+    background-color: #eef6f4;
+}
+.v2-mobile-cards .card_title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+.v2-mobile-cards .card_row {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+}
+.v2-mobile-cards .card_label {
+    font-weight: 600;
+    color: #888;
+    display: inline-block;
+    min-width: 70px;
+}
+
 /* Responsive */
 @media all and (max-width: 999px) {
     .v2-split-wrap {
@@ -1027,6 +1063,64 @@
     .v2-detail-panel {
         height: 400px;
     }
+
+    /* 요약본 상세 테이블 → 1열 스택 */
+    .summary_dtl_wrap th,
+    .summary_dtl_wrap td {
+        display: block;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    .summary_dtl_wrap tr {
+        display: block;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .summary_dtl_wrap th {
+        padding: 10px 15px 4px;
+        border-bottom: none;
+    }
+    .summary_dtl_wrap td {
+        padding: 4px 15px 10px;
+    }
+    .summary_dtl_wrap td[colspan] {
+        padding: 4px 15px 14px;
+    }
+
+    /* 통계 요약 카드 → 2열 wrap */
+    .summary_cards_wrap {
+        flex-wrap: wrap;
+    }
+    .summary_cards_wrap .summary_card {
+        flex: 1 1 45%;
+        min-width: 120px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* 차트 영역 높이 축소 */
+    .summary_chart_area {
+        height: 350px;
+    }
+
+    /* v2 상세 테이블 → 모바일 카드 전환 */
+    .v2-detail-panel {
+        display: none;
+    }
+    .v2-mobile-cards {
+        display: block !important;
+    }
+
+    /* v2 분야 목록: 코드+이름 한 행 */
+    .v2-realm-item {
+        flex-direction: row !important;
+        gap: 6px;
+        align-items: center;
+    }
+    .v2-realm-code {
+        font-size: 12px;
+    }
+    .v2-realm-name {
+        font-size: 13px;
+    }
 }
 
 @media all and (max-width: 680px) {
@@ -1036,5 +1130,36 @@
     }
     .v2-detail-panel {
         height: 350px;
+    }
+
+    /* 통계 요약 카드 → 2개/행 */
+    .summary_cards_wrap {
+        flex-wrap: wrap;
+    }
+    .summary_cards_wrap .summary_card {
+        flex: 1 1 45%;
+        min-width: 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .summary_cards_wrap .summary_card:nth-child(2n) {
+        border-right: none;
+    }
+
+    /* 차트 영역 높이 더 축소 */
+    .summary_chart_area {
+        height: 280px;
+    }
+
+    /* v2 분야 아이템 가로 레이아웃 */
+    .v2-realm-item {
+        flex-direction: row;
+        gap: 6px;
+        align-items: center;
+    }
+
+    /* 단가정의 영역 높이 제한 */
+    .v2-untpc-dfn {
+        max-height: 120px;
+        font-size: 13px;
     }
 }
